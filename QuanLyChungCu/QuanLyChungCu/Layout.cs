@@ -20,15 +20,7 @@ namespace QuanLyChungCu
         }
 
         #region Event
-        private void button5_Click(object sender, EventArgs e)
-        {
-            AddForm(new frmDanhMuc());
-        }
 
-        private void ActivateButton(object sender, EventArgs e)
-        {
-            Checked(sender);
-        }
         #endregion
 
         #region Method
@@ -42,7 +34,7 @@ namespace QuanLyChungCu
             frmCurrent.Show();
         }
 
-        private void Checked(object btnSender)
+        private void ActivateButton(object btnSender)
         {
             if (btnSender != null)
             {
@@ -74,5 +66,15 @@ namespace QuanLyChungCu
 
         #endregion
 
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void btnDanhMuc_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            AddForm(new frmDanhMuc());
+        }
     }
 }
