@@ -33,8 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\Guna.UI-Framework-Lib-master\Guna.UI_WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>..\..\..\..\tai lieu\Guna.UI-Framework-Lib-master\Guna UI Activation\Guna UI Activation\bin\Debug\Guna.UI2.dll</HintPath>
+      <HintPath>..\..\Guna.UI-Framework-Lib-master\Guna UI Activation\Guna UI Activation\bin\Debug\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -59,15 +62,23 @@
     <Compile Include="DAO\BlockDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\FloorDAO.cs" />
+    <Compile Include="DAO\NhanKhauDAO.cs" />
     <Compile Include="DAO\ResidentApartmentDAO.cs" />
     <Compile Include="DAO\ResidentDAO.cs" />
     <Compile Include="DTO\LoggedUser.cs" />
+    <Compile Include="DTO\NhanKhauDTO.cs" />
     <Compile Include="DTO\ResidentDTO.cs" />
     <Compile Include="frmDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDanhMuc.Designer.cs">
       <DependentUpon>frmDanhMuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNhanKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhanKhau.Designer.cs">
+      <DependentUpon>frmNhanKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout.cs">
       <SubType>Form</SubType>
@@ -79,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmDanhMuc.resx">
       <DependentUpon>frmDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNhanKhau.resx">
+      <DependentUpon>frmNhanKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout.resx">
       <DependentUpon>Layout.cs</DependentUpon>
