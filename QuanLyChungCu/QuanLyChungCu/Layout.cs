@@ -23,8 +23,7 @@ namespace QuanLyChungCu
         #region Event
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-            //this.Hide();
+            this.Hide();
         }
 
         private void btnDanhMuc_Click(object sender, EventArgs e)
