@@ -14,65 +14,32 @@ namespace QuanLyChungCu
     public partial class Layout : Form
     {
         private Guna2Button currentGunnaButton;
-        private Guna2Panel currentGunnaPanel;
+        private Panel currentGunnaPanel;
         public Layout()
         {
             InitializeComponent();
         }
 
-        #region Event
-        private void btnDangXuat_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
-        private void btnDanhMuc_Click(object sender, EventArgs e)
-        {
-            ShowSubMenu(plDanhMucSubMenu);
-        }
-
-        private void btnDKyNhanKhau_Click(object sender, EventArgs e)
-        {
-            CloseAllSubMenu();
-            ActivateButton(sender);
-            AddForm(new frmNhanKhau());
-        }
-
-        private void Layout_Load(object sender, EventArgs e)
-        {
-            CloseAllSubMenu();
-        }
-
-        private void btnToaNha_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            AddForm(new frmDanhMuc());
-        }
-        #endregion
-
         #region Method
         private void AddForm(Form frmCurrent)
         {
-            plNoiDung.Controls.Clear();
+            pl_NoiDung.Controls.Clear();
             frmCurrent.TopLevel = false;
-            plNoiDung.Controls.Add(frmCurrent);
+            pl_NoiDung.Controls.Add(frmCurrent);
             frmCurrent.FormBorderStyle = FormBorderStyle.None;
             frmCurrent.Dock = DockStyle.Fill;
             frmCurrent.Show();
         }
 
-        private void ActivateButton(object sender)
+        private void ActivateButton(object sender, Panel SubMenu = null)
         {
             if (sender != null)
             {
-
                 if (sender is Guna2Button && currentGunnaButton != (Guna2Button)sender)
                 {
-       
                     DisableButton();
                     currentGunnaButton = (Guna2Button)sender;
-                    lbTenMenu.Text = currentGunnaButton.Text.ToUpper();
-                    lbLink.Text = "";
+                    lb_TenMenu.Text = currentGunnaButton.Text.ToUpper();
                     currentGunnaButton.Checked = true;
                     currentGunnaButton.ForeColor = SystemColors.ButtonHighlight;
                     currentGunnaButton.Font = new Font("RobotoMono-Regular", 11F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -88,18 +55,18 @@ namespace QuanLyChungCu
                 {
                     var btnPrevious = (Guna2Button)previousBtn;
                     btnPrevious.Checked = false;
-                }
-                if (previousBtn.GetType() == typeof(Guna2Panel))
+                }               
+            }
+
+            if (currentGunnaPanel != null && currentGunnaPanel.Controls.Count > 0)
+            {
+                foreach (Control item in currentGunnaPanel.Controls)
                 {
-                    var panel = (Guna2Panel)previousBtn;
-                    foreach (Control item in panel.Controls)
+                    if (item.GetType() == typeof(Guna2Button))
                     {
-                        if (item.GetType() == typeof(Guna2Button))
-                        {
-                            var btnChild = (Guna2Button)item;
-                            btnChild.Checked = false;
-                        }
-                    }                    
+                        var btnChild = (Guna2Button)item;
+                        btnChild.Checked = false;
+                    }
                 }
             }
         }
@@ -107,16 +74,22 @@ namespace QuanLyChungCu
         private void CloseAllSubMenu()
         {
             plDanhMucSubMenu.Visible = false;
+            plDichVuSubMenu.Visible = false;
         }
+
         private void HideSubMenu()
         {
             if (plDanhMucSubMenu.Visible == true)
             {
                 plDanhMucSubMenu.Visible = false;
-            }            
+            }
+            if (plDichVuSubMenu.Visible == true)
+            {
+                plDichVuSubMenu.Visible = false;
+            }
         }
 
-        private void ShowSubMenu(Guna2Panel subMenu)
+        private void ShowSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
             {
@@ -129,8 +102,111 @@ namespace QuanLyChungCu
                 subMenu.Visible = false;
             }
         }
+
+        private void LoadTrangChu()
+        {
+            pl_NoiDung.Controls.Clear();           
+        }
         #endregion
 
+        #region Event
+
+        private void Layout_Load(object sender, EventArgs e)
+        {
+            CloseAllSubMenu();
+
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {            
+            if (MessageBox.Show("Bạn có muốn Đăng xuất!", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Hide();
+            }            
+        }
+
+        private void btnDanhMuc_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, plDanhMucSubMenu);
+            ShowSubMenu(plDanhMucSubMenu);
+        }
+
+        private void btnDKyNhanKhau_Click(object sender, EventArgs e)
+        {
+            HideSubMenu();
+            ActivateButton(sender);
+            AddForm(new frmNhanKhau());
+        }       
+
+        private void btnToaNha_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            AddForm(new frmDanhMuc());
+        }
+
+        private void btnDichVu_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, plDichVuSubMenu);
+            ShowSubMenu(plDichVuSubMenu);
+        }       
+
+        private void btnTTCN_Click(object sender, EventArgs e)
+        {
+            HideSubMenu();
+            ActivateButton(sender);
+        }
+
+        private void btnCaiDat_Click(object sender, EventArgs e)
+        {
+            HideSubMenu();
+            ActivateButton(sender);
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void guna2Button13_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void guna2Button12_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+        private void btn_ChungCu_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        #endregion
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            pl_NoiDung.Controls.Clear();
+        }
 
     }
 }

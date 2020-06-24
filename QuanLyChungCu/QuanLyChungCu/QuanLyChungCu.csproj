@@ -73,6 +73,18 @@
     <Compile Include="DTO\LoggedUser.cs" />
     <Compile Include="DTO\NhanKhauDTO.cs" />
     <Compile Include="DTO\ResidentDTO.cs" />
+    <Compile Include="frmCuDan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCuDan.Designer.cs">
+      <DependentUpon>frmCuDan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDangKyNhanKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangKyNhanKhau.Designer.cs">
+      <DependentUpon>frmDangKyNhanKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +117,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCuDan.resx">
+      <DependentUpon>frmCuDan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDangKyNhanKhau.resx">
+      <DependentUpon>frmDangKyNhanKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDanhMuc.resx">
       <DependentUpon>frmDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,18 +141,18 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -173,6 +191,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\property.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2B66DB8200000578-3199697-image-a-6_1439690924173.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\TrangChu.png" />
+    <None Include="Resources\TrangChu1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
