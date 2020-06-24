@@ -1,4 +1,5 @@
 ﻿using ApartmentManager.DAO;
+using ApartmentManager.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,6 +57,8 @@ namespace QuanLyChungCu
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            var tenCuDan = cb_CuDan.Text;
+
             // thực hiện lưu thông tin
             this.Hide();           
         }
@@ -68,9 +71,14 @@ namespace QuanLyChungCu
 
         private void cb_CuDan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selected = cb_CuDan.SelectedItem;
-            cb_CuDan_GioiTinh.SelectedItem = 0;
-
+            var selected = cb_CuDan.SelectedItem as ResidentDTO;
+            if (selected != null)
+            {
+                cb_CuDan_GioiTinh.Text = "Nam";
+                dtp_CuDan_NgaySinh.EditValue = selected.NgaySinh;
+                txt_CuDan_CMND.Text = selected.Cmnd;
+                txt_CuDan_SDT.Text = selected.Sdt;
+            }         
         }
     }
 }

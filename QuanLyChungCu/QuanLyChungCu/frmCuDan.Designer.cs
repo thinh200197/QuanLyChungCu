@@ -49,7 +49,7 @@
             this.dtp_NgaySinh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_NgaySinh.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dtp_NgaySinh.Location = new System.Drawing.Point(129, 142);
+            this.dtp_NgaySinh.Location = new System.Drawing.Point(129, 143);
             this.dtp_NgaySinh.Name = "dtp_NgaySinh";
             this.dtp_NgaySinh.Size = new System.Drawing.Size(224, 27);
             this.dtp_NgaySinh.TabIndex = 19;
@@ -60,7 +60,7 @@
             // 
             this.cb_GioiTinh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_GioiTinh.FormattingEnabled = true;
-            this.cb_GioiTinh.Location = new System.Drawing.Point(129, 246);
+            this.cb_GioiTinh.Location = new System.Drawing.Point(129, 248);
             this.cb_GioiTinh.Name = "cb_GioiTinh";
             this.cb_GioiTinh.Size = new System.Drawing.Size(86, 28);
             this.cb_GioiTinh.TabIndex = 17;
@@ -70,7 +70,7 @@
             this.txt_SDT.BackColor = System.Drawing.Color.White;
             this.txt_SDT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_SDT.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_SDT.Location = new System.Drawing.Point(129, 194);
+            this.txt_SDT.Location = new System.Drawing.Point(129, 196);
             this.txt_SDT.Name = "txt_SDT";
             this.txt_SDT.Size = new System.Drawing.Size(224, 27);
             this.txt_SDT.TabIndex = 10;
@@ -146,7 +146,7 @@
             // 
             this.chk_ChuHo.AutoSize = true;
             this.chk_ChuHo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_ChuHo.Location = new System.Drawing.Point(279, 248);
+            this.chk_ChuHo.Location = new System.Drawing.Point(279, 250);
             this.chk_ChuHo.Name = "chk_ChuHo";
             this.chk_ChuHo.Size = new System.Drawing.Size(74, 24);
             this.chk_ChuHo.TabIndex = 20;
@@ -172,7 +172,7 @@
             this.btnLuu.Image = null;
             this.btnLuu.ImageSize = new System.Drawing.Size(25, 25);
             this.btnLuu.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnLuu.Location = new System.Drawing.Point(212, 303);
+            this.btnLuu.Location = new System.Drawing.Point(199, 319);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(78)))), ((int)(((byte)(107)))));
             this.btnLuu.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -191,7 +191,7 @@
             this.txt_HoTen.BackColor = System.Drawing.Color.White;
             this.txt_HoTen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_HoTen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_HoTen.Location = new System.Drawing.Point(129, 35);
+            this.txt_HoTen.Location = new System.Drawing.Point(129, 37);
             this.txt_HoTen.Name = "txt_HoTen";
             this.txt_HoTen.Size = new System.Drawing.Size(224, 27);
             this.txt_HoTen.TabIndex = 11;
