@@ -9,34 +9,32 @@ namespace ApartmentManager.DTO
 {
     public class ResidentDTO
     {
-        public string maCuDan;
-        public string tenCuDan;
-        public DateTime ngaySinh;
-        public string sdt;
-        public string cmnd;
-
-        public string MaCuDan { get => maCuDan; set => maCuDan = value; }
-        public string TenCuDan { get => tenCuDan; set => tenCuDan = value; }
-        public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
-        public string Sdt { get => sdt; set => sdt = value; }
-        public string Cmnd { get => cmnd; set => cmnd = value; }
-
-        public ResidentDTO(string maCuDan,string tenCuDan, DateTime ngaySinh, string sdt, string cmnd)
+        public string MaCuDan { get; set; }
+        public string TenCuDan { get; set; }
+        public DateTime NgaySinh { get; set; }
+        public string Sdt { get; set; }
+        public string Cmnd { get; set; }
+        public bool GioiTinh { get; set; }
+   
+        public ResidentDTO(DataRow row)
         {
-            this.MaCuDan = maCuDan;
-            this.TenCuDan = tenCuDan;
-            this.NgaySinh = ngaySinh;
-            this.Sdt = sdt;
-            this.Cmnd = cmnd;
-        }
-        public ResidentDTO (DataRow data)
-        {
-            this.MaCuDan = data["MACUDAN"].ToString();
-            this.TenCuDan = data["TENCUDAN"].ToString();
-            this.NgaySinh = DateTime.Parse(data["NGAYSINH"].ToString());
-            this.Sdt = data["SODIENTHOAI"].ToString();
-            this.Cmnd = data["CHUNGMINHNHANDAN"].ToString();
+            this.MaCuDan = row["MACUDAN"].ToString();
+            this.TenCuDan = row["TENCUDAN"].ToString();
+            this.NgaySinh = DateTime.Parse(row["NGAYSINH"].ToString());
+            this.Sdt = row["SODIENTHOAI"].ToString();
+            this.Cmnd = row["CHUNGMINHNHANDAN"].ToString();
+            this.GioiTinh = bool.Parse(row["GIOITINH"].ToString());
         }
         public ResidentDTO() { }
+
+        public ResidentDTO(string maCuDan, string tenCuDan, DateTime ngaySinh, string sdt, string cmnd, bool gioiTinh)
+        {
+            MaCuDan = maCuDan;
+            TenCuDan = tenCuDan;
+            NgaySinh = ngaySinh;
+            Sdt = sdt;
+            Cmnd = cmnd;
+            GioiTinh = gioiTinh;
+        }
     }
 }

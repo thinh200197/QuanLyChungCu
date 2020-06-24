@@ -62,8 +62,7 @@ namespace ApartmentManager.DAO
             catch (Exception ex)
             {
                 throw ex;
-            }
-               
+            }        
             
         }
     }

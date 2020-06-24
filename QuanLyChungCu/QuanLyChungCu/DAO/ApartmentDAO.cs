@@ -24,5 +24,13 @@ namespace ApartmentManager.DAO
             data = DataProvider.Instance.ExecuteQuery(query);
             return data;
         }
+
+        public DataTable GetAllApartmentByLoaiCanHo(string maLoaiCanHo)
+        {
+            string query = "select * from CANHO where Maloai_CH = '" + maLoaiCanHo + "'";
+            DataTable data = new DataTable();
+            data = DataProvider.Instance.ExecuteQuery(query);
+            return data;
+        }
     }
 }

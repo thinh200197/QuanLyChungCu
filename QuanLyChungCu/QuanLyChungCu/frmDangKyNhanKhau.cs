@@ -1,4 +1,7 @@
 ﻿using ApartmentManager.DAO;
+using ApartmentManager.DTO;
+using QuanLyChungCu.DAO;
+using QuanLyChungCu.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,29 +27,51 @@ namespace QuanLyChungCu
         {
             var dataCuDan = ResidentDAO.Instance.GetAllResident();
             var dataChuHo = ResidentDAO.Instance.GetAllResident();
+
+            //Thông tin cư dân
             cb_CuDan.DataSource = dataCuDan;
             cb_CuDan.DisplayMember = "TENCUDAN";
             cb_CuDan.ValueMember = "MACUDAN";
+            cb_CuDan.SelectedItem = null;
             cb_CuDan.SelectedIndex = -1;
 
+
+            // Thông tin chủ hộ
             cb_ChuHo.DataSource = dataChuHo;
             cb_ChuHo.DisplayMember = "TENCUDAN";
             cb_ChuHo.ValueMember = "MACUDAN";
             cb_ChuHo.SelectedIndex = -1;
+            cb_ChuHo.SelectedItem = null;
 
-            cb_CuDan_GioiTinh.SelectedItem = 0;
 
-
+            //Thông tin căn hộ
+            cb_CanHo_ToaNha.DataSource = BlockDAO.Instance.GetAllBlock();
+            cb_CanHo_ToaNha.DisplayMember = "MABLOCK";
+            cb_CanHo_ToaNha.ValueMember = "TENBLOCK";
         }
         #endregion
 
         #region Event
 
-        private void txt_TaiKhoan_TextChanged(object sender, EventArgs e)
+        private void cb_CuDan_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var selected = cb_CuDan.SelectedItem as ResidentDTO;
+            if (selected == null)
+            {
+                cb_CuDan_GioiTinh.SelectedIndex = -1;
+                txt_CuDan_CMND.Text = string.Empty;
+                txt_CuDan_SDT.Text = string.Empty;
+                dtp_CuDan_NgaySinh.Value = DateTime.Now;
+            }
+            else
+            {
+                cb_CuDan_GioiTinh.SelectedIndex = selected.GioiTinh ? 1 : 0;
+                txt_CuDan_CMND.Text = selected.Cmnd;
+                txt_CuDan_SDT.Text = selected.Sdt;
+                dtp_CuDan_NgaySinh.Value = selected.NgaySinh;
+            }
 
         }
-
         private void btnThemCuDan_Click(object sender, EventArgs e)
         {
             var frm = new frmCuDan();
@@ -56,21 +81,112 @@ namespace QuanLyChungCu
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+
+
             // thực hiện lưu thông tin
-            this.Hide();           
+            this.Hide();
         }
 
         private void frmDangKyNhanKhau_Load(object sender, EventArgs e)
         {
             LoadComboboxCuDan();
         }
-        #endregion
 
-        private void cb_CuDan_SelectedIndexChanged(object sender, EventArgs e)
+        private void chk_CuDan_ChuHo_CheckedChanged(object sender, EventArgs e)
         {
-            var selected = cb_CuDan.SelectedItem;
-            cb_CuDan_GioiTinh.SelectedItem = 0;
+            if (chk_CuDan_ChuHo.Checked)
+            {
+                gbChuHo.Enabled = false;
+            }
+            else
+            {
+                gbChuHo.Enabled = true;
+            }
+        }
+
+        private void txt_CuDan_CMND_Leave(object sender, EventArgs e)
+        {
 
         }
+
+        private void cb_ChuHo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selected = cb_ChuHo.SelectedItem as ResidentDTO;
+            if (selected == null)
+            {
+                cb_ChuHo_GioiTinh.SelectedItem = -1;
+                txt_ChuHo_CMND.Text = string.Empty;
+                txt_ChuHo_SDT.Text = string.Empty;
+                dtp_ChuHo_NgaySinh.Value = DateTime.Now;
+            }
+            else
+            {
+                cb_ChuHo_GioiTinh.SelectedItem = selected.GioiTinh ? 1 : 0;
+                txt_ChuHo_CMND.Text = selected.Cmnd;
+                txt_ChuHo_SDT.Text = selected.Sdt;
+                dtp_ChuHo_NgaySinh.Value = selected.NgaySinh;
+            }
+        }
+
+        private void cb_CanHo_ToaNha_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selected = cb_CanHo_ToaNha.SelectedItem as BlockDTO;
+            if (selected == null)
+            {
+                return;
+            }
+            else
+            {
+                cb_CanHo_Tang.DataSource = FloorDAO.Instance.GetAllFloorByMaBlock(selected.MaBlock);
+                cb_CanHo_Tang.DisplayMember = "TENTANGLAU";
+                cb_CanHo_Tang.ValueMember = "MATANGLAU";
+            }
+
+        }
+
+        private void cb_CanHo_Tang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selected = cb_CanHo_Tang.SelectedItem as FloorDTO;
+            if (selected == null)
+            {
+                return;
+            }          
+
+            cb_CanHo_LoaiCanHo.DataSource = ApartmentCategogyDAO.Instance.GetAllApartmentCategogyByMaTangLau(selected.MaTangLau);
+            cb_CanHo_LoaiCanHo.DisplayMember = "TENLOAI_CH";
+            cb_CanHo_LoaiCanHo.ValueMember = "MALOAI_CH";
+        }
+
+        private void cb_CanHo_LoaiCanHo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            var selected = cb_CanHo_LoaiCanHo.SelectedItem as ApartmentCategogyDTO;
+            if (selected == null)
+            {
+                return;
+            }
+            cb_CanHo_CanHo.DataSource = ApartmentDAO.Instance.GetAllApartmentByLoaiCanHo(selected.Maloai_CH);
+            cb_CanHo_CanHo.DisplayMember = "TENCANHO";
+            cb_CanHo_CanHo.ValueMember = "MACANHO";
+
+            var loaiCanHo = cb_CanHo_LoaiCanHo.SelectedItem as ApartmentCategogyDTO;
+            if (loaiCanHo != null)
+            {
+                txt_CanHo_NgToiDa.Text = loaiCanHo.SoNguoiToiDa.ToString();
+
+            }
+        }
+
+        private void cb_CanHo_CanHo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var canHo = cb_CanHo_CanHo.SelectedItem as ApartmentDTO;
+            if (canHo != null)
+            {
+                txt_CanHo_NgDangO.Text = canHo.SoNguoiO.ToString();
+            }
+        }
+        #endregion
+
+
     }
 }

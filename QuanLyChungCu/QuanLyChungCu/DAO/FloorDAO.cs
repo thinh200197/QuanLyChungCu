@@ -24,5 +24,12 @@ namespace ApartmentManager.DAO
             data = DataProvider.Instance.ExecuteQuery(query);
             return data;
         }
+        public DataTable GetAllFloorByMaBlock(string maBlock)
+        {
+            string query = "select * from TANGLAU where MABLOCK = '" + maBlock + "'";
+            DataTable data = new DataTable();
+            data = DataProvider.Instance.ExecuteQuery(query);
+            return data;
+        }
     }
 }

@@ -44,7 +44,6 @@
             this.gbChuHo = new System.Windows.Forms.GroupBox();
             this.dtp_ChuHo_NgaySinh = new System.Windows.Forms.DateTimePicker();
             this.cb_ChuHo_GioiTinh = new System.Windows.Forms.ComboBox();
-            this.cb_ChuHo = new System.Windows.Forms.ComboBox();
             this.txt_ChuHo_SDT = new System.Windows.Forms.TextBox();
             this.txt_ChuHo_CMND = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,8 +64,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnThemCuDan = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnLuu = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.cb_ChuHo = new System.Windows.Forms.ComboBox();
             this.gbCuDan.SuspendLayout();
             this.gbChuHo.SuspendLayout();
             this.gbCanHo.SuspendLayout();
@@ -115,6 +114,7 @@
             this.chk_CuDan_ChuHo.TabIndex = 9;
             this.chk_CuDan_ChuHo.Text = "Chủ hộ";
             this.chk_CuDan_ChuHo.UseVisualStyleBackColor = true;
+            this.chk_CuDan_ChuHo.CheckedChanged += new System.EventHandler(this.chk_CuDan_ChuHo_CheckedChanged);
             // 
             // dtp_CuDan_NgaySinh
             // 
@@ -132,8 +132,8 @@
             // 
             this.cb_CuDan_GioiTinh.FormattingEnabled = true;
             this.cb_CuDan_GioiTinh.Items.AddRange(new object[] {
-            "NAM",
-            "NỮ"});
+            "NỮ",
+            "NAM"});
             this.cb_CuDan_GioiTinh.Location = new System.Drawing.Point(428, 39);
             this.cb_CuDan_GioiTinh.Name = "cb_CuDan_GioiTinh";
             this.cb_CuDan_GioiTinh.Size = new System.Drawing.Size(86, 29);
@@ -157,8 +157,6 @@
             this.txt_CuDan_SDT.Name = "txt_CuDan_SDT";
             this.txt_CuDan_SDT.Size = new System.Drawing.Size(224, 29);
             this.txt_CuDan_SDT.TabIndex = 5;
-            this.txt_CuDan_SDT.Text = "0484916515";
-            this.txt_CuDan_SDT.TextChanged += new System.EventHandler(this.txt_TaiKhoan_TextChanged);
             // 
             // txt_CuDan_CMND
             // 
@@ -169,8 +167,7 @@
             this.txt_CuDan_CMND.Name = "txt_CuDan_CMND";
             this.txt_CuDan_CMND.Size = new System.Drawing.Size(224, 29);
             this.txt_CuDan_CMND.TabIndex = 5;
-            this.txt_CuDan_CMND.Text = "Admin";
-            this.txt_CuDan_CMND.TextChanged += new System.EventHandler(this.txt_TaiKhoan_TextChanged);
+            this.txt_CuDan_CMND.Leave += new System.EventHandler(this.txt_CuDan_CMND_Leave);
             // 
             // label5
             // 
@@ -219,9 +216,9 @@
             // gbChuHo
             // 
             this.gbChuHo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gbChuHo.Controls.Add(this.cb_ChuHo);
             this.gbChuHo.Controls.Add(this.dtp_ChuHo_NgaySinh);
             this.gbChuHo.Controls.Add(this.cb_ChuHo_GioiTinh);
-            this.gbChuHo.Controls.Add(this.cb_ChuHo);
             this.gbChuHo.Controls.Add(this.txt_ChuHo_SDT);
             this.gbChuHo.Controls.Add(this.txt_ChuHo_CMND);
             this.gbChuHo.Controls.Add(this.label2);
@@ -241,6 +238,7 @@
             // dtp_ChuHo_NgaySinh
             // 
             this.dtp_ChuHo_NgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.dtp_ChuHo_NgaySinh.Enabled = false;
             this.dtp_ChuHo_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_ChuHo_NgaySinh.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dtp_ChuHo_NgaySinh.Location = new System.Drawing.Point(632, 48);
@@ -254,42 +252,34 @@
             // 
             this.cb_ChuHo_GioiTinh.FormattingEnabled = true;
             this.cb_ChuHo_GioiTinh.Items.AddRange(new object[] {
-            "NAM",
-            "NỮ"});
-            this.cb_ChuHo_GioiTinh.Location = new System.Drawing.Point(436, 47);
+            "NỮ",
+            "NAM"});
+            this.cb_ChuHo_GioiTinh.Location = new System.Drawing.Point(436, 48);
             this.cb_ChuHo_GioiTinh.Name = "cb_ChuHo_GioiTinh";
             this.cb_ChuHo_GioiTinh.Size = new System.Drawing.Size(86, 29);
             this.cb_ChuHo_GioiTinh.TabIndex = 16;
-            // 
-            // cb_ChuHo
-            // 
-            this.cb_ChuHo.FormattingEnabled = true;
-            this.cb_ChuHo.Location = new System.Drawing.Point(105, 48);
-            this.cb_ChuHo.Name = "cb_ChuHo";
-            this.cb_ChuHo.Size = new System.Drawing.Size(224, 29);
-            this.cb_ChuHo.TabIndex = 17;
             // 
             // txt_ChuHo_SDT
             // 
             this.txt_ChuHo_SDT.BackColor = System.Drawing.Color.White;
             this.txt_ChuHo_SDT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_ChuHo_SDT.Enabled = false;
             this.txt_ChuHo_SDT.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ChuHo_SDT.Location = new System.Drawing.Point(466, 98);
             this.txt_ChuHo_SDT.Name = "txt_ChuHo_SDT";
             this.txt_ChuHo_SDT.Size = new System.Drawing.Size(224, 29);
             this.txt_ChuHo_SDT.TabIndex = 9;
-            this.txt_ChuHo_SDT.Text = "065165165";
             // 
             // txt_ChuHo_CMND
             // 
             this.txt_ChuHo_CMND.BackColor = System.Drawing.Color.White;
             this.txt_ChuHo_CMND.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_ChuHo_CMND.Enabled = false;
             this.txt_ChuHo_CMND.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ChuHo_CMND.Location = new System.Drawing.Point(105, 98);
             this.txt_ChuHo_CMND.Name = "txt_ChuHo_CMND";
             this.txt_ChuHo_CMND.Size = new System.Drawing.Size(224, 29);
             this.txt_ChuHo_CMND.TabIndex = 10;
-            this.txt_ChuHo_CMND.Text = "Admin";
             // 
             // label2
             // 
@@ -318,7 +308,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(351, 50);
+            this.label8.Location = new System.Drawing.Point(351, 51);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 23);
             this.label8.TabIndex = 13;
@@ -377,6 +367,7 @@
             this.cb_CanHo_Tang.Name = "cb_CanHo_Tang";
             this.cb_CanHo_Tang.Size = new System.Drawing.Size(86, 29);
             this.cb_CanHo_Tang.TabIndex = 7;
+            this.cb_CanHo_Tang.SelectedIndexChanged += new System.EventHandler(this.cb_CanHo_Tang_SelectedIndexChanged);
             // 
             // cb_CanHo_ToaNha
             // 
@@ -385,6 +376,7 @@
             this.cb_CanHo_ToaNha.Name = "cb_CanHo_ToaNha";
             this.cb_CanHo_ToaNha.Size = new System.Drawing.Size(86, 29);
             this.cb_CanHo_ToaNha.TabIndex = 7;
+            this.cb_CanHo_ToaNha.SelectedIndexChanged += new System.EventHandler(this.cb_CanHo_ToaNha_SelectedIndexChanged);
             // 
             // cb_CanHo_CanHo
             // 
@@ -393,6 +385,7 @@
             this.cb_CanHo_CanHo.Name = "cb_CanHo_CanHo";
             this.cb_CanHo_CanHo.Size = new System.Drawing.Size(199, 29);
             this.cb_CanHo_CanHo.TabIndex = 7;
+            this.cb_CanHo_CanHo.SelectedIndexChanged += new System.EventHandler(this.cb_CanHo_CanHo_SelectedIndexChanged);
             // 
             // cb_CanHo_LoaiCanHo
             // 
@@ -401,6 +394,7 @@
             this.cb_CanHo_LoaiCanHo.Name = "cb_CanHo_LoaiCanHo";
             this.cb_CanHo_LoaiCanHo.Size = new System.Drawing.Size(199, 29);
             this.cb_CanHo_LoaiCanHo.TabIndex = 7;
+            this.cb_CanHo_LoaiCanHo.SelectedIndexChanged += new System.EventHandler(this.cb_CanHo_LoaiCanHo_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -417,27 +411,25 @@
             // 
             this.txt_CanHo_NgDangO.BackColor = System.Drawing.Color.White;
             this.txt_CanHo_NgDangO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_CanHo_NgDangO.Enabled = false;
             this.txt_CanHo_NgDangO.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CanHo_NgDangO.Location = new System.Drawing.Point(772, 86);
             this.txt_CanHo_NgDangO.Name = "txt_CanHo_NgDangO";
             this.txt_CanHo_NgDangO.Size = new System.Drawing.Size(46, 29);
             this.txt_CanHo_NgDangO.TabIndex = 5;
-            this.txt_CanHo_NgDangO.Text = "2";
             this.txt_CanHo_NgDangO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_CanHo_NgDangO.TextChanged += new System.EventHandler(this.txt_TaiKhoan_TextChanged);
             // 
             // txt_CanHo_NgToiDa
             // 
             this.txt_CanHo_NgToiDa.BackColor = System.Drawing.Color.White;
             this.txt_CanHo_NgToiDa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_CanHo_NgToiDa.Enabled = false;
             this.txt_CanHo_NgToiDa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CanHo_NgToiDa.Location = new System.Drawing.Point(772, 45);
             this.txt_CanHo_NgToiDa.Name = "txt_CanHo_NgToiDa";
             this.txt_CanHo_NgToiDa.Size = new System.Drawing.Size(46, 29);
             this.txt_CanHo_NgToiDa.TabIndex = 5;
-            this.txt_CanHo_NgToiDa.Text = "2";
             this.txt_CanHo_NgToiDa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_CanHo_NgToiDa.TextChanged += new System.EventHandler(this.txt_TaiKhoan_TextChanged);
             // 
             // label16
             // 
@@ -494,40 +486,6 @@
             this.label15.TabIndex = 6;
             this.label15.Text = "Loại Căn Hộ";
             // 
-            // btnThemCuDan
-            // 
-            this.btnThemCuDan.AnimationHoverSpeed = 0.07F;
-            this.btnThemCuDan.AnimationSpeed = 0.03F;
-            this.btnThemCuDan.BackColor = System.Drawing.Color.Transparent;
-            this.btnThemCuDan.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btnThemCuDan.BorderColor = System.Drawing.Color.Black;
-            this.btnThemCuDan.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.btnThemCuDan.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnThemCuDan.CheckedForeColor = System.Drawing.Color.White;
-            this.btnThemCuDan.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnThemCuDan.CheckedImage")));
-            this.btnThemCuDan.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnThemCuDan.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnThemCuDan.FocusedColor = System.Drawing.Color.Empty;
-            this.btnThemCuDan.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemCuDan.ForeColor = System.Drawing.Color.White;
-            this.btnThemCuDan.Image = null;
-            this.btnThemCuDan.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnThemCuDan.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnThemCuDan.Location = new System.Drawing.Point(561, 517);
-            this.btnThemCuDan.Name = "btnThemCuDan";
-            this.btnThemCuDan.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(78)))), ((int)(((byte)(107)))));
-            this.btnThemCuDan.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnThemCuDan.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnThemCuDan.OnHoverImage = null;
-            this.btnThemCuDan.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnThemCuDan.OnPressedColor = System.Drawing.Color.Black;
-            this.btnThemCuDan.Radius = 20;
-            this.btnThemCuDan.Size = new System.Drawing.Size(141, 42);
-            this.btnThemCuDan.TabIndex = 14;
-            this.btnThemCuDan.Text = "Thêm cư dân";
-            this.btnThemCuDan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnThemCuDan.Click += new System.EventHandler(this.btnThemCuDan_Click);
-            // 
             // btnLuu
             // 
             this.btnLuu.AnimationHoverSpeed = 0.07F;
@@ -562,21 +520,30 @@
             this.btnLuu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
+            // cb_ChuHo
+            // 
+            this.cb_ChuHo.FormattingEnabled = true;
+            this.cb_ChuHo.Location = new System.Drawing.Point(105, 48);
+            this.cb_ChuHo.Name = "cb_ChuHo";
+            this.cb_ChuHo.Size = new System.Drawing.Size(224, 29);
+            this.cb_ChuHo.TabIndex = 20;
+            this.cb_ChuHo.SelectedIndexChanged += new System.EventHandler(this.cb_ChuHo_SelectedIndexChanged);
+            // 
             // frmDangKyNhanKhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(870, 578);
-            this.Controls.Add(this.btnThemCuDan);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.gbChuHo);
             this.Controls.Add(this.gbCanHo);
             this.Controls.Add(this.gbCuDan);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmDangKyNhanKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thông tin Nhân khẩu";
+            this.Text = "Phiếu đăng ký Cư Dân";
             this.Load += new System.EventHandler(this.frmDangKyNhanKhau_Load);
             this.gbCuDan.ResumeLayout(false);
             this.gbCuDan.PerformLayout();
@@ -604,7 +571,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtp_ChuHo_NgaySinh;
         private System.Windows.Forms.ComboBox cb_ChuHo_GioiTinh;
-        private System.Windows.Forms.ComboBox cb_ChuHo;
         private System.Windows.Forms.TextBox txt_ChuHo_SDT;
         private System.Windows.Forms.TextBox txt_ChuHo_CMND;
         private System.Windows.Forms.Label label2;
@@ -626,6 +592,6 @@
         private System.Windows.Forms.TextBox txt_CanHo_NgDangO;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label12;
-        private Guna.UI.WinForms.GunaAdvenceButton btnThemCuDan;
+        private System.Windows.Forms.ComboBox cb_ChuHo;
     }
 }
