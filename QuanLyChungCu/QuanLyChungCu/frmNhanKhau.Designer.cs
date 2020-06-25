@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhanKhau));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaAdvenceButton2 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnDangKyNhanKhau = new Guna.UI.WinForms.GunaAdvenceButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvNhanKhau = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvNhanKhau = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanKhau)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaAdvenceButton2
@@ -118,65 +118,26 @@
             // 
             // dgvNhanKhau
             // 
-            this.dgvNhanKhau.AllowUserToOrderColumns = true;
-            this.dgvNhanKhau.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvNhanKhau.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            this.dgvNhanKhau.BackgroundColor = System.Drawing.Color.White;
-            this.dgvNhanKhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvNhanKhau.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvNhanKhau.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhanKhau.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvNhanKhau.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhanKhau.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNhanKhau.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvNhanKhau.EnableHeadersVisualStyles = false;
-            this.dgvNhanKhau.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvNhanKhau.Location = new System.Drawing.Point(3, 25);
-            this.dgvNhanKhau.MultiSelect = false;
+            this.dgvNhanKhau.MainView = this.gridView1;
             this.dgvNhanKhau.Name = "dgvNhanKhau";
-            this.dgvNhanKhau.ReadOnly = true;
-            this.dgvNhanKhau.RowHeadersVisible = false;
-            this.dgvNhanKhau.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvNhanKhau.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhanKhau.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNhanKhau.Size = new System.Drawing.Size(1174, 422);
-            this.dgvNhanKhau.TabIndex = 12;
-            this.dgvNhanKhau.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.dgvNhanKhau.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.Empty;
-            this.dgvNhanKhau.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvNhanKhau.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvNhanKhau.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvNhanKhau.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvNhanKhau.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvNhanKhau.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvNhanKhau.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.dgvNhanKhau.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvNhanKhau.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvNhanKhau.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvNhanKhau.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvNhanKhau.ThemeStyle.HeaderStyle.Height = 23;
-            this.dgvNhanKhau.ThemeStyle.ReadOnly = true;
-            this.dgvNhanKhau.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvNhanKhau.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvNhanKhau.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvNhanKhau.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvNhanKhau.ThemeStyle.RowsStyle.Height = 22;
-            this.dgvNhanKhau.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvNhanKhau.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvNhanKhau.TabIndex = 0;
+            this.dgvNhanKhau.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.AppearancePrint.HeaderPanel.BackColor = System.Drawing.Color.Blue;
+            this.gridView1.AppearancePrint.HeaderPanel.Options.UseBackColor = true;
+            this.gridView1.AppearancePrint.Row.BackColor = System.Drawing.Color.Lime;
+            this.gridView1.AppearancePrint.Row.Options.UseBackColor = true;
+            this.gridView1.GridControl = this.dgvNhanKhau;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsPrint.PrintFilterInfo = true;
+            this.gridView1.OptionsPrint.PrintSelectedRowsOnly = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // frmNhanKhau
             // 
@@ -194,6 +155,7 @@
             this.Load += new System.EventHandler(this.frmNhanKhau_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanKhau)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,6 +164,7 @@
         private Guna.UI.WinForms.GunaAdvenceButton btnDangKyNhanKhau;
         private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvNhanKhau;
+        private DevExpress.XtraGrid.GridControl dgvNhanKhau;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

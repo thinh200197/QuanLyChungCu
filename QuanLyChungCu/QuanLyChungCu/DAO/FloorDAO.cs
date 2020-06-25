@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyChungCu.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -17,19 +18,32 @@ namespace ApartmentManager.DAO
         }
         private FloorDAO() { }
 
-        public DataTable GetAllFloor()
+        public List<FloorDTO> GetAllFloor()
         {
             string query = "select * from TANGLAU";
-            DataTable data = new DataTable();
-            data = DataProvider.Instance.ExecuteQuery(query);
-            return data;
+            DataTable data =  DataProvider.Instance.ExecuteQuery(query);
+
+            var lstFloor = new List<FloorDTO>();
+            foreach (DataRow row in data.Rows)
+            {
+                lstFloor.Add(new FloorDTO(row));
+            }
+
+            return lstFloor;
         }
-        public DataTable GetAllFloorByMaBlock(string maBlock)
+        public List<FloorDTO> GetAllFloorByMaBlock(string maBlock)
         {
             string query = "select * from TANGLAU where MABLOCK = '" + maBlock + "'";
-            DataTable data = new DataTable();
-            data = DataProvider.Instance.ExecuteQuery(query);
-            return data;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            var lstFloor = new List<FloorDTO>();
+
+            foreach (DataRow row in data.Rows)
+            {
+                lstFloor.Add(new FloorDTO(row));
+            }
+
+            return lstFloor;
         }
     }
 }

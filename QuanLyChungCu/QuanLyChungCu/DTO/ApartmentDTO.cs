@@ -32,7 +32,7 @@ namespace QuanLyChungCu.DTO
         {
             MaCanHo = row["MACANHO"].ToString();
             MaTangLau = row["MATANGLAU"].ToString();
-            MaLoaiCanHo = row["MALOAICANHO"].ToString();
+            MaLoaiCanHo = row["MALOAI_CH"].ToString();
             TenCanHo = row["TENCANHO"].ToString();
             SoNguoiO = row["SONGUOIO"].ToString();
             ChuHo = row["CHUHO"].ToString();

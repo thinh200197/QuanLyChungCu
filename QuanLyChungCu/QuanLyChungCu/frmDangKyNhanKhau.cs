@@ -43,16 +43,19 @@ namespace QuanLyChungCu
             cb_ChuHo.SelectedIndex = -1;
             cb_ChuHo.SelectedItem = null;
 
-
+            var block = BlockDAO.Instance.GetAllBlock();
             //Thông tin căn hộ
-            cb_CanHo_ToaNha.DataSource = BlockDAO.Instance.GetAllBlock();
+            cb_CanHo_ToaNha.DataSource = block;
             cb_CanHo_ToaNha.DisplayMember = "MABLOCK";
             cb_CanHo_ToaNha.ValueMember = "TENBLOCK";
+            cb_CanHo_ToaNha.SelectedIndex = -1;
+            cb_CanHo_ToaNha.SelectedItem = null;
         }
         #endregion
 
         #region Event
 
+        #region Thông tin cư dân
         private void cb_CuDan_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selected = cb_CuDan.SelectedItem as ResidentDTO;
@@ -72,25 +75,6 @@ namespace QuanLyChungCu
             }
 
         }
-        private void btnThemCuDan_Click(object sender, EventArgs e)
-        {
-            var frm = new frmCuDan();
-            frm.ShowDialog();
-            LoadComboboxCuDan();
-        }
-
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-
-
-            // thực hiện lưu thông tin
-            this.Hide();
-        }
-
-        private void frmDangKyNhanKhau_Load(object sender, EventArgs e)
-        {
-            LoadComboboxCuDan();
-        }
 
         private void chk_CuDan_ChuHo_CheckedChanged(object sender, EventArgs e)
         {
@@ -108,25 +92,32 @@ namespace QuanLyChungCu
         {
 
         }
+        #endregion
+
+        #region Thông tin chủ hộ
 
         private void cb_ChuHo_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selected = cb_ChuHo.SelectedItem as ResidentDTO;
             if (selected == null)
             {
-                cb_ChuHo_GioiTinh.SelectedItem = -1;
+                cb_ChuHo_GioiTinh.SelectedIndex = -1;
                 txt_ChuHo_CMND.Text = string.Empty;
                 txt_ChuHo_SDT.Text = string.Empty;
                 dtp_ChuHo_NgaySinh.Value = DateTime.Now;
             }
             else
             {
-                cb_ChuHo_GioiTinh.SelectedItem = selected.GioiTinh ? 1 : 0;
+                cb_ChuHo_GioiTinh.SelectedIndex = selected.GioiTinh ? 1 : 0;
                 txt_ChuHo_CMND.Text = selected.Cmnd;
                 txt_ChuHo_SDT.Text = selected.Sdt;
                 dtp_ChuHo_NgaySinh.Value = selected.NgaySinh;
             }
         }
+
+        #endregion
+
+        #region Thông tin căn hộ
 
         private void cb_CanHo_ToaNha_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -146,15 +137,17 @@ namespace QuanLyChungCu
 
         private void cb_CanHo_Tang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selected = cb_CanHo_Tang.SelectedItem as FloorDTO;
-            if (selected == null)
-            {
-                return;
-            }          
+            //var selected = cb_CanHo_Tang.SelectedItem as FloorDTO;
+            //if (selected == null)
+            //{
+            //    return;
+            //}
 
-            cb_CanHo_LoaiCanHo.DataSource = ApartmentCategogyDAO.Instance.GetAllApartmentCategogyByMaTangLau(selected.MaTangLau);
+            cb_CanHo_LoaiCanHo.DataSource = ApartmentCategogyDAO.Instance.GetAllApartmentCategogy();
             cb_CanHo_LoaiCanHo.DisplayMember = "TENLOAI_CH";
             cb_CanHo_LoaiCanHo.ValueMember = "MALOAI_CH";
+            cb_CanHo_LoaiCanHo.SelectedIndex = -1;
+
         }
 
         private void cb_CanHo_LoaiCanHo_SelectedIndexChanged(object sender, EventArgs e)
@@ -165,7 +158,8 @@ namespace QuanLyChungCu
             {
                 return;
             }
-            cb_CanHo_CanHo.DataSource = ApartmentDAO.Instance.GetAllApartmentByLoaiCanHo(selected.Maloai_CH);
+            //cb_CanHo_CanHo.DataSource = ApartmentDAO.Instance.GetAllApartmentByLoaiCanHo(selected.Maloai_CH);
+            cb_CanHo_CanHo.DataSource = ApartmentDAO.Instance.GetAllApartment();
             cb_CanHo_CanHo.DisplayMember = "TENCANHO";
             cb_CanHo_CanHo.ValueMember = "MACANHO";
 
@@ -185,6 +179,54 @@ namespace QuanLyChungCu
                 txt_CanHo_NgDangO.Text = canHo.SoNguoiO.ToString();
             }
         }
+        #endregion
+
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            var cuDan = new ResidentDTO()
+            {
+                TenCuDan = cb_CuDan.Text,
+                NgaySinh = dtp_CuDan_NgaySinh.Value,
+                Cmnd = txt_CuDan_CMND.Text,
+                Sdt = txt_CuDan_SDT.Text,
+                GioiTinh = cb_CuDan_GioiTinh.SelectedIndex > 0
+            };
+
+            var cbChuHo = cb_ChuHo.SelectedItem as ResidentDTO;
+
+            var canHo = new ApartmentDTO()
+            {
+                MaCanHo = cb_CanHo_CanHo.SelectedValue.ToString()
+            };
+
+
+            var them = NhanKhauDAO.Instance.ThemNhanKhau(cuDan, canHo, cbChuHo);
+            if (them)
+            {
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại");
+            }
+
+            this.Hide();
+
+            // thực hiện lưu thông tin
+
+        }
+
+        private void frmDangKyNhanKhau_Load(object sender, EventArgs e)
+        {
+            LoadComboboxCuDan();
+        }
+
+
+
+
+
+
         #endregion
 
 

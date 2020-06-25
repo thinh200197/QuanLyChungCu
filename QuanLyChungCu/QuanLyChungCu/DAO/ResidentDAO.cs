@@ -37,23 +37,24 @@ namespace ApartmentManager.DAO
             return residentList;
         }
 
-        public ResidentDTO GetResidentByName(string residentName)
+        public ResidentDTO GetResidentByCMND(string cmnd)
         {
             ResidentDTO resident = new ResidentDTO();
+            DataTable data = DataProvider.Instance.ExecuteQuery("select * from CUDAN where [CHUNGMINHNHANDAN] = '"+ cmnd + "'");
 
 
             return resident;
         }
-        public int AddResident(ResidentDTO resident)
+        public bool AddResident(ResidentDTO resident)
         {
             string query = "PR_InsertResident";
-            int data = DataProvider.Instance.ExecuteNonQuery(query);
-            return data;
+            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[]{ resident.TenCuDan, resident.NgaySinh, resident.Sdt, resident.Cmnd, resident.GioiTinh });
+            return data > 0;
         }
 
-        public int AddResidentToApartment(string maCanHo,string maCuDan)
+        public int AddResidentToApartment(string maCanHo, string maCuDan)
         {
-            string query = "PR_InserResidentApartment  @MaCuDan , @MaCanHo";
+            string query = "PR_InserCuDan_CanHo  @MaCuDan , @MaCanHo";
             try
             {
                 int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maCuDan, maCanHo });
@@ -62,8 +63,8 @@ namespace ApartmentManager.DAO
             catch (Exception ex)
             {
                 throw ex;
-            }        
-            
+            }
+
         }
     }
 }

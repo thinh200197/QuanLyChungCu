@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.gbChuHo = new System.Windows.Forms.GroupBox();
+            this.cb_ChuHo = new System.Windows.Forms.ComboBox();
             this.dtp_ChuHo_NgaySinh = new System.Windows.Forms.DateTimePicker();
             this.cb_ChuHo_GioiTinh = new System.Windows.Forms.ComboBox();
             this.txt_ChuHo_SDT = new System.Windows.Forms.TextBox();
@@ -65,7 +66,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.btnLuu = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.cb_ChuHo = new System.Windows.Forms.ComboBox();
             this.gbCuDan.SuspendLayout();
             this.gbChuHo.SuspendLayout();
             this.gbCanHo.SuspendLayout();
@@ -235,6 +235,15 @@
             this.gbChuHo.TabStop = false;
             this.gbChuHo.Text = "Thông tin chủ hộ";
             // 
+            // cb_ChuHo
+            // 
+            this.cb_ChuHo.FormattingEnabled = true;
+            this.cb_ChuHo.Location = new System.Drawing.Point(105, 48);
+            this.cb_ChuHo.Name = "cb_ChuHo";
+            this.cb_ChuHo.Size = new System.Drawing.Size(224, 29);
+            this.cb_ChuHo.TabIndex = 20;
+            this.cb_ChuHo.SelectedIndexChanged += new System.EventHandler(this.cb_ChuHo_SelectedIndexChanged);
+            // 
             // dtp_ChuHo_NgaySinh
             // 
             this.dtp_ChuHo_NgaySinh.CustomFormat = "dd/MM/yyyy";
@@ -365,7 +374,7 @@
             this.cb_CanHo_Tang.FormattingEnabled = true;
             this.cb_CanHo_Tang.Location = new System.Drawing.Point(92, 84);
             this.cb_CanHo_Tang.Name = "cb_CanHo_Tang";
-            this.cb_CanHo_Tang.Size = new System.Drawing.Size(86, 29);
+            this.cb_CanHo_Tang.Size = new System.Drawing.Size(136, 29);
             this.cb_CanHo_Tang.TabIndex = 7;
             this.cb_CanHo_Tang.SelectedIndexChanged += new System.EventHandler(this.cb_CanHo_Tang_SelectedIndexChanged);
             // 
@@ -374,7 +383,7 @@
             this.cb_CanHo_ToaNha.FormattingEnabled = true;
             this.cb_CanHo_ToaNha.Location = new System.Drawing.Point(92, 44);
             this.cb_CanHo_ToaNha.Name = "cb_CanHo_ToaNha";
-            this.cb_CanHo_ToaNha.Size = new System.Drawing.Size(86, 29);
+            this.cb_CanHo_ToaNha.Size = new System.Drawing.Size(136, 29);
             this.cb_CanHo_ToaNha.TabIndex = 7;
             this.cb_CanHo_ToaNha.SelectedIndexChanged += new System.EventHandler(this.cb_CanHo_ToaNha_SelectedIndexChanged);
             // 
@@ -519,15 +528,6 @@
             this.btnLuu.Text = "Lưu";
             this.btnLuu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
-            // 
-            // cb_ChuHo
-            // 
-            this.cb_ChuHo.FormattingEnabled = true;
-            this.cb_ChuHo.Location = new System.Drawing.Point(105, 48);
-            this.cb_ChuHo.Name = "cb_ChuHo";
-            this.cb_ChuHo.Size = new System.Drawing.Size(224, 29);
-            this.cb_ChuHo.TabIndex = 20;
-            this.cb_ChuHo.SelectedIndexChanged += new System.EventHandler(this.cb_ChuHo_SelectedIndexChanged);
             // 
             // frmDangKyNhanKhau
             // 

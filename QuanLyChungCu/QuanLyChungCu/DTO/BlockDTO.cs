@@ -9,6 +9,8 @@ namespace QuanLyChungCu.DTO
 {
     public class BlockDTO
     {
+        public string MaBlock { get; set; }
+        public string TenBlock { get; set; }
         public BlockDTO(string maBlock, string tenBlock)
         {
             MaBlock = maBlock;
@@ -21,7 +23,6 @@ namespace QuanLyChungCu.DTO
         }
         public BlockDTO() { }
 
-        public string MaBlock { get; set; }
-        public string TenBlock { get; set; }
+       
     }
 }

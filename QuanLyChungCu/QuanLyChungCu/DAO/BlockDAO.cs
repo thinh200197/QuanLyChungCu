@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using QuanLyChungCu.DTO;
+using System.Collections.Generic;
+using System.Data;
 
 namespace ApartmentManager.DAO
 {
@@ -13,12 +15,19 @@ namespace ApartmentManager.DAO
         }
         private BlockDAO() { }
 
-        public DataTable GetAllBlock()
+        public List<BlockDTO> GetAllBlock()
         {
             string query = "select * from TOANHA";
             DataTable data = new DataTable();
-            data = DataProvider.Instance.ExecuteQuery(query);            
-            return data;
+            data = DataProvider.Instance.ExecuteQuery(query);
+            
+            var lstBlock = new List<BlockDTO>();
+            foreach (DataRow row in data.Rows)
+            {
+                lstBlock.Add(new BlockDTO(row));
+            }
+
+            return lstBlock;
         }
     }
 }

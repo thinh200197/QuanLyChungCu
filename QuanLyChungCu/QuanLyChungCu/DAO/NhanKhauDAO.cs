@@ -1,4 +1,5 @@
 ﻿using ApartmentManager.DAO;
+using ApartmentManager.DTO;
 using QuanLyChungCu.DTO;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,20 @@ namespace QuanLyChungCu.DAO
                 lstNhanKhau.Add(nhanKhau);
             }
             return lstNhanKhau;
+        }
+
+        public bool ThemNhanKhau(ResidentDTO cuDan,ApartmentDTO canHo,ResidentDTO chuHo)
+        {
+            string ThemCuDanquery = "PR_InsertResident @tenCuDan, @ngaySinh ,@cmnd ,@sdt,@gioitinh ";
+            string CapNhatCanHoquery = "CapNhatNhanKhauCanHo  @MaCuDan , @MaCanHo, @ChuHo ";
+            string CapNhatCanHoCuDanquery = "AddResidentToApartment @MaCuDan , @MaCanHo ";
+
+
+            var data = DataProvider.Instance.ExecuteNonQuery(ThemCuDanquery,new object[] { cuDan.TenCuDan, cuDan.NgaySinh, cuDan.Cmnd, cuDan.Sdt, cuDan.GioiTinh });
+            var data1 = DataProvider.Instance.ExecuteNonQuery(CapNhatCanHoquery, new object[] { cuDan.MaCuDan , canHo.MaCanHo , false  });
+            var data2 = DataProvider.Instance.ExecuteNonQuery(CapNhatCanHoCuDanquery, new object[] { chuHo.MaCuDan, canHo.MaCanHo });
+            
+            return data > 0 && data1 > 0 && data2 > 0;
         }
     }
 }

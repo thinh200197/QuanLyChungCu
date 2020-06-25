@@ -14,7 +14,7 @@ namespace ApartmentManager.DTO
         public DateTime NgaySinh { get; set; }
         public string Sdt { get; set; }
         public string Cmnd { get; set; }
-        public bool GioiTinh { get; set; }
+        public int GioiTinh { get; set; }
    
         public ResidentDTO(DataRow row)
         {
@@ -23,11 +23,11 @@ namespace ApartmentManager.DTO
             this.NgaySinh = DateTime.Parse(row["NGAYSINH"].ToString());
             this.Sdt = row["SODIENTHOAI"].ToString();
             this.Cmnd = row["CHUNGMINHNHANDAN"].ToString();
-            this.GioiTinh = bool.Parse(row["GIOITINH"].ToString());
+            this.GioiTinh = int.Parse(row["GIOITINH"].ToString());
         }
         public ResidentDTO() { }
 
-        public ResidentDTO(string maCuDan, string tenCuDan, DateTime ngaySinh, string sdt, string cmnd, bool gioiTinh)
+        public ResidentDTO(string maCuDan, string tenCuDan, DateTime ngaySinh, string sdt, string cmnd, int gioiTinh)
         {
             MaCuDan = maCuDan;
             TenCuDan = tenCuDan;

@@ -42,7 +42,7 @@ namespace QuanLyChungCu
                     lb_TenMenu.Text = currentGunnaButton.Text.ToUpper();
                     currentGunnaButton.Checked = true;
                     currentGunnaButton.ForeColor = SystemColors.ButtonHighlight;
-                    currentGunnaButton.Font = new Font("RobotoMono-Regular", 11F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    currentGunnaButton.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                 }
             }
         }

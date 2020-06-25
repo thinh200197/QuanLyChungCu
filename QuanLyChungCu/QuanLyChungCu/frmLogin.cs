@@ -35,5 +35,20 @@ namespace QuanLyChungCu
                 MessageBox.Show("Sai tên tài khoản hoặc mật khẩu.");
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_TaiKhoan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

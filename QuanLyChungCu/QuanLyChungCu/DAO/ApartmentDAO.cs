@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyChungCu.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -17,20 +18,36 @@ namespace ApartmentManager.DAO
         }
         private ApartmentDAO() { }
 
-        public DataTable GetAllApartment()
+        public List<ApartmentDTO> GetAllApartment()
         {
             string query = "select * from CANHO";
             DataTable data = new DataTable();
             data = DataProvider.Instance.ExecuteQuery(query);
-            return data;
+
+            var lstApartment = new List<ApartmentDTO>();
+
+            foreach (DataRow row in data.Rows)
+            {
+                lstApartment.Add(new ApartmentDTO(row));
+            }
+
+            return lstApartment;
         }
 
-        public DataTable GetAllApartmentByLoaiCanHo(string maLoaiCanHo)
+        public List<ApartmentDTO> GetAllApartmentByLoaiCanHo(string maLoaiCanHo)
         {
             string query = "select * from CANHO where Maloai_CH = '" + maLoaiCanHo + "'";
             DataTable data = new DataTable();
             data = DataProvider.Instance.ExecuteQuery(query);
-            return data;
+
+            var lstApartment = new List<ApartmentDTO>();
+
+            foreach (DataRow row in data.Rows)
+            {
+                lstApartment.Add(new ApartmentDTO(row));
+            }
+
+            return lstApartment;
         }
     }
 }
