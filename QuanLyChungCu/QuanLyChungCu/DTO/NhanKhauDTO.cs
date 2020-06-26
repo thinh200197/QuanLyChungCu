@@ -47,7 +47,7 @@ namespace QuanLyChungCu.DTO
             this.TenCuDan = row["TENCUDAN"].ToString();
             this.NgaySinh = row["NGAYSINH"].ToString();
             this.Sdt = row["SODIENTHOAI"].ToString();
-            this.GioiTinh = bool.Parse(row["GIOITINH"].ToString()) ? "Nam" : "Nữ";
+            this.GioiTinh = int.Parse(row["GIOITINH"].ToString()) > 0 ? "Nam" : "Nữ";
             this.ChuHo = row["TENCHUHO"].ToString();
         }
 

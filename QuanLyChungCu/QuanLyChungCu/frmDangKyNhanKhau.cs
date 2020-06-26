@@ -68,7 +68,7 @@ namespace QuanLyChungCu
             }
             else
             {
-                cb_CuDan_GioiTinh.SelectedIndex = selected.GioiTinh ? 1 : 0;
+                cb_CuDan_GioiTinh.SelectedIndex = selected.GioiTinh;
                 txt_CuDan_CMND.Text = selected.Cmnd;
                 txt_CuDan_SDT.Text = selected.Sdt;
                 dtp_CuDan_NgaySinh.Value = selected.NgaySinh;
@@ -108,7 +108,7 @@ namespace QuanLyChungCu
             }
             else
             {
-                cb_ChuHo_GioiTinh.SelectedIndex = selected.GioiTinh ? 1 : 0;
+                cb_ChuHo_GioiTinh.SelectedIndex = selected.GioiTinh;
                 txt_ChuHo_CMND.Text = selected.Cmnd;
                 txt_ChuHo_SDT.Text = selected.Sdt;
                 dtp_ChuHo_NgaySinh.Value = selected.NgaySinh;
@@ -190,7 +190,7 @@ namespace QuanLyChungCu
                 NgaySinh = dtp_CuDan_NgaySinh.Value,
                 Cmnd = txt_CuDan_CMND.Text,
                 Sdt = txt_CuDan_SDT.Text,
-                GioiTinh = cb_CuDan_GioiTinh.SelectedIndex > 0
+                GioiTinh = cb_CuDan_GioiTinh.SelectedIndex
             };
 
             var cbChuHo = cb_ChuHo.SelectedItem as ResidentDTO;

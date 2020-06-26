@@ -371,48 +371,52 @@
             // 
             // cb_CanHo_Tang
             // 
+            this.cb_CanHo_Tang.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_CanHo_Tang.FormattingEnabled = true;
             this.cb_CanHo_Tang.Location = new System.Drawing.Point(92, 84);
             this.cb_CanHo_Tang.Name = "cb_CanHo_Tang";
-            this.cb_CanHo_Tang.Size = new System.Drawing.Size(136, 29);
+            this.cb_CanHo_Tang.Size = new System.Drawing.Size(111, 21);
             this.cb_CanHo_Tang.TabIndex = 7;
             this.cb_CanHo_Tang.SelectedIndexChanged += new System.EventHandler(this.cb_CanHo_Tang_SelectedIndexChanged);
             // 
             // cb_CanHo_ToaNha
             // 
+            this.cb_CanHo_ToaNha.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_CanHo_ToaNha.FormattingEnabled = true;
             this.cb_CanHo_ToaNha.Location = new System.Drawing.Point(92, 44);
             this.cb_CanHo_ToaNha.Name = "cb_CanHo_ToaNha";
-            this.cb_CanHo_ToaNha.Size = new System.Drawing.Size(136, 29);
+            this.cb_CanHo_ToaNha.Size = new System.Drawing.Size(111, 21);
             this.cb_CanHo_ToaNha.TabIndex = 7;
             this.cb_CanHo_ToaNha.SelectedIndexChanged += new System.EventHandler(this.cb_CanHo_ToaNha_SelectedIndexChanged);
             // 
             // cb_CanHo_CanHo
             // 
+            this.cb_CanHo_CanHo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_CanHo_CanHo.FormattingEnabled = true;
             this.cb_CanHo_CanHo.Location = new System.Drawing.Point(364, 84);
             this.cb_CanHo_CanHo.Name = "cb_CanHo_CanHo";
-            this.cb_CanHo_CanHo.Size = new System.Drawing.Size(199, 29);
+            this.cb_CanHo_CanHo.Size = new System.Drawing.Size(199, 21);
             this.cb_CanHo_CanHo.TabIndex = 7;
             this.cb_CanHo_CanHo.SelectedIndexChanged += new System.EventHandler(this.cb_CanHo_CanHo_SelectedIndexChanged);
             // 
             // cb_CanHo_LoaiCanHo
             // 
+            this.cb_CanHo_LoaiCanHo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_CanHo_LoaiCanHo.FormattingEnabled = true;
             this.cb_CanHo_LoaiCanHo.Location = new System.Drawing.Point(364, 44);
             this.cb_CanHo_LoaiCanHo.Name = "cb_CanHo_LoaiCanHo";
-            this.cb_CanHo_LoaiCanHo.Size = new System.Drawing.Size(199, 29);
+            this.cb_CanHo_LoaiCanHo.Size = new System.Drawing.Size(199, 21);
             this.cb_CanHo_LoaiCanHo.TabIndex = 7;
             this.cb_CanHo_LoaiCanHo.SelectedIndexChanged += new System.EventHandler(this.cb_CanHo_LoaiCanHo_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label11.Location = new System.Drawing.Point(13, 86);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 23);
+            this.label11.Size = new System.Drawing.Size(33, 13);
             this.label11.TabIndex = 6;
             this.label11.Text = "Tầng";
             // 
@@ -421,10 +425,10 @@
             this.txt_CanHo_NgDangO.BackColor = System.Drawing.Color.White;
             this.txt_CanHo_NgDangO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_CanHo_NgDangO.Enabled = false;
-            this.txt_CanHo_NgDangO.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_CanHo_NgDangO.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CanHo_NgDangO.Location = new System.Drawing.Point(772, 86);
             this.txt_CanHo_NgDangO.Name = "txt_CanHo_NgDangO";
-            this.txt_CanHo_NgDangO.Size = new System.Drawing.Size(46, 29);
+            this.txt_CanHo_NgDangO.Size = new System.Drawing.Size(46, 22);
             this.txt_CanHo_NgDangO.TabIndex = 5;
             this.txt_CanHo_NgDangO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -433,65 +437,65 @@
             this.txt_CanHo_NgToiDa.BackColor = System.Drawing.Color.White;
             this.txt_CanHo_NgToiDa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_CanHo_NgToiDa.Enabled = false;
-            this.txt_CanHo_NgToiDa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_CanHo_NgToiDa.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CanHo_NgToiDa.Location = new System.Drawing.Point(772, 45);
             this.txt_CanHo_NgToiDa.Name = "txt_CanHo_NgToiDa";
-            this.txt_CanHo_NgToiDa.Size = new System.Drawing.Size(46, 29);
+            this.txt_CanHo_NgToiDa.Size = new System.Drawing.Size(46, 22);
             this.txt_CanHo_NgToiDa.TabIndex = 5;
             this.txt_CanHo_NgToiDa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label16.Location = new System.Drawing.Point(619, 88);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(137, 23);
+            this.label16.Size = new System.Drawing.Size(94, 13);
             this.label16.TabIndex = 6;
             this.label16.Text = "Số người đang ở";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label13.Location = new System.Drawing.Point(13, 46);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(73, 23);
+            this.label13.Size = new System.Drawing.Size(49, 13);
             this.label13.TabIndex = 6;
             this.label13.Text = "Tòa Nhà";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label14.Location = new System.Drawing.Point(619, 47);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(127, 23);
+            this.label14.Size = new System.Drawing.Size(87, 13);
             this.label14.TabIndex = 6;
             this.label14.Text = "Số người tối đa";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label12.Location = new System.Drawing.Point(254, 86);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(67, 23);
+            this.label12.Size = new System.Drawing.Size(45, 13);
             this.label12.TabIndex = 6;
             this.label12.Text = "Căn Hộ";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label15.Location = new System.Drawing.Point(254, 46);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(103, 23);
+            this.label15.Size = new System.Drawing.Size(69, 13);
             this.label15.TabIndex = 6;
             this.label15.Text = "Loại Căn Hộ";
             // 

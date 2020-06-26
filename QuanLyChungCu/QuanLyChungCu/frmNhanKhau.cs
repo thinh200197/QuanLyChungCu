@@ -36,5 +36,15 @@ namespace QuanLyChungCu
             frm.ShowDialog();
             LoadNhanKhau();
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
