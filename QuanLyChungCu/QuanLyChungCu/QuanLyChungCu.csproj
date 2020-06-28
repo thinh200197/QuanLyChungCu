@@ -75,6 +75,7 @@
     <Compile Include="DAO\ApartmentDAO.cs" />
     <Compile Include="DAO\BlockDAO.cs" />
     <Compile Include="DAO\ApartmentCategogyDAO.cs" />
+    <Compile Include="DAO\CuDan_CanHoDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\FloorDAO.cs" />
     <Compile Include="DAO\NhanKhauDAO.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="DTO\ApartmentCategogyDTO.cs" />
     <Compile Include="DTO\ApartmentDTO.cs" />
     <Compile Include="DTO\BlockDTO.cs" />
+    <Compile Include="DTO\CuDan_CanHoDTO.cs" />
     <Compile Include="DTO\FloorDTO.cs" />
     <Compile Include="DTO\LoggedUser.cs" />
     <Compile Include="DTO\NhanKhauDTO.cs" />

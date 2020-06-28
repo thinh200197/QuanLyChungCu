@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApartmentManager.DTO
+namespace QuanLyChungCu.DTO
 {
     public class ResidentDTO
     {
-        public string MaCuDan { get; set; }
+        public int MaCuDan { get; set; }
         public string TenCuDan { get; set; }
         public DateTime NgaySinh { get; set; }
         public string Sdt { get; set; }
@@ -18,16 +18,16 @@ namespace ApartmentManager.DTO
    
         public ResidentDTO(DataRow row)
         {
-            this.MaCuDan = row["MACUDAN"].ToString();
+            this.MaCuDan = int.Parse(row["MACUDAN"].ToString());
             this.TenCuDan = row["TENCUDAN"].ToString();
             this.NgaySinh = DateTime.Parse(row["NGAYSINH"].ToString());
             this.Sdt = row["SODIENTHOAI"].ToString();
             this.Cmnd = row["CHUNGMINHNHANDAN"].ToString();
-            this.GioiTinh = int.Parse(row["GIOITINH"].ToString());
+            this.GioiTinh = bool.Parse(row["GIOITINH"].ToString()) ? 1 : 0;
         }
         public ResidentDTO() { }
 
-        public ResidentDTO(string maCuDan, string tenCuDan, DateTime ngaySinh, string sdt, string cmnd, int gioiTinh)
+        public ResidentDTO(int maCuDan, string tenCuDan, DateTime ngaySinh, string sdt, string cmnd, int gioiTinh)
         {
             MaCuDan = maCuDan;
             TenCuDan = tenCuDan;

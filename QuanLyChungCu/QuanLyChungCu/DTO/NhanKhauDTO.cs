@@ -1,11 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Data;
 
 namespace QuanLyChungCu.DTO
 {
     public class NhanKhauDTO
     {
-
+        public int ID { get; set; }
         [DisplayName("Tòa nhà")]
         public string TenBlock { get; set; }
         [DisplayName("Tầng")]
@@ -32,9 +33,13 @@ namespace QuanLyChungCu.DTO
         public string GioiTinh { get; set; }
         [DisplayName("Chủ Hộ")]
         public string ChuHo { get; set; }
-
+        [DisplayName("CMND_CuDan")]
+        public string Cmnd_CuDan { get; set; }
+        [DisplayName("CMND_ChuHo")]
+        public string Cmnd_ChuHo { get; set; }
         public NhanKhauDTO(DataRow row)
         {
+            this.ID = int.Parse(row["ID"].ToString());
             this.TenBlock = row["TENBLOCK"].ToString();
             this.TenTangLau = row["TENTANGLAU"].ToString();
             this.TenCanHo = row["TENCANHO"].ToString();
@@ -43,31 +48,14 @@ namespace QuanLyChungCu.DTO
             this.SoNguoiToiDa = int.Parse(row["SONGUOITOIDA"].ToString());
             this.NgayBatDauO = row["NGAYBATDAUO"].ToString();
             this.NgayHetO = row["NGAYHETO"]?.ToString();
-            //this.LoaiCanHo = row["TENLOAI_CH"].ToString();
             this.TenCuDan = row["TENCUDAN"].ToString();
+            this.Cmnd_CuDan = row["CMND_CUDAN"].ToString();
             this.NgaySinh = row["NGAYSINH"].ToString();
             this.Sdt = row["SODIENTHOAI"].ToString();
-            this.GioiTinh = int.Parse(row["GIOITINH"].ToString()) > 0 ? "Nam" : "Nữ";
+            this.GioiTinh = bool.Parse(row["GIOITINH"].ToString()) ? "Nam" : "Nữ";
             this.ChuHo = row["TENCHUHO"].ToString();
+            this.Cmnd_ChuHo = row["CMND_CHUHO"].ToString();
         }
 
-        public NhanKhauDTO(string tenBlock, string tenTangLau, string tenCanHo, string dienTich,
-            int soPhongNgu, int soNguoiToiDa, string ngayBatDauO, string ngayHetO,
-            string tenCuDan, string ngaySinh, string sdt, string gioiTinh, string chuHo)
-        {
-            this.TenBlock = tenBlock;
-            this.TenTangLau = tenTangLau;
-            this.TenCanHo = tenCanHo;
-            this.DienTich = dienTich;
-            this.SoPhongNgu = soPhongNgu;
-            this.SoNguoiToiDa = soNguoiToiDa;
-            this.NgayBatDauO = ngayBatDauO;
-            this.NgayHetO = ngayHetO;
-            this.TenCuDan = tenCuDan;
-            this.NgaySinh = ngaySinh;
-            this.Sdt = sdt;
-            this.GioiTinh = gioiTinh;
-            this.ChuHo = chuHo;
-        }
     }
 }

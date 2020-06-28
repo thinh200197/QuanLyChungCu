@@ -1,4 +1,4 @@
-﻿using ApartmentManager.DAO;
+﻿using QuanLyChungCu.DAO;
 using QuanLyChungCu.DTO;
 using System.Collections.Generic;
 using System.Data;

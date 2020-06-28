@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApartmentManager
+namespace QuanLyChungCu
 {
     public class LoggedUser
     {

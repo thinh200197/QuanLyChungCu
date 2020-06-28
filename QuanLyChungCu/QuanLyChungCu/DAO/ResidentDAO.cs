@@ -1,4 +1,4 @@
-﻿using ApartmentManager.DTO;
+﻿using QuanLyChungCu.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApartmentManager.DAO
+namespace QuanLyChungCu.DAO
 {
     public class ResidentDAO
     {
@@ -39,19 +39,21 @@ namespace ApartmentManager.DAO
 
         public ResidentDTO GetResidentByCMND(string cmnd)
         {
-            ResidentDTO resident = new ResidentDTO();
             DataTable data = DataProvider.Instance.ExecuteQuery("select * from CUDAN where [CHUNGMINHNHANDAN] = '"+ cmnd + "'");
-
-
-            return resident;
+            return new ResidentDTO(data.Rows[0]);
         }
         public bool AddResident(ResidentDTO resident)
         {
-            string query = "PR_InsertResident";
-            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[]{ resident.TenCuDan, resident.NgaySinh, resident.Sdt, resident.Cmnd, resident.GioiTinh });
+            string query = "EXEC PR_INSERT_CUDAN  @TenCuDan , @NgaySinh , @SoDienThoai , @Cmnd , @GioiTinh";
+            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[]{ resident.TenCuDan, resident.NgaySinh.ToString(), resident.Sdt, resident.Cmnd, resident.GioiTinh });
             return data > 0;
         }
-
+        public bool UpdateResident(ResidentDTO resident)
+        {
+            string query = "EXEC [PR_UPDATE_CUDAN]  @MaCuDan , @TenCuDan , @NgaySinh , @SoDienThoai , @Cmnd , @GioiTinh";
+            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { resident.MaCuDan, resident.TenCuDan, resident.NgaySinh, resident.Sdt, resident.Cmnd, resident.GioiTinh });
+            return data > 0;
+        }
         public int AddResidentToApartment(string maCanHo, string maCuDan)
         {
             string query = "PR_InserCuDan_CanHo  @MaCuDan , @MaCanHo";

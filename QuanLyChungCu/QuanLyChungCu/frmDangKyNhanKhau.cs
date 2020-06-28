@@ -1,5 +1,5 @@
-﻿using ApartmentManager.DAO;
-using ApartmentManager.DTO;
+﻿using QuanLyChungCu.DAO;
+using QuanLyChungCu.DTO;
 using QuanLyChungCu.DAO;
 using QuanLyChungCu.DTO;
 using System;
@@ -137,11 +137,6 @@ namespace QuanLyChungCu
 
         private void cb_CanHo_Tang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //var selected = cb_CanHo_Tang.SelectedItem as FloorDTO;
-            //if (selected == null)
-            //{
-            //    return;
-            //}
 
             cb_CanHo_LoaiCanHo.DataSource = ApartmentCategogyDAO.Instance.GetAllApartmentCategogy();
             cb_CanHo_LoaiCanHo.DisplayMember = "TENLOAI_CH";
@@ -195,13 +190,9 @@ namespace QuanLyChungCu
 
             var cbChuHo = cb_ChuHo.SelectedItem as ResidentDTO;
 
-            var canHo = new ApartmentDTO()
-            {
-                MaCanHo = cb_CanHo_CanHo.SelectedValue.ToString()
-            };
+            var maCanHo = cb_CanHo_CanHo.SelectedValue.ToString();
 
-
-            var them = NhanKhauDAO.Instance.ThemNhanKhau(cuDan, canHo, cbChuHo);
+            var them = NhanKhauDAO.Instance.ThemNhanKhau(cuDan, maCanHo, cbChuHo);
             if (them)
             {
                 this.Hide();

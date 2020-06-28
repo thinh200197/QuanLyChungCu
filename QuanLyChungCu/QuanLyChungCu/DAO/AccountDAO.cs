@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApartmentManager.DAO
+namespace QuanLyChungCu.DAO
 {
     public class AccountDAO
     {

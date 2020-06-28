@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 
-namespace ApartmentManager.DAO
+namespace QuanLyChungCu.DAO
 {
     public class BlockDAO
     {
