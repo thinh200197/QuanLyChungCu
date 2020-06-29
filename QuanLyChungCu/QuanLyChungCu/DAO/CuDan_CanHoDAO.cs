@@ -48,19 +48,33 @@ namespace QuanLyChungCu.DAO
             var resulf = new CuDan_CanHoDTO(data.Rows[0]);
             return resulf;
         }
-        public bool CapNhatNhanKhau(int maNhanKhau, DateTime ngayVaoO, DateTime ngayHetO)
+        public bool CapNhatNhanKhau(int Id ,int maNhanKhau, string ngayVaoO, string ngayHetO)
         {
-            string query = string.Format("exec [PR_UPDATE_CUDAN_CANHO] {0},{1},{2}", maNhanKhau, ngayVaoO, ngayHetO);
+            string query = string.Format("exec [PR_UPDATE_CUDAN_CANHO] '{0}' , '{1}' , '{2}' , '{3}'",Id, maNhanKhau, ngayVaoO, ngayHetO);
             var data = DataProvider.Instance.ExecuteNonQuery(query);
 
             return data > 0;
         }
 
-        public bool ThemNhanKhau(int maCuDan,string maCanHo)
+        public Messges ThemNhanKhau(int maCuDan,string maCanHo)
         {
             string query = string.Format("exec [PR_INSERT_CUDAN_CANHO] {0},{1}", maCuDan, maCanHo);
             var data = DataProvider.Instance.ExecuteNonQuery(query);
-            return data > 0;
+
+            if (data > 0)
+            {
+                return new Messges()
+                {
+                    MessegeType = MessegeType.Success,
+                    MessegeContent = "Thêm nhân khẩu thành công."
+                };
+            }
+
+            return new Messges()
+            {
+                MessegeType = MessegeType.Error,
+                MessegeContent = "Thêm nhân khẩu thất bại."
+            };
         }
 
         public bool XoaNhanKhau(int ID)
@@ -69,5 +83,6 @@ namespace QuanLyChungCu.DAO
             var data = DataProvider.Instance.ExecuteNonQuery(query);
             return data > 0;
         }
+
     }
 }

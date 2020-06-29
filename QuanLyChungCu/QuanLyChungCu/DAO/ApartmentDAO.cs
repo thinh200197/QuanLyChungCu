@@ -48,6 +48,27 @@ namespace QuanLyChungCu.DAO
             }
 
             return lstApartment;
+        }    
+
+        public Messges CapNhatSoNguoiO(string maCanHo , int soNguoi)
+        {
+            string query = string.Format("UPDATE CANHO SET SONGUOIO = SONGUOIO + {0} WHERE MACANHO = '{1}'", soNguoi,maCanHo);
+            int data = DataProvider.Instance.ExecuteNonQuery(query);
+
+            if (data > 0 )
+            {
+                return new Messges()
+                {
+                    MessegeType = MessegeType.Success,
+                    MessegeContent = "Cập nhật thành công."
+                };
+            }
+
+            return new Messges()
+            {
+                MessegeType = MessegeType.Error,
+                MessegeContent = "Cập nhật thất bại."
+            };
         }
     }
 }

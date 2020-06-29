@@ -192,15 +192,15 @@ namespace QuanLyChungCu
 
             var maCanHo = cb_CanHo_CanHo.SelectedValue.ToString();
 
-            var them = NhanKhauDAO.Instance.ThemNhanKhau(cuDan, maCanHo, cbChuHo);
-            if (them)
-            {
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Thêm thất bại");
-            }
+            //var them = NhanKhauDAO.Instance.ThemNhanKhau(cuDan, maCanHo, cbChuHo);
+            //if (them)
+            //{
+            //    this.Hide();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Thêm thất bại");
+            //}
 
             this.Hide();
 

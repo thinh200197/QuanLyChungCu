@@ -40,11 +40,9 @@
             this.gbCuDan = new System.Windows.Forms.GroupBox();
             this.cb_CanHo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.cb_ChuHo_Ten = new System.Windows.Forms.ComboBox();
             this.txt_ChuHo_CMND = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.chk_ChuHo = new System.Windows.Forms.CheckBox();
             this.dtp_NgaySinh = new System.Windows.Forms.DateTimePicker();
             this.cb_CuDan_GioiTinh = new System.Windows.Forms.ComboBox();
             this.txt_SDT = new System.Windows.Forms.TextBox();
@@ -58,6 +56,9 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
+            this.txt_ChuHo_Ten = new System.Windows.Forms.TextBox();
+            this.txt_ID = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.gb_NhanKhau.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanKhau)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -149,11 +150,12 @@
             this.gbCuDan.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.gbCuDan.Controls.Add(this.cb_CanHo);
             this.gbCuDan.Controls.Add(this.label12);
-            this.gbCuDan.Controls.Add(this.cb_ChuHo_Ten);
+            this.gbCuDan.Controls.Add(this.txt_ID);
+            this.gbCuDan.Controls.Add(this.txt_ChuHo_Ten);
             this.gbCuDan.Controls.Add(this.txt_ChuHo_CMND);
             this.gbCuDan.Controls.Add(this.label2);
+            this.gbCuDan.Controls.Add(this.label8);
             this.gbCuDan.Controls.Add(this.label7);
-            this.gbCuDan.Controls.Add(this.chk_ChuHo);
             this.gbCuDan.Controls.Add(this.dtp_NgaySinh);
             this.gbCuDan.Controls.Add(this.cb_CuDan_GioiTinh);
             this.gbCuDan.Controls.Add(this.txt_SDT);
@@ -182,6 +184,7 @@
             this.cb_CanHo.Name = "cb_CanHo";
             this.cb_CanHo.Size = new System.Drawing.Size(96, 25);
             this.cb_CanHo.TabIndex = 5;
+            this.cb_CanHo.SelectedIndexChanged += new System.EventHandler(this.cb_CanHo_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -194,20 +197,11 @@
             this.label12.TabIndex = 15;
             this.label12.Text = "Căn Hộ";
             // 
-            // cb_ChuHo_Ten
-            // 
-            this.cb_ChuHo_Ten.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cb_ChuHo_Ten.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_ChuHo_Ten.FormattingEnabled = true;
-            this.cb_ChuHo_Ten.Location = new System.Drawing.Point(444, 102);
-            this.cb_ChuHo_Ten.Name = "cb_ChuHo_Ten";
-            this.cb_ChuHo_Ten.Size = new System.Drawing.Size(187, 25);
-            this.cb_ChuHo_Ten.TabIndex = 8;
-            // 
             // txt_ChuHo_CMND
             // 
             this.txt_ChuHo_CMND.BackColor = System.Drawing.Color.White;
             this.txt_ChuHo_CMND.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_ChuHo_CMND.Enabled = false;
             this.txt_ChuHo_CMND.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ChuHo_CMND.Location = new System.Drawing.Point(444, 69);
             this.txt_ChuHo_CMND.MaxLength = 10;
@@ -215,7 +209,6 @@
             this.txt_ChuHo_CMND.Size = new System.Drawing.Size(187, 25);
             this.txt_ChuHo_CMND.TabIndex = 7;
             this.txt_ChuHo_CMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CuDan_CMND_KeyPress);
-            this.txt_ChuHo_CMND.Leave += new System.EventHandler(this.txt_ChuHo_CMND_Leave);
             // 
             // label2
             // 
@@ -238,18 +231,6 @@
             this.label7.Size = new System.Drawing.Size(111, 17);
             this.label7.TabIndex = 12;
             this.label7.Text = "Họ và Tên Chủ hộ";
-            // 
-            // chk_ChuHo
-            // 
-            this.chk_ChuHo.AutoSize = true;
-            this.chk_ChuHo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_ChuHo.Location = new System.Drawing.Point(550, 142);
-            this.chk_ChuHo.Name = "chk_ChuHo";
-            this.chk_ChuHo.Size = new System.Drawing.Size(68, 21);
-            this.chk_ChuHo.TabIndex = 9;
-            this.chk_ChuHo.Text = "Chủ hộ";
-            this.chk_ChuHo.UseVisualStyleBackColor = true;
-            this.chk_ChuHo.CheckedChanged += new System.EventHandler(this.chk_ChuHo_CheckedChanged);
             // 
             // dtp_NgaySinh
             // 
@@ -414,6 +395,44 @@
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
+            // txt_ChuHo_Ten
+            // 
+            this.txt_ChuHo_Ten.BackColor = System.Drawing.Color.White;
+            this.txt_ChuHo_Ten.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_ChuHo_Ten.Enabled = false;
+            this.txt_ChuHo_Ten.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ChuHo_Ten.Location = new System.Drawing.Point(444, 103);
+            this.txt_ChuHo_Ten.MaxLength = 10;
+            this.txt_ChuHo_Ten.Name = "txt_ChuHo_Ten";
+            this.txt_ChuHo_Ten.Size = new System.Drawing.Size(187, 25);
+            this.txt_ChuHo_Ten.TabIndex = 7;
+            this.txt_ChuHo_Ten.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CuDan_CMND_KeyPress);
+            // 
+            // txt_ID
+            // 
+            this.txt_ID.BackColor = System.Drawing.Color.White;
+            this.txt_ID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_ID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ID.Location = new System.Drawing.Point(358, 139);
+            this.txt_ID.MaxLength = 10;
+            this.txt_ID.Name = "txt_ID";
+            this.txt_ID.Size = new System.Drawing.Size(63, 25);
+            this.txt_ID.TabIndex = 7;
+            this.txt_ID.Visible = false;
+            this.txt_ID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CuDan_CMND_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(327, 141);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(20, 17);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "ID";
+            this.label8.Visible = false;
+            // 
             // frmNhanKhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,7 +465,6 @@
         #endregion
         private System.Windows.Forms.GroupBox gb_NhanKhau;
         private System.Windows.Forms.GroupBox gbCuDan;
-        private System.Windows.Forms.CheckBox chk_ChuHo;
         private System.Windows.Forms.DateTimePicker dtp_NgaySinh;
         private System.Windows.Forms.TextBox txt_SDT;
         private System.Windows.Forms.TextBox txt_CuDan_CMND;
@@ -457,7 +475,6 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.ComboBox cb_CanHo;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cb_ChuHo_Ten;
         private System.Windows.Forms.TextBox txt_ChuHo_CMND;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
@@ -473,5 +490,8 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.Card.CardView cardView1;
         private DevExpress.XtraGrid.Views.Layout.LayoutViewCard layoutViewCard1;
+        private System.Windows.Forms.TextBox txt_ChuHo_Ten;
+        private System.Windows.Forms.TextBox txt_ID;
+        private System.Windows.Forms.Label label8;
     }
 }

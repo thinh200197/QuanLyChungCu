@@ -14,9 +14,9 @@ namespace QuanLyChungCu.DTO
         public int ID { get; set; }
         public int MaCuDan { get; set; }
         public string MaCanHo { get; set; }
-        public Nullable<DateTime> NgayVaoO { get; set; }
-        public Nullable<DateTime> NgayHetO { get; set; }
-        public CuDan_CanHoDTO(int iD, int maCuDan, string maCanHo, DateTime ngayVaoO, DateTime ngayHetO)
+        public string NgayVaoO { get; set; }
+        public string NgayHetO { get; set; }
+        public CuDan_CanHoDTO(int iD, int maCuDan, string maCanHo, string ngayVaoO, string ngayHetO)
         {
             ID = iD;
             MaCuDan = maCuDan;
@@ -29,8 +29,8 @@ namespace QuanLyChungCu.DTO
             ID = int.Parse(row["ID"].ToString());
             MaCuDan = int.Parse(row["MACUDAN"].ToString());
             MaCanHo = row["MACANHO"].ToString();
-            NgayVaoO = DateTime.Parse(row["NGAYBATDAUO"].ToString());
-            NgayHetO = row["NGAYHETO"].ToString() != "" ? DateTime.Parse(row["NGAYHETO"].ToString()) : DateTime.Now;
+            NgayVaoO = row["NGAYBATDAUO"].ToString();
+            NgayHetO = row["NGAYHETO"].ToString();
         }
         public CuDan_CanHoDTO() { }
     }

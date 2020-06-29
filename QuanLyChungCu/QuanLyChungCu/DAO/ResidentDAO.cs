@@ -42,11 +42,25 @@ namespace QuanLyChungCu.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery("select * from CUDAN where [CHUNGMINHNHANDAN] = '"+ cmnd + "'");
             return new ResidentDTO(data.Rows[0]);
         }
-        public bool AddResident(ResidentDTO resident)
+        public Messges AddResident(ResidentDTO resident)
         {
             string query = "EXEC PR_INSERT_CUDAN  @TenCuDan , @NgaySinh , @SoDienThoai , @Cmnd , @GioiTinh";
             int data = DataProvider.Instance.ExecuteNonQuery(query, new object[]{ resident.TenCuDan, resident.NgaySinh.ToString(), resident.Sdt, resident.Cmnd, resident.GioiTinh });
-            return data > 0;
+
+            if (data > 0)
+            {
+                return new Messges()
+                {
+                    MessegeType = MessegeType.Success,
+                    MessegeContent = "Thêm thành công."
+                };
+            }
+
+            return new Messges()
+            {
+                MessegeType = MessegeType.Error,
+                MessegeContent = "Thêm thất bại."
+            };
         }
         public bool UpdateResident(ResidentDTO resident)
         {
@@ -67,6 +81,17 @@ namespace QuanLyChungCu.DAO
                 throw ex;
             }
 
+        }
+        public ResidentDTO LayChuHoTheoMaCanHo(string maCanHo)
+        {
+            string query = string.Format("EXEC PR_LayThongTinChuHo @maCanHo", maCanHo);
+            var data = DataProvider.Instance.ExecuteQuery(query);
+
+            if (data.Rows.Count > 0)
+            {
+                return new ResidentDTO(data.Rows[0]);
+            }
+            return new ResidentDTO();
         }
     }
 }

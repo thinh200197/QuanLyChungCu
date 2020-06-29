@@ -88,5 +88,14 @@ begin
 	WHERE ID = @Id
 end
 go
+-- Lấy thông tin chủ hộ từ căn hộ
+create proc PR_LayThongTinChuHo 
+	@maCanHo varchar(30)
+AS
+BEGIN
+	SELECT * FROM CUDAN cd
+	INNER JOIN CANHO ch ON cd.MACUDAN = ch.CHUHO
+END
+GO
 
 
