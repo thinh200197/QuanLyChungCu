@@ -40,39 +40,56 @@ namespace QuanLyChungCu.DAO
             return lstNhanKhau;
         }
 
-        public Messges ThemNhanKhau(int Id , ResidentDTO cuDan, string maCanHo)
+        public Messges ThemNhanKhau(int id, ResidentDTO cd, string maCanHo)
         {
-            string queryLayTTCD = "SELECT * FROM CUDAN WHERE CHUNGMINHNHANDAN = '" + cuDan.Cmnd + "'";
-            var cuDanBD = DataProvider.Instance.ExecuteQuery(queryLayTTCD);
-            if (Id > 0)
+            // Lấy thông tin 
+            //var CanHo = ApartmentDAO.Instance.GetApartmentByMaCanHo(maCanHo);
+            var CuDan_CanHo = CuDan_CanHoDAO.Instance.Lay_TT_ID(id);
+
+            //Kiểm tra dữ liệu đầu vào
+            var validate = KiemTraDauVao(id, cd, maCanHo);
+            if (validate.MessegeType == MessegeType.Error)
             {
-                var old_CD = new ResidentDTO(cuDanBD.Rows[0]);
-                cuDan.MaCuDan = old_CD.MaCuDan;
-                var cuDanDangO = CuDan_CanHoDAO.Instance.LayTTNK_DangO(old_CD.MaCuDan);
+                return validate;
+            }
+
+            // Thực hiện thêm
+
+            if (id > 0)
+            {
+                //  Kiểm tra rule Cập nhật
+                cd.MaCuDan = CuDan_CanHo.MaCuDan;
+                var cuDanDangO = CuDan_CanHoDAO.Instance.LayTTNK_DangO(CuDan_CanHo.MaCuDan);
 
                 // Cập nhật thông tin cư dân
-                ResidentDAO.Instance.UpdateResident(cuDan);
+                ResidentDAO.Instance.UpdateResident(cd);
 
                 // Cập nhật thông tin cư dân ở căn hộ
 
-                    // khác căn hộ
-                    var cnNgayHetO = CuDan_CanHoDAO.Instance.CapNhatNhanKhau(Id, cuDanDangO.ID, cuDanDangO.NgayVaoO, DateTime.Now.ToShortDateString());
-                    var isAdd = CuDan_CanHoDAO.Instance.ThemNhanKhau(cuDanDangO.MaCuDan, maCanHo);
-                    // trùng căn hộ
-
-
+                //// trùng căn hộ
+                if (maCanHo != CuDan_CanHo.MaCanHo)
+                {
+                    CuDan_CanHoDAO.Instance.CapNhatNgayHetO(id);
+                    ApartmentDAO.Instance.CapNhatSoNguoiO(cuDanDangO.MaCanHo, -1);
+                    var isAdd = CuDan_CanHoDAO.Instance.Them(cuDanDangO.MaCuDan, maCanHo);
+                    ApartmentDAO.Instance.CapNhatSoNguoiO(maCanHo, 1);
+                }
             }
             else
             {
-                if (cuDanBD.Rows.Count > 0)
+                //  Kiểm tra rule Thêm
+                var CuDan = ResidentDAO.Instance.GetResidentByCMND(cd.Cmnd);
+                if (CuDan.MaCuDan > 0)
                 {
-                    return new Messges() {
+                    return new Messges()
+                    {
                         MessegeType = MessegeType.Error,
                         MessegeContent = "Số CMND bị trùng !"
                     };
                 }
-                //thêm cư dân
-                Messges themCuDan = ResidentDAO.Instance.AddResident(cuDan);
+
+                // thêm cư dân
+                Messges themCuDan = ResidentDAO.Instance.AddResident(cd);
 
                 if (themCuDan.MessegeType == MessegeType.Error)
                 {
@@ -80,8 +97,8 @@ namespace QuanLyChungCu.DAO
                 }
 
                 //-thêm nhân khẩu
-                var cuDanVuaThem = ResidentDAO.Instance.GetResidentByCMND(cuDan.Cmnd);
-                var themNhanKhau = CuDan_CanHoDAO.Instance.ThemNhanKhau(cuDanVuaThem.MaCuDan, maCanHo);
+                var cuDanVuaThem = ResidentDAO.Instance.GetResidentByCMND(cd.Cmnd);
+                var themNhanKhau = CuDan_CanHoDAO.Instance.Them(cuDanVuaThem.MaCuDan, maCanHo);
 
                 if (themNhanKhau.MessegeType == MessegeType.Error)
                 {
@@ -89,53 +106,58 @@ namespace QuanLyChungCu.DAO
                 }
 
                 //-cập nhật căn hộ(số người)
-                var nhanKhau = ApartmentDAO.Instance.CapNhatSoNguoiO(maCanHo,1);
-
-                if (nhanKhau.MessegeType == MessegeType.Error)
-                {
-                    return nhanKhau;
-                }
-
+                ApartmentDAO.Instance.CapNhatSoNguoiO(maCanHo, 1);
             }
+
             return new Messges()
             {
                 MessegeType = MessegeType.Success,
                 MessegeContent = "Cập nhật thành công."
             };
-            //var resulf = false;
-            //// TRƯỜNG HỢP CẬP NHẬT
+        }
 
+        public Messges KiemTraDauVao(int Id, ResidentDTO cd, string maCanHo)
+        {
 
-            //if (cuDanBD.Rows.Count > 0)
-            //{
-            //    var old_CD = new ResidentDTO(cuDanBD.Rows[0]);
-            //    cuDan.MaCuDan = old_CD.MaCuDan;
-            //    var cuDanDangO = CuDan_CanHoDAO.Instance.LayTTNK_DangO(old_CD.MaCuDan);
-            //    if (cuDanDangO.ID < 0)
-            //    {
-            //        return false;
-            //    }
+            if (string.IsNullOrEmpty(cd.Cmnd))
+            {
+                return new Messges()
+                {
+                    MessegeType = MessegeType.Error,
+                    MessegeContent = "Nhập CMND!"
+                };
+            }
 
-            //    ResidentDAO.Instance.UpdateResident(cuDan);
+            if (string.IsNullOrEmpty(cd.TenCuDan))
+            {
+                return new Messges()
+                {
+                    MessegeType = MessegeType.Success,
+                    MessegeContent = "Nhập Tên cư dân."
+                };
+            }
 
-            //    // cập nhật nhân khẩu
-            //   
-            //    resulf = cnNgayHetO && isAdd;
-            //}
-            //// TRƯỜNG HỢP THÊM
+            if (string.IsNullOrEmpty(maCanHo))
+            {
+                return new Messges()
+                {
+                    MessegeType = MessegeType.Success,
+                    MessegeContent = "Chọn Căn hộ."
+                };
+            }
+            if (string.IsNullOrEmpty(cd.TenCuDan))
+            {
+                return new Messges()
+                {
+                    MessegeType = MessegeType.Success,
+                    MessegeContent = "Nhập Tên cư dân."
+                };
+            }
 
-            //else
-            //{
-            //    // thêm cư dân
-
-
-            //    // Lấy thông tin cư dân vừa thêm
-
-            //    // thêm nhân khẩu
-
-            //    resulf = themCuDan && themNhanKhau;
-            //}
-            //return resulf;
+            return new Messges()
+            {
+                MessegeType = MessegeType.Success,
+            };
         }
     }
 }

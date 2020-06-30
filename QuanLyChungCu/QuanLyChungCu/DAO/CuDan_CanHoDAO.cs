@@ -48,15 +48,16 @@ namespace QuanLyChungCu.DAO
             var resulf = new CuDan_CanHoDTO(data.Rows[0]);
             return resulf;
         }
-        public bool CapNhatNhanKhau(int Id ,int maNhanKhau, string ngayVaoO, string ngayHetO)
+        public void CapNhatNgayHetO(int id)
         {
-            string query = string.Format("exec [PR_UPDATE_CUDAN_CANHO] '{0}' , '{1}' , '{2}' , '{3}'",Id, maNhanKhau, ngayVaoO, ngayHetO);
-            var data = DataProvider.Instance.ExecuteNonQuery(query);
-
-            return data > 0;
+            string query = string.Format(
+                "UPDATE [dbo].[CUDAN-CANHO]" +
+                "SET NGAYHETO = '{0}' " +
+                "WHERE ID = {1}",DateTime.Now,id);
+                var data = DataProvider.Instance.ExecuteNonQuery(query);
         }
 
-        public Messges ThemNhanKhau(int maCuDan,string maCanHo)
+        public Messges Them(int maCuDan,string maCanHo)
         {
             string query = string.Format("exec [PR_INSERT_CUDAN_CANHO] {0},{1}", maCuDan, maCanHo);
             var data = DataProvider.Instance.ExecuteNonQuery(query);
@@ -84,5 +85,44 @@ namespace QuanLyChungCu.DAO
             return data > 0;
         }
 
+        public CuDan_CanHoDTO Lay_TT_ID(int Id)
+        {
+            string query = "select * from [CUDAN-CANHO] where id = " + Id;
+            var data = DataProvider.Instance.ExecuteQuery(query);
+            if (data.Rows.Count == 0)
+            {
+                return new CuDan_CanHoDTO();
+            }
+            var resulf = new CuDan_CanHoDTO(data.Rows[0]);
+            return resulf;
+        }
+
+        public Messges CapNhat(CuDan_CanHoDTO cdch)
+        {
+            string query = string.Format(
+                "UPDATE [dbo].[CUDAN-CANHO]" +
+                "SET MACANHO = {0}," +
+                    "MACUDAN = {1}, " +
+                    "NGAYBATDAUO = {2} , " +
+                    "NGAYHETO = {3} " +
+                "WHERE ID = {4}", cdch.MaCanHo,cdch.MaCuDan,cdch.NgayVaoO,cdch.NgayHetO,cdch.ID);
+
+            var data = DataProvider.Instance.ExecuteNonQuery(query);
+
+            if (data > 0)
+            {
+                return new Messges()
+                {
+                    MessegeType = MessegeType.Success,
+                    MessegeContent = "Cập nhật nhân khẩu thành công."
+                };
+            }
+
+            return new Messges()
+            {
+                MessegeType = MessegeType.Error,
+                MessegeContent = "Cập nhật nhân khẩu thất bại."
+            };
+        }
     }
 }

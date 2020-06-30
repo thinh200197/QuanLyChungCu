@@ -39,9 +39,31 @@ namespace QuanLyChungCu.DAO
 
         public ResidentDTO GetResidentByCMND(string cmnd)
         {
-            DataTable data = DataProvider.Instance.ExecuteQuery("select * from CUDAN where [CHUNGMINHNHANDAN] = '"+ cmnd + "'");
+            string query = "select * from CUDAN where [CHUNGMINHNHANDAN] = '" + cmnd + "'";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            
+            if (data.Rows.Count <= 0)
+            {
+                return new ResidentDTO();
+            }
+
             return new ResidentDTO(data.Rows[0]);
         }
+
+        public ResidentDTO LayTTCuDan(int maCuDan)
+        {
+            string query = "select * from CUDAN where [MACUDAN] = " + maCuDan;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            if (data.Rows.Count <= 0)
+            {
+                return new ResidentDTO();
+            }
+
+            return new ResidentDTO(data.Rows[0]);
+
+        }
+
         public Messges AddResident(ResidentDTO resident)
         {
             string query = "EXEC PR_INSERT_CUDAN  @TenCuDan , @NgaySinh , @SoDienThoai , @Cmnd , @GioiTinh";
@@ -84,7 +106,7 @@ namespace QuanLyChungCu.DAO
         }
         public ResidentDTO LayChuHoTheoMaCanHo(string maCanHo)
         {
-            string query = string.Format("EXEC PR_LayThongTinChuHo @maCanHo", maCanHo);
+            string query = string.Format("EXEC PR_LayThongTinChuHo '{0}' ", maCanHo);
             var data = DataProvider.Instance.ExecuteQuery(query);
 
             if (data.Rows.Count > 0)

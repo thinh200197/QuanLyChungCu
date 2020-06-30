@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gb_NhanKhau = new System.Windows.Forms.GroupBox();
             this.dgvNhanKhau = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -40,8 +39,11 @@
             this.gbCuDan = new System.Windows.Forms.GroupBox();
             this.cb_CanHo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.txt_ID = new System.Windows.Forms.TextBox();
+            this.txt_ChuHo_Ten = new System.Windows.Forms.TextBox();
             this.txt_ChuHo_CMND = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dtp_NgaySinh = new System.Windows.Forms.DateTimePicker();
             this.cb_CuDan_GioiTinh = new System.Windows.Forms.ComboBox();
@@ -56,9 +58,6 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
-            this.txt_ChuHo_Ten = new System.Windows.Forms.TextBox();
-            this.txt_ID = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.gb_NhanKhau.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanKhau)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -87,9 +86,6 @@
             // 
             this.dgvNhanKhau.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.True;
             this.dgvNhanKhau.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
-            this.dgvNhanKhau.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
             this.dgvNhanKhau.Location = new System.Drawing.Point(3, 25);
             this.dgvNhanKhau.MainView = this.gridView1;
             this.dgvNhanKhau.Name = "dgvNhanKhau";
@@ -104,11 +100,30 @@
             // 
             // gridView1
             // 
-            this.gridView1.AppearancePrint.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.gridView1.Appearance.Empty.Options.UseTextOptions = true;
+            this.gridView1.Appearance.Empty.TextOptions.HotkeyPrefix = DevExpress.Utils.HKeyPrefix.None;
+            this.gridView1.Appearance.FocusedRow.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView1.Appearance.SelectedRow.Options.UseTextOptions = true;
+            this.gridView1.AppearancePrint.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.gridView1.AppearancePrint.Row.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.gridView1.AppearancePrint.Row.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridView1.AppearancePrint.Row.Options.UseBackColor = true;
+            this.gridView1.AppearancePrint.Row.Options.UseBorderColor = true;
+            this.gridView1.AppearancePrint.Row.Options.UseFont = true;
+            this.gridView1.AppearancePrint.Row.Options.UseTextOptions = true;
+            this.gridView1.AppearancePrint.Row.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisWord;
+            this.gridView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.dgvNhanKhau;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsBehavior.ReadOnly = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.OptionsView.ShowPreviewRowLines = DevExpress.Utils.DefaultBoolean.True;
             // 
             // layoutView1
             // 
@@ -131,6 +146,8 @@
             this.gridBand1});
             this.advBandedGridView1.GridControl = this.dgvNhanKhau;
             this.advBandedGridView1.Name = "advBandedGridView1";
+            this.advBandedGridView1.OptionsView.EnableAppearanceEvenRow = true;
+            this.advBandedGridView1.OptionsView.EnableAppearanceOddRow = true;
             // 
             // gridBand1
             // 
@@ -197,6 +214,32 @@
             this.label12.TabIndex = 15;
             this.label12.Text = "Căn Hộ";
             // 
+            // txt_ID
+            // 
+            this.txt_ID.BackColor = System.Drawing.Color.White;
+            this.txt_ID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_ID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ID.Location = new System.Drawing.Point(358, 139);
+            this.txt_ID.MaxLength = 10;
+            this.txt_ID.Name = "txt_ID";
+            this.txt_ID.Size = new System.Drawing.Size(63, 25);
+            this.txt_ID.TabIndex = 7;
+            this.txt_ID.Visible = false;
+            this.txt_ID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CuDan_CMND_KeyPress);
+            // 
+            // txt_ChuHo_Ten
+            // 
+            this.txt_ChuHo_Ten.BackColor = System.Drawing.Color.White;
+            this.txt_ChuHo_Ten.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_ChuHo_Ten.Enabled = false;
+            this.txt_ChuHo_Ten.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ChuHo_Ten.Location = new System.Drawing.Point(444, 103);
+            this.txt_ChuHo_Ten.MaxLength = 10;
+            this.txt_ChuHo_Ten.Name = "txt_ChuHo_Ten";
+            this.txt_ChuHo_Ten.Size = new System.Drawing.Size(187, 25);
+            this.txt_ChuHo_Ten.TabIndex = 7;
+            this.txt_ChuHo_Ten.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CuDan_CMND_KeyPress);
+            // 
             // txt_ChuHo_CMND
             // 
             this.txt_ChuHo_CMND.BackColor = System.Drawing.Color.White;
@@ -220,6 +263,18 @@
             this.label2.Size = new System.Drawing.Size(94, 17);
             this.label2.TabIndex = 11;
             this.label2.Text = "CMND Chủ Hộ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(327, 141);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(20, 17);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "ID";
+            this.label8.Visible = false;
             // 
             // label7
             // 
@@ -278,6 +333,7 @@
             this.txt_CuDan_Ten.Name = "txt_CuDan_Ten";
             this.txt_CuDan_Ten.Size = new System.Drawing.Size(187, 25);
             this.txt_CuDan_Ten.TabIndex = 2;
+            this.txt_CuDan_Ten.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CuDan_Ten_KeyPress);
             // 
             // txt_CuDan_CMND
             // 
@@ -394,44 +450,6 @@
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
-            // 
-            // txt_ChuHo_Ten
-            // 
-            this.txt_ChuHo_Ten.BackColor = System.Drawing.Color.White;
-            this.txt_ChuHo_Ten.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_ChuHo_Ten.Enabled = false;
-            this.txt_ChuHo_Ten.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ChuHo_Ten.Location = new System.Drawing.Point(444, 103);
-            this.txt_ChuHo_Ten.MaxLength = 10;
-            this.txt_ChuHo_Ten.Name = "txt_ChuHo_Ten";
-            this.txt_ChuHo_Ten.Size = new System.Drawing.Size(187, 25);
-            this.txt_ChuHo_Ten.TabIndex = 7;
-            this.txt_ChuHo_Ten.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CuDan_CMND_KeyPress);
-            // 
-            // txt_ID
-            // 
-            this.txt_ID.BackColor = System.Drawing.Color.White;
-            this.txt_ID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_ID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ID.Location = new System.Drawing.Point(358, 139);
-            this.txt_ID.MaxLength = 10;
-            this.txt_ID.Name = "txt_ID";
-            this.txt_ID.Size = new System.Drawing.Size(63, 25);
-            this.txt_ID.TabIndex = 7;
-            this.txt_ID.Visible = false;
-            this.txt_ID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CuDan_CMND_KeyPress);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(327, 141);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 17);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "ID";
-            this.label8.Visible = false;
             // 
             // frmNhanKhau
             // 

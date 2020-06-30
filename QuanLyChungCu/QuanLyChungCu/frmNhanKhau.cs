@@ -14,13 +14,15 @@ namespace QuanLyChungCu
         }
 
         private void frmNhanKhau_Load(object sender, EventArgs e)
-        {        
+        {
 
             //Thông tin căn hộ
-            cb_CanHo.DataSource = ApartmentDAO.Instance.GetAllApartment();
+            var data = ApartmentDAO.Instance.GetAllApartment();
+            cb_CanHo.DataSource = data;
             cb_CanHo.DisplayMember = "TENCANHO";
             cb_CanHo.ValueMember = "MACANHO";
             cb_CanHo.SelectedIndex = -1;
+
 
             //Thông tin nhân khẩu
             LoadNhanKhau();
@@ -46,8 +48,6 @@ namespace QuanLyChungCu
             txt_ChuHo_Ten.Text = string.Empty;
 
             cb_CanHo.SelectedItem = -1;
-
-
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -63,26 +63,25 @@ namespace QuanLyChungCu
             };
 
             var canHo = cb_CanHo.SelectedValue.ToString();
-            var chuHo = cb_CanHo.SelectedItem as ResidentDTO;
 
             // Lưu thông tin
             try
             {
-                int id = string.IsNullOrEmpty(txt_ID.Text)? 0 : int.Parse(txt_ID.Text);
-                var resulf = NhanKhauDAO.Instance.ThemNhanKhau(id,cuDan, canHo);
+                int id = string.IsNullOrEmpty(txt_ID.Text) ? 0 : int.Parse(txt_ID.Text);
+                var resulf = NhanKhauDAO.Instance.ThemNhanKhau(id, cuDan, canHo);
                 if (resulf.MessegeType == MessegeType.Success)
                 {
                     LoadNhanKhau();
-                    MessageBox.Show("Cập nhật thành công.","Thông báo");
+                    MessageBox.Show("Cập nhật thành công.", "Thông báo");
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại", "Thông báo");
+                    MessageBox.Show("Cập nhật thất bại", "Thông báo");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Thêm thất bại : " + ex.Message, "Thông báo");
+                MessageBox.Show("Cập nhật thất bại : " + ex.Message, "Thông báo");
             }
         }
 
@@ -114,6 +113,10 @@ namespace QuanLyChungCu
         {
             var row = gridView1.GetFocusedRow() as NhanKhauDTO;
 
+            if (row == null)
+            {
+                return;
+            }
             txt_ID.Text = row.ID.ToString();
 
             txt_CuDan_CMND.Text = row.Cmnd_CuDan;
@@ -128,12 +131,15 @@ namespace QuanLyChungCu
             txt_ChuHo_CMND.Text = row.Cmnd_ChuHo;
         }
 
-
         private void cb_CanHo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // load thông tin chủ hộ
+            //// load thông tin chủ hộ
             try
             {
+                if (cb_CanHo.SelectedIndex < 0)
+                {
+                    return;
+                }
                 var chuHo = ResidentDAO.Instance.LayChuHoTheoMaCanHo(cb_CanHo.SelectedValue.ToString());
                 txt_ChuHo_CMND.Text = chuHo.Cmnd;
                 txt_ChuHo_Ten.Text = chuHo.TenCuDan;
@@ -142,6 +148,11 @@ namespace QuanLyChungCu
             {
                 MessageBox.Show("Có lỗi xảy ra : " + ex.Message, "Thông báo", MessageBoxButtons.OK);
             }
+        }
+
+        private void txt_CuDan_Ten_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }
