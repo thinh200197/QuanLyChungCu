@@ -1,10 +1,7 @@
-﻿using QuanLyChungCu.DTO;
-using System;
+﻿using Microsoft.VisualBasic;
+using QuanLyChungCu.DTO;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyChungCu.DAO
 {
@@ -18,9 +15,9 @@ namespace QuanLyChungCu.DAO
         }
         private ApartmentDAO() { }
 
-        public List<ApartmentDTO> GetAllApartment()
+        public List<ApartmentDTO> GetAll()
         {
-            string query = "select * from CANHO";
+            string query = "SELECT * FROM VIEW_APARTMENT";
             DataTable data = new DataTable();
             data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -63,6 +60,87 @@ namespace QuanLyChungCu.DAO
             data = DataProvider.Instance.ExecuteQuery(query);
 
             return new ApartmentDTO(data.Rows[0]);
+        }
+
+        public List<CuDanDto> GetCustomApartment()
+        {
+            string query = "EXEC GetCustomApartment";
+            var data = DataProvider.Instance.ExecuteQuery(query);
+
+            var resulf = new List<CuDanDto>();
+            foreach (DataRow row in data.Rows)
+            {
+                resulf.Add(new CuDanDto(row));
+            }
+
+            return resulf;
+        }
+
+        public Messeges Add(ApartmentDTO request)
+        {
+            try
+            {
+                string query = string.Format("INSERT CANHO (MATANGLAU,MALOAI_CH,TENCANHO,SONGUOIO,CHUHO)" +
+              "VALUE ('{0}','{1}','{2}',{3},{4})", request.MaTangLau, request.MaLoaiCanHo, request.TenCanHo,request.SoNguoiO,request.ChuHo);
+                int resulf = DataProvider.Instance.ExecuteNonQuery(query);
+
+                if (resulf > 0)
+                {
+                    return new Messeges()
+                    {
+                        MessegeType = MessegeType.Success,
+                        MessegeContent = "Thành công"
+                    };
+                }
+                return new Messeges()
+                {
+                    MessegeType = MessegeType.Error,
+                    MessegeContent = "Thất bại! "
+                };
+            }
+            catch (System.Exception ex)
+            {
+                return new Messeges()
+                {
+                    MessegeType = MessegeType.Error,
+                    MessegeContent = "Thất bại! : " + ex.Message
+                };
+            }
+        }
+
+        public Messeges Update(ApartmentDTO request)
+        {
+            try
+            {
+                string query = string.Format(
+                    "UPDATE CANHO " +
+                    "SET MATANGLAU = '{0}' , MALOAI_CH = '{1}' ,TENCANHO = '{2}',SONGUOIO = {3} ,CHUHO = {4} " +
+                    "WHERE MACANHO = '{5}'", 
+              request.MaTangLau, request.MaLoaiCanHo, request.TenCanHo, request.SoNguoiO, request.ChuHo,request.MaCanHo);
+                int resulf = DataProvider.Instance.ExecuteNonQuery(query);
+
+                if (resulf > 0)
+                {
+                    return new Messeges()
+                    {
+                        MessegeType = MessegeType.Success,
+                        MessegeContent = "Thành công"
+                    };
+                }
+                return new Messeges()
+                {
+                    MessegeType = MessegeType.Error,
+                    MessegeContent = "Thất bại! "
+                };
+            }
+            catch (System.Exception ex)
+            {
+                return new Messeges()
+                {
+                    MessegeType = MessegeType.Error,
+                    MessegeContent = "Thất bại! : " + ex.Message
+                };
+            }
         }
     }
 }

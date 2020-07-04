@@ -57,21 +57,21 @@ namespace QuanLyChungCu.DAO
                 var data = DataProvider.Instance.ExecuteNonQuery(query);
         }
 
-        public Messges Them(int maCuDan,string maCanHo)
+        public Messeges Them(int maCuDan,string maCanHo)
         {
             string query = string.Format("exec [PR_INSERT_CUDAN_CANHO] {0},{1}", maCuDan, maCanHo);
             var data = DataProvider.Instance.ExecuteNonQuery(query);
 
             if (data > 0)
             {
-                return new Messges()
+                return new Messeges()
                 {
                     MessegeType = MessegeType.Success,
                     MessegeContent = "Thêm nhân khẩu thành công."
                 };
             }
 
-            return new Messges()
+            return new Messeges()
             {
                 MessegeType = MessegeType.Error,
                 MessegeContent = "Thêm nhân khẩu thất bại."
@@ -97,7 +97,7 @@ namespace QuanLyChungCu.DAO
             return resulf;
         }
 
-        public Messges CapNhat(CuDan_CanHoDTO cdch)
+        public Messeges CapNhat(CuDan_CanHoDTO cdch)
         {
             string query = string.Format(
                 "UPDATE [dbo].[CUDAN-CANHO]" +
@@ -111,14 +111,14 @@ namespace QuanLyChungCu.DAO
 
             if (data > 0)
             {
-                return new Messges()
+                return new Messeges()
                 {
                     MessegeType = MessegeType.Success,
                     MessegeContent = "Cập nhật nhân khẩu thành công."
                 };
             }
 
-            return new Messges()
+            return new Messeges()
             {
                 MessegeType = MessegeType.Error,
                 MessegeContent = "Cập nhật nhân khẩu thất bại."

@@ -40,7 +40,7 @@ namespace QuanLyChungCu.DAO
             return lstNhanKhau;
         }
 
-        public Messges ThemNhanKhau(int id, ResidentDTO cd, string maCanHo)
+        public Messeges ThemNhanKhau(int id, ResidentDTO cd, string maCanHo)
         {
             // Lấy thông tin 
             //var CanHo = ApartmentDAO.Instance.GetApartmentByMaCanHo(maCanHo);
@@ -81,7 +81,7 @@ namespace QuanLyChungCu.DAO
                 var CuDan = ResidentDAO.Instance.GetResidentByCMND(cd.Cmnd);
                 if (CuDan.MaCuDan > 0)
                 {
-                    return new Messges()
+                    return new Messeges()
                     {
                         MessegeType = MessegeType.Error,
                         MessegeContent = "Số CMND bị trùng !"
@@ -89,7 +89,7 @@ namespace QuanLyChungCu.DAO
                 }
 
                 // thêm cư dân
-                Messges themCuDan = ResidentDAO.Instance.AddResident(cd);
+                Messeges themCuDan = ResidentDAO.Instance.AddResident(cd);
 
                 if (themCuDan.MessegeType == MessegeType.Error)
                 {
@@ -109,19 +109,19 @@ namespace QuanLyChungCu.DAO
                 ApartmentDAO.Instance.CapNhatSoNguoiO(maCanHo, 1);
             }
 
-            return new Messges()
+            return new Messeges()
             {
                 MessegeType = MessegeType.Success,
                 MessegeContent = "Cập nhật thành công."
             };
         }
 
-        public Messges KiemTraDauVao(int Id, ResidentDTO cd, string maCanHo)
+        public Messeges KiemTraDauVao(int Id, ResidentDTO cd, string maCanHo)
         {
 
             if (string.IsNullOrEmpty(cd.Cmnd))
             {
-                return new Messges()
+                return new Messeges()
                 {
                     MessegeType = MessegeType.Error,
                     MessegeContent = "Nhập CMND!"
@@ -130,7 +130,7 @@ namespace QuanLyChungCu.DAO
 
             if (string.IsNullOrEmpty(cd.TenCuDan))
             {
-                return new Messges()
+                return new Messeges()
                 {
                     MessegeType = MessegeType.Success,
                     MessegeContent = "Nhập Tên cư dân."
@@ -139,7 +139,7 @@ namespace QuanLyChungCu.DAO
 
             if (string.IsNullOrEmpty(maCanHo))
             {
-                return new Messges()
+                return new Messeges()
                 {
                     MessegeType = MessegeType.Success,
                     MessegeContent = "Chọn Căn hộ."
@@ -147,14 +147,14 @@ namespace QuanLyChungCu.DAO
             }
             if (string.IsNullOrEmpty(cd.TenCuDan))
             {
-                return new Messges()
+                return new Messeges()
                 {
                     MessegeType = MessegeType.Success,
                     MessegeContent = "Nhập Tên cư dân."
                 };
             }
 
-            return new Messges()
+            return new Messeges()
             {
                 MessegeType = MessegeType.Success,
             };

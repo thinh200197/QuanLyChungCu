@@ -1,15 +1,6 @@
 ﻿using QuanLyChungCu.DAO;
 using QuanLyChungCu.DTO;
-using QuanLyChungCu.DAO;
-using QuanLyChungCu.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyChungCu
@@ -43,7 +34,7 @@ namespace QuanLyChungCu
             cb_ChuHo.SelectedIndex = -1;
             cb_ChuHo.SelectedItem = null;
 
-            var block = BlockDAO.Instance.GetAllBlock();
+            var block = BlockDAO.Instance.GetAll();
             //Thông tin căn hộ
             cb_CanHo_ToaNha.DataSource = block;
             cb_CanHo_ToaNha.DisplayMember = "MABLOCK";
@@ -154,7 +145,7 @@ namespace QuanLyChungCu
                 return;
             }
             //cb_CanHo_CanHo.DataSource = ApartmentDAO.Instance.GetAllApartmentByLoaiCanHo(selected.Maloai_CH);
-            cb_CanHo_CanHo.DataSource = ApartmentDAO.Instance.GetAllApartment();
+            cb_CanHo_CanHo.DataSource = ApartmentDAO.Instance.GetAll();
             cb_CanHo_CanHo.DisplayMember = "TENCANHO";
             cb_CanHo_CanHo.ValueMember = "MACANHO";
 

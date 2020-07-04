@@ -64,21 +64,21 @@ namespace QuanLyChungCu.DAO
 
         }
 
-        public Messges AddResident(ResidentDTO resident)
+        public Messeges AddResident(ResidentDTO resident)
         {
             string query = "EXEC PR_INSERT_CUDAN  @TenCuDan , @NgaySinh , @SoDienThoai , @Cmnd , @GioiTinh";
             int data = DataProvider.Instance.ExecuteNonQuery(query, new object[]{ resident.TenCuDan, resident.NgaySinh.ToString(), resident.Sdt, resident.Cmnd, resident.GioiTinh });
 
             if (data > 0)
             {
-                return new Messges()
+                return new Messeges()
                 {
                     MessegeType = MessegeType.Success,
                     MessegeContent = "Thêm thành công."
                 };
             }
 
-            return new Messges()
+            return new Messeges()
             {
                 MessegeType = MessegeType.Error,
                 MessegeContent = "Thêm thất bại."

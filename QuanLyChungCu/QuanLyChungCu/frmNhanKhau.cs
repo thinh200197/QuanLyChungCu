@@ -17,7 +17,7 @@ namespace QuanLyChungCu
         {
 
             //Thông tin căn hộ
-            var data = ApartmentDAO.Instance.GetAllApartment();
+            var data = ApartmentDAO.Instance.GetAll();
             cb_CanHo.DataSource = data;
             cb_CanHo.DisplayMember = "TENCANHO";
             cb_CanHo.ValueMember = "MACANHO";

@@ -33,14 +33,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.1.Wizard, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\Guna.UI-Framework-Lib-master\Guna.UI_WinForms\.net 4.0\Guna.UI.dll</HintPath>
     </Reference>
@@ -84,13 +92,20 @@
     <Compile Include="DTO\ApartmentCategogyDTO.cs" />
     <Compile Include="DTO\ApartmentDTO.cs" />
     <Compile Include="DTO\BlockDTO.cs" />
+    <Compile Include="DTO\CuDanDto.cs" />
     <Compile Include="DTO\CuDan_CanHoDTO.cs" />
     <Compile Include="DTO\FloorDTO.cs" />
     <Compile Include="DTO\LoggedUser.cs" />
-    <Compile Include="DTO\Messges.cs" />
+    <Compile Include="DTO\Messeges.cs" />
     <Compile Include="DTO\NhanKhauDTO.cs" />
     <Compile Include="DTO\ResidentDTO.cs" />
     <Compile Include="DTO\MessegeType.cs" />
+    <Compile Include="frmCanHo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCanHo.Designer.cs">
+      <DependentUpon>frmCanHo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCuDan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +150,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCanHo.resx">
+      <DependentUpon>frmCanHo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCuDan.resx">
       <DependentUpon>frmCuDan.cs</DependentUpon>
     </EmbeddedResource>

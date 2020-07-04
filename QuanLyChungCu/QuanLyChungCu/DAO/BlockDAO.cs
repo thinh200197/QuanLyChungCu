@@ -15,7 +15,7 @@ namespace QuanLyChungCu.DAO
         }
         private BlockDAO() { }
 
-        public List<BlockDTO> GetAllBlock()
+        public List<BlockDTO> GetAll()
         {
             string query = "select * from TOANHA";
             DataTable data = new DataTable();
