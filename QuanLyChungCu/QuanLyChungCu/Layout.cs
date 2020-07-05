@@ -103,10 +103,6 @@ namespace QuanLyChungCu
             }
         }
 
-        private void LoadTrangChu()
-        {
-            pl_NoiDung.Controls.Clear();           
-        }
         #endregion
 
         #region Event
@@ -196,22 +192,17 @@ namespace QuanLyChungCu
         {
             ActivateButton(sender);
         }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
-        private void btn_ChungCu_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
-
-        #endregion
-
         private void panel2_Click(object sender, EventArgs e)
         {
             pl_NoiDung.Controls.Clear();
         }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            AddForm(new frmDichVu());
+        }
+        #endregion
 
     }
 }

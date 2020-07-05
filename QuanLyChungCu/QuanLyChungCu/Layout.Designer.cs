@@ -52,7 +52,6 @@
             this.btn_LoaiCanHo = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Tang = new Guna.UI2.WinForms.Guna2Button();
             this.btn_ToaNha = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_ChungCu = new Guna.UI2.WinForms.Guna2Button();
             this.btn_DanhMuc = new Guna.UI2.WinForms.Guna2Button();
             this.pl_Line = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -184,7 +183,7 @@
             this.btn_DangXuat.HoverState.Parent = this.btn_DangXuat;
             this.btn_DangXuat.Image = global::QuanLyChungCu.Properties.Resources.shutdown;
             this.btn_DangXuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_DangXuat.Location = new System.Drawing.Point(0, 482);
+            this.btn_DangXuat.Location = new System.Drawing.Point(0, 456);
             this.btn_DangXuat.Name = "btn_DangXuat";
             this.btn_DangXuat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_DangXuat.ShadowDecoration.Parent = this.btn_DangXuat;
@@ -206,7 +205,7 @@
             this.btn_CaiDat.HoverState.Parent = this.btn_CaiDat;
             this.btn_CaiDat.Image = global::QuanLyChungCu.Properties.Resources.settings_gears;
             this.btn_CaiDat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_CaiDat.Location = new System.Drawing.Point(0, 457);
+            this.btn_CaiDat.Location = new System.Drawing.Point(0, 431);
             this.btn_CaiDat.Name = "btn_CaiDat";
             this.btn_CaiDat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_CaiDat.ShadowDecoration.Parent = this.btn_CaiDat;
@@ -228,7 +227,7 @@
             this.btn_TTCN.HoverState.Parent = this.btn_TTCN;
             this.btn_TTCN.Image = global::QuanLyChungCu.Properties.Resources.user;
             this.btn_TTCN.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_TTCN.Location = new System.Drawing.Point(0, 432);
+            this.btn_TTCN.Location = new System.Drawing.Point(0, 406);
             this.btn_TTCN.Name = "btn_TTCN";
             this.btn_TTCN.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_TTCN.ShadowDecoration.Parent = this.btn_TTCN;
@@ -250,7 +249,7 @@
             this.btn_DKyNhanKhau.HoverState.Parent = this.btn_DKyNhanKhau;
             this.btn_DKyNhanKhau.Image = global::QuanLyChungCu.Properties.Resources.DangKyNhanKhau;
             this.btn_DKyNhanKhau.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_DKyNhanKhau.Location = new System.Drawing.Point(0, 407);
+            this.btn_DKyNhanKhau.Location = new System.Drawing.Point(0, 381);
             this.btn_DKyNhanKhau.Name = "btn_DKyNhanKhau";
             this.btn_DKyNhanKhau.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_DKyNhanKhau.ShadowDecoration.Parent = this.btn_DKyNhanKhau;
@@ -266,7 +265,7 @@
             this.plDichVuSubMenu.Controls.Add(this.btn_DVCC);
             this.plDichVuSubMenu.Controls.Add(this.btn_DVDK);
             this.plDichVuSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.plDichVuSubMenu.Location = new System.Drawing.Point(0, 354);
+            this.plDichVuSubMenu.Location = new System.Drawing.Point(0, 328);
             this.plDichVuSubMenu.Name = "plDichVuSubMenu";
             this.plDichVuSubMenu.Size = new System.Drawing.Size(180, 53);
             this.plDichVuSubMenu.TabIndex = 32;
@@ -329,7 +328,7 @@
             this.btnDichVu.HoverState.Parent = this.btnDichVu;
             this.btnDichVu.Image = global::QuanLyChungCu.Properties.Resources.about_us;
             this.btnDichVu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDichVu.Location = new System.Drawing.Point(0, 329);
+            this.btnDichVu.Location = new System.Drawing.Point(0, 303);
             this.btnDichVu.Name = "btnDichVu";
             this.btnDichVu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnDichVu.ShadowDecoration.Parent = this.btnDichVu;
@@ -347,12 +346,11 @@
             this.plDanhMucSubMenu.Controls.Add(this.btn_LoaiCanHo);
             this.plDanhMucSubMenu.Controls.Add(this.btn_Tang);
             this.plDanhMucSubMenu.Controls.Add(this.btn_ToaNha);
-            this.plDanhMucSubMenu.Controls.Add(this.btn_ChungCu);
             this.plDanhMucSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.plDanhMucSubMenu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.plDanhMucSubMenu.Location = new System.Drawing.Point(0, 149);
             this.plDanhMucSubMenu.Name = "plDanhMucSubMenu";
-            this.plDanhMucSubMenu.Size = new System.Drawing.Size(180, 180);
+            this.plDanhMucSubMenu.Size = new System.Drawing.Size(180, 154);
             this.plDanhMucSubMenu.TabIndex = 0;
             // 
             // guna2Button6
@@ -368,7 +366,7 @@
             this.guna2Button6.HoverState.Parent = this.guna2Button6;
             this.guna2Button6.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button6.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button6.Location = new System.Drawing.Point(0, 150);
+            this.guna2Button6.Location = new System.Drawing.Point(0, 125);
             this.guna2Button6.Name = "guna2Button6";
             this.guna2Button6.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.guna2Button6.ShadowDecoration.Parent = this.guna2Button6;
@@ -376,6 +374,7 @@
             this.guna2Button6.TabIndex = 24;
             this.guna2Button6.Text = "Dịch vụ";
             this.guna2Button6.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button6.Click += new System.EventHandler(this.guna2Button6_Click);
             // 
             // btn_LoaiDichVu
             // 
@@ -390,7 +389,7 @@
             this.btn_LoaiDichVu.HoverState.Parent = this.btn_LoaiDichVu;
             this.btn_LoaiDichVu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_LoaiDichVu.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_LoaiDichVu.Location = new System.Drawing.Point(0, 125);
+            this.btn_LoaiDichVu.Location = new System.Drawing.Point(0, 100);
             this.btn_LoaiDichVu.Name = "btn_LoaiDichVu";
             this.btn_LoaiDichVu.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btn_LoaiDichVu.ShadowDecoration.Parent = this.btn_LoaiDichVu;
@@ -413,7 +412,7 @@
             this.btn_CanHo.HoverState.Parent = this.btn_CanHo;
             this.btn_CanHo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_CanHo.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_CanHo.Location = new System.Drawing.Point(0, 100);
+            this.btn_CanHo.Location = new System.Drawing.Point(0, 75);
             this.btn_CanHo.Name = "btn_CanHo";
             this.btn_CanHo.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btn_CanHo.ShadowDecoration.Parent = this.btn_CanHo;
@@ -436,7 +435,7 @@
             this.btn_LoaiCanHo.HoverState.Parent = this.btn_LoaiCanHo;
             this.btn_LoaiCanHo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_LoaiCanHo.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_LoaiCanHo.Location = new System.Drawing.Point(0, 75);
+            this.btn_LoaiCanHo.Location = new System.Drawing.Point(0, 50);
             this.btn_LoaiCanHo.Name = "btn_LoaiCanHo";
             this.btn_LoaiCanHo.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btn_LoaiCanHo.ShadowDecoration.Parent = this.btn_LoaiCanHo;
@@ -459,7 +458,7 @@
             this.btn_Tang.HoverState.Parent = this.btn_Tang;
             this.btn_Tang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_Tang.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_Tang.Location = new System.Drawing.Point(0, 50);
+            this.btn_Tang.Location = new System.Drawing.Point(0, 25);
             this.btn_Tang.Name = "btn_Tang";
             this.btn_Tang.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btn_Tang.ShadowDecoration.Parent = this.btn_Tang;
@@ -482,7 +481,7 @@
             this.btn_ToaNha.HoverState.Parent = this.btn_ToaNha;
             this.btn_ToaNha.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_ToaNha.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_ToaNha.Location = new System.Drawing.Point(0, 25);
+            this.btn_ToaNha.Location = new System.Drawing.Point(0, 0);
             this.btn_ToaNha.Name = "btn_ToaNha";
             this.btn_ToaNha.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btn_ToaNha.ShadowDecoration.Parent = this.btn_ToaNha;
@@ -491,29 +490,6 @@
             this.btn_ToaNha.Text = "Tòa nhà";
             this.btn_ToaNha.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_ToaNha.Click += new System.EventHandler(this.btnToaNha_Click);
-            // 
-            // btn_ChungCu
-            // 
-            this.btn_ChungCu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(78)))), ((int)(((byte)(107)))));
-            this.btn_ChungCu.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(114)))), ((int)(((byte)(172)))));
-            this.btn_ChungCu.CheckedState.Parent = this.btn_ChungCu;
-            this.btn_ChungCu.CustomImages.Parent = this.btn_ChungCu;
-            this.btn_ChungCu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_ChungCu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(78)))), ((int)(((byte)(107)))));
-            this.btn_ChungCu.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_ChungCu.ForeColor = System.Drawing.Color.White;
-            this.btn_ChungCu.HoverState.Parent = this.btn_ChungCu;
-            this.btn_ChungCu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_ChungCu.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_ChungCu.Location = new System.Drawing.Point(0, 0);
-            this.btn_ChungCu.Name = "btn_ChungCu";
-            this.btn_ChungCu.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btn_ChungCu.ShadowDecoration.Parent = this.btn_ChungCu;
-            this.btn_ChungCu.Size = new System.Drawing.Size(180, 25);
-            this.btn_ChungCu.TabIndex = 2;
-            this.btn_ChungCu.Text = "Thông tin chung cư";
-            this.btn_ChungCu.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_ChungCu.Click += new System.EventHandler(this.btn_ChungCu_Click);
             // 
             // btn_DanhMuc
             // 
@@ -584,6 +560,7 @@
             // pl_NoiDung
             // 
             this.pl_NoiDung.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pl_NoiDung.BackgroundImage = global::QuanLyChungCu.Properties.Resources.TrangChu1;
             this.pl_NoiDung.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pl_NoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pl_NoiDung.Location = new System.Drawing.Point(180, 84);
@@ -641,7 +618,6 @@
         private Guna.UI2.WinForms.Guna2Button btn_LoaiCanHo;
         private Guna.UI2.WinForms.Guna2Button btn_Tang;
         private Guna.UI2.WinForms.Guna2Button btn_ToaNha;
-        private Guna.UI2.WinForms.Guna2Button btn_ChungCu;
         private System.Windows.Forms.Panel plDichVuSubMenu;
         private Guna.UI2.WinForms.Guna2Button btn_DVCC;
         private Guna.UI2.WinForms.Guna2Button btn_DVDK;

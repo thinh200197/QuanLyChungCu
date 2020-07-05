@@ -55,11 +55,6 @@
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\Guna.UI-Framework-Lib-master\Guna UI Activation\Guna UI Activation\bin\Debug\Guna.UI2.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.Shared.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics2.Win.Misc.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics2.Win.UltraWinEditors.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
-    <Reference Include="Infragistics2.Win.UltraWinGrid.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
-    <Reference Include="Infragistics2.Win.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -90,6 +85,7 @@
     <Compile Include="DAO\ResidentApartmentDAO.cs" />
     <Compile Include="DAO\ResidentDAO.cs" />
     <Compile Include="DAO\ServiceCategogyDAO.cs" />
+    <Compile Include="DAO\ServiceDAO.cs" />
     <Compile Include="DTO\ApartmentCategogyDTO.cs" />
     <Compile Include="DTO\ApartmentDTO.cs" />
     <Compile Include="DTO\BlockDTO.cs" />
@@ -102,6 +98,7 @@
     <Compile Include="DTO\ResidentDTO.cs" />
     <Compile Include="Commont\MessegeType.cs" />
     <Compile Include="DTO\ServiceCategogyDTO.cs" />
+    <Compile Include="DTO\ServiceDTO.cs" />
     <Compile Include="frmCanHo.cs">
       <SubType>Form</SubType>
     </Compile>
