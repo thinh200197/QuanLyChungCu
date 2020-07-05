@@ -89,6 +89,7 @@
     <Compile Include="DAO\NhanKhauDAO.cs" />
     <Compile Include="DAO\ResidentApartmentDAO.cs" />
     <Compile Include="DAO\ResidentDAO.cs" />
+    <Compile Include="DAO\ServiceCategogyDAO.cs" />
     <Compile Include="DTO\ApartmentCategogyDTO.cs" />
     <Compile Include="DTO\ApartmentDTO.cs" />
     <Compile Include="DTO\BlockDTO.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="DTO\NhanKhauDTO.cs" />
     <Compile Include="DTO\ResidentDTO.cs" />
     <Compile Include="Commont\MessegeType.cs" />
+    <Compile Include="DTO\ServiceCategogyDTO.cs" />
     <Compile Include="frmCanHo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +137,12 @@
     </Compile>
     <Compile Include="frmLoaiCanHo.Designer.cs">
       <DependentUpon>frmLoaiCanHo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoaiDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoaiDichVu.Designer.cs">
+      <DependentUpon>frmLoaiDichVu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -185,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoaiCanHo.resx">
       <DependentUpon>frmLoaiCanHo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoaiDichVu.resx">
+      <DependentUpon>frmLoaiDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

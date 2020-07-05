@@ -9,6 +9,7 @@ namespace QuanLyChungCu
 {
     public partial class frmLoaiCanHo : Form
     {
+        bool isSave = false;
         public frmLoaiCanHo()
         {
             InitializeComponent();
@@ -63,15 +64,22 @@ namespace QuanLyChungCu
         private void btnNew_Click(object sender, EventArgs e)
         {
             Clear();
+            isSave = true;
             EnableControl(true);
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            isSave = true;
             EnableControl(true);
             txt_MaLoaiCH.Enabled = false;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!isSave)
+            {
+                return;
+            }
+
             var errors = valiInput();
 
             if (errors.Any())
@@ -126,7 +134,7 @@ namespace QuanLyChungCu
             {
                 return;
             }
-
+            isSave = false;
             EnableControl(false);
 
             txt_MaLoaiCH.Text = row.Maloai_CH;

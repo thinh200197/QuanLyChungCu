@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraEditors.Filtering.Templates;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,24 +8,12 @@ using System.Threading.Tasks;
 
 namespace QuanLyChungCu.DTO
 {
-    public class BlockDTO
+    public class ServiceCategogyDTO
     {
-        [DisplayName("Mã Tòa Nhà")]
-        public string MaBlock { get; set; }
-        [DisplayName("Tên Tòa Nhà")]
-        public string TenBlock { get; set; }
-        [DisplayName("Ngày Tạo")]
-        public DateTime? CREATE_DATE { get; set; }
-        [DisplayName("Người Tạo")]
-        public int? CREATE_BY { get; set; }
-        [DisplayName("Ngày Cập Nhật")]
-        public DateTime? UPDATE_DATE { get; set; }
-        [DisplayName("Người Cập Nhật")]
-        public int? UPDATE_BY { get; set; }
-        public BlockDTO(DataRow row)
+        public ServiceCategogyDTO(DataRow row)
         {
-            MaBlock = row["MABLOCK"].ToString();
-                TenBlock = row["TENBLOCK"].ToString();
+            ID = int.Parse(row["ID"].ToString());
+            Name = row["TENLOAIDICHVU"].ToString();
 
             CREATE_DATE = null;
             UPDATE_DATE = null;
@@ -50,7 +37,19 @@ namespace QuanLyChungCu.DTO
                 UPDATE_BY = int.Parse(row["UPDATE_BY"].ToString());
             }
         }
-        public BlockDTO() { }
-       
+        public ServiceCategogyDTO() { }
+        [DisplayName("Mã Loại Dịch Vụ")]
+        public int ID { get; set; }
+        [DisplayName("Mã Tòa Nhà")]
+        public string Name { get; set; }
+        [DisplayName("Ngày Tạo")]
+        public DateTime? CREATE_DATE { get; set; }
+        [DisplayName("Người Tạo")]
+        public int? CREATE_BY { get; set; }
+
+        [DisplayName("Ngày Cập Nhật")]
+        public DateTime? UPDATE_DATE { get; set; }
+        [DisplayName("Người Cập Nhật")]
+        public int? UPDATE_BY { get; set; }
     }
 }

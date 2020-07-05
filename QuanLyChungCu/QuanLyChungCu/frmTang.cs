@@ -14,6 +14,7 @@ namespace QuanLyChungCu
 {
     public partial class frmTang : Form
     {
+        bool isSave = false;
         public frmTang()
         {
             InitializeComponent();
@@ -71,15 +72,21 @@ namespace QuanLyChungCu
         private void btnNew_Click(object sender, EventArgs e)
         {
             Clear();
+            isSave = true;
             EnableControl(true);
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            isSave = true;
             txt_TenTang.Enabled = true;
             cb_ToaNha.Enabled = true;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!isSave)
+            {
+                return;
+            }
             var errors = valiInput();
 
             if (errors.Any())
@@ -129,7 +136,7 @@ namespace QuanLyChungCu
                 return;
             }
             EnableControl(false);
-
+            isSave = false;
             txt_MaTang.Text = row.MaTangLau;
             txt_TenTang.Text = row.TenTangLau;
             cb_ToaNha.SelectedValue = row.MaBlock;
