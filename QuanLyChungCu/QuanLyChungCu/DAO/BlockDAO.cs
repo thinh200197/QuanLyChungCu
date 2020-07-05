@@ -1,4 +1,5 @@
-﻿using QuanLyChungCu.DTO;
+﻿using DevExpress.Xpo.DB.Helpers;
+using QuanLyChungCu.DTO;
 using System.Collections.Generic;
 using System.Data;
 
@@ -14,13 +15,12 @@ namespace QuanLyChungCu.DAO
             private set => instance = value;
         }
         private BlockDAO() { }
-
         public List<BlockDTO> GetAll()
         {
             string query = "select * from TOANHA";
             DataTable data = new DataTable();
             data = DataProvider.Instance.ExecuteQuery(query);
-            
+
             var lstBlock = new List<BlockDTO>();
             foreach (DataRow row in data.Rows)
             {
@@ -28,6 +28,65 @@ namespace QuanLyChungCu.DAO
             }
 
             return lstBlock;
+        }
+        public Messeges Add(BlockDTO b)
+        {
+            string query = string.Format(
+                "INSERT TOANHA(MABLOCK, TENBLOCK, CREATE_DATE, CREATE_BY, UPDATE_DATE, UPDATE_BY) " +
+                "VALUES('{0}', N'{1}', GETDATE(), NULL, NULL, NULL)"
+                , b.MaBlock, b.TenBlock);
+
+            var result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            if (result > 0)
+            {
+                return new Messeges()
+                {
+                    MessegeContent = "Thành công !",
+                    MessegeType = MessegeType.Success
+                };
+            }
+
+            return new Messeges()
+            {
+                MessegeContent = "Thất bại !",
+                MessegeType = MessegeType.Error
+            };
+        }
+        public Messeges Update(BlockDTO b)
+        {
+            string query = string.Format(
+                "UPDATE TOANHA " +
+                "SET TENBLOCK = N'{1}' , UPDATE_DATE = GETDATE() " +
+                "WHERE MABLOCK = '{0}'"
+                , b.MaBlock, b.TenBlock);
+
+            var result = DataProvider.Instance.ExecuteNonQuery(query);
+
+            if (result > 0)
+            {
+                return new Messeges()
+                {
+                    MessegeContent = "Thành công !",
+                    MessegeType = MessegeType.Success
+                };
+            }
+
+            return new Messeges()
+            {
+                MessegeContent = "Thất bại !",
+                MessegeType = MessegeType.Error
+            };
+        }
+        public BlockDTO GetBlockById(string maBlock)
+        {
+            string query = $"SELECT * FROM TOANHA WHERE MABLOCK = '{maBlock}'";
+            var data = DataProvider.Instance.ExecuteQuery(query);
+            if (data.Rows.Count > 0)
+            {
+                return new BlockDTO(data.Rows[0]);
+            }
+            return new BlockDTO();
         }
     }
 }

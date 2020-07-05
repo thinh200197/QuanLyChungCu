@@ -21,9 +21,9 @@ namespace QuanLyChungCu.DAO
         {
             string query = $"PR_login @username , @password";
 
-            DataTable resulf = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord });
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord });
 
-            return resulf.Rows.Count > 0;
+            return result.Rows.Count > 0;
         }
     }
 }

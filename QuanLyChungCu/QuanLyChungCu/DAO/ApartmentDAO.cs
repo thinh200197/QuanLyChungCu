@@ -67,13 +67,13 @@ namespace QuanLyChungCu.DAO
             string query = "EXEC GetCustomApartment";
             var data = DataProvider.Instance.ExecuteQuery(query);
 
-            var resulf = new List<CuDanDto>();
+            var result = new List<CuDanDto>();
             foreach (DataRow row in data.Rows)
             {
-                resulf.Add(new CuDanDto(row));
+                result.Add(new CuDanDto(row));
             }
 
-            return resulf;
+            return result;
         }
 
         public Messeges Add(ApartmentDTO request)
@@ -82,9 +82,9 @@ namespace QuanLyChungCu.DAO
             {
                 string query = string.Format("INSERT CANHO (MATANGLAU,MALOAI_CH,TENCANHO,SONGUOIO,CHUHO)" +
               "VALUE ('{0}','{1}','{2}',{3},{4})", request.MaTangLau, request.MaLoaiCanHo, request.TenCanHo,request.SoNguoiO,request.ChuHo);
-                int resulf = DataProvider.Instance.ExecuteNonQuery(query);
+                int result = DataProvider.Instance.ExecuteNonQuery(query);
 
-                if (resulf > 0)
+                if (result > 0)
                 {
                     return new Messeges()
                     {
@@ -117,9 +117,9 @@ namespace QuanLyChungCu.DAO
                     "SET MATANGLAU = '{0}' , MALOAI_CH = '{1}' ,TENCANHO = '{2}',SONGUOIO = {3} ,CHUHO = {4} " +
                     "WHERE MACANHO = '{5}'", 
               request.MaTangLau, request.MaLoaiCanHo, request.TenCanHo, request.SoNguoiO, request.ChuHo,request.MaCanHo);
-                int resulf = DataProvider.Instance.ExecuteNonQuery(query);
+                int result = DataProvider.Instance.ExecuteNonQuery(query);
 
-                if (resulf > 0)
+                if (result > 0)
                 {
                     return new Messeges()
                     {

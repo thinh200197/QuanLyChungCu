@@ -119,3 +119,38 @@ create view VIEW_APARTMENT AS
 	inner join TOANHA tn on tn.MABLOCK = t.MABLOCK
 	left join CUDAN cd on ch.CHUHO = cd.MACUDAN
 GO
+
+create view VIEW_BLOCK AS
+	select ch.*,tn.MABLOCK, tn.TENBLOCK,t.TENTANGLAU,lch.TENLOAI_CH,cd.MACUDAN,cd.CHUNGMINHNHANDAN 
+	from CANHO ch
+	inner join LOAICANHO lch on ch.MALOAI_CH = lch.MALOAI_CH
+	inner join TANGLAU t on t.MATANGLAU = ch.MATANGLAU
+	inner join TOANHA tn on tn.MABLOCK = t.MABLOCK
+	left join CUDAN cd on ch.CHUHO = cd.MACUDAN
+GO
+
+
+create view VIEW_FLOOR AS
+	select tl.*,tn.TENBLOCK
+	from TANGLAU tl
+	inner join TOANHA tn on tn.MABLOCK = tl.MABLOCK
+GO
+
+create proc INSERT_FLOOR 
+@MATANGLAU varchar(30), @TENTANGLAU nvarchar(50), @MABLOCK varchar(30)
+as
+begin
+	INSERT TANGLAU (MATANGLAU,TENTANGLAU,MABLOCK) VALUES(@MATANGLAU,@TENTANGLAU,@MABLOCK)
+end
+go
+
+create proc UPDATE_FLOOR 
+@MATANGLAU varchar(30), @TENTANGLAU nvarchar(50), @MABLOCK varchar(30)
+as
+begin
+	UPDATE TANGLAU 
+	SET TENTANGLAU = @TENTANGLAU , MABLOCK = @MABLOCK
+	WHERE MATANGLAU = @MATANGLAU
+end
+go
+

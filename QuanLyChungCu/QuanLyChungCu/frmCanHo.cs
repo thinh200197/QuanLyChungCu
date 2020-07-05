@@ -55,6 +55,21 @@ namespace QuanLyChungCu
             gridView1.Columns["MaBlock"].Visible = false;
             gridView1.Columns["MaLoaiCanHo"].Visible = false;
             gridView1.Columns["MaTangLau"].Visible = false;
+            gridView1.Columns["ChuHo"].Visible = false;
+        }
+        private void EnableButton(bool enable)
+        {
+            cb_LoaiCanHo.Enabled = enable;
+            cb_Tang.Enabled = enable;
+            cb_ToaNha.Enabled = enable;
+            txt_TenCanHo.Enabled = enable;
+            cb_TenChuHo.Enabled = enable;
+            txt_MaCanHo.Enabled = enable;
+        }
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            isSave = true;
+            EnableButton(true);
         }
         #endregion
 
@@ -123,8 +138,8 @@ namespace QuanLyChungCu
 
             var tang = FloorDAO.Instance.GetAllFloorByMaBlock(block.ToString());
             cb_Tang.DataSource = tang;
-            cb_Tang.ValueMember = "MATANGLAU";
-            cb_Tang.DisplayMember = "TENTANGLAU";
+            cb_Tang.ValueMember = "MaTangLau";
+            cb_Tang.DisplayMember = "TenTangLau";
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -144,7 +159,7 @@ namespace QuanLyChungCu
 
             var id = txt_MaCanHo.Text;
             var ch = new ApartmentDTO();
-            var resulf = new Messeges();
+            var result = new Messeges();
             ch.MaLoaiCanHo = cb_LoaiCanHo.SelectedValue.ToString();
             ch.MaTangLau = cb_Tang.SelectedValue.ToString();
             ch.TenCanHo = txt_TenCanHo.Text;
@@ -154,17 +169,17 @@ namespace QuanLyChungCu
             {
                 var row = gridView1.GetFocusedRow() as ApartmentDTO;
                 ch.MaCanHo = row.MaCanHo;
-                resulf = ApartmentDAO.Instance.Update(ch);
+                result = ApartmentDAO.Instance.Update(ch);
             }
             else
             {
                 
-                resulf = ApartmentDAO.Instance.Add(ch);
+                result = ApartmentDAO.Instance.Add(ch);
             }
 
-            MessageBox.Show(resulf.MessegeContent, "Thông báo");
+            MessageBox.Show(result.MessegeContent, "Thông báo");
 
-            if (resulf.MessegeType == MessegeType.Success)
+            if (result.MessegeType == MessegeType.Success)
             {
                 LoadGrid();
                 isSave = false;
@@ -175,19 +190,6 @@ namespace QuanLyChungCu
         }
 
         #endregion
-        private void EnableButton(bool enable)
-        {
-            cb_LoaiCanHo.Enabled = enable;
-            cb_Tang.Enabled = enable;
-            cb_ToaNha.Enabled = enable;
-            txt_TenCanHo.Enabled = enable;
-            cb_TenChuHo.Enabled = enable;
-            txt_MaCanHo.Enabled = enable;
-        }
-        private void btn_Edit_Click(object sender, EventArgs e)
-        {
-            isSave = true;
-            EnableButton(true);
-        }
+       
     }
 }

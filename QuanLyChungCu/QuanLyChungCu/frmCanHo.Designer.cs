@@ -43,7 +43,9 @@
             this.cb_ToaNha = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txt_MaCanHo = new DevExpress.XtraEditors.TextEdit();
             this.txt_SoNguoiO = new DevExpress.XtraEditors.TextEdit();
+            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_TenCanHo = new DevExpress.XtraEditors.TextEdit();
             this.txt_CmndChuHo = new DevExpress.XtraEditors.TextEdit();
@@ -51,8 +53,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_MaCanHo = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gb_CanHo)).BeginInit();
             this.gb_CanHo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).BeginInit();
@@ -61,10 +61,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_MaCanHo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_SoNguoiO.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TenCanHo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_CmndChuHo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_MaCanHo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_CanHo
@@ -73,9 +73,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_CanHo.Controls.Add(this.gridSplitContainer1);
-            this.gb_CanHo.Location = new System.Drawing.Point(12, 258);
+            this.gb_CanHo.Location = new System.Drawing.Point(12, 194);
             this.gb_CanHo.Name = "gb_CanHo";
-            this.gb_CanHo.Size = new System.Drawing.Size(776, 316);
+            this.gb_CanHo.Size = new System.Drawing.Size(776, 380);
             this.gb_CanHo.TabIndex = 5;
             this.gb_CanHo.Text = "Danh Sách Căn Hộ";
             // 
@@ -86,7 +86,7 @@
             this.gridSplitContainer1.Location = new System.Drawing.Point(2, 20);
             this.gridSplitContainer1.Name = "gridSplitContainer1";
             this.gridSplitContainer1.Panel1.Controls.Add(this.gv_CanHo);
-            this.gridSplitContainer1.Size = new System.Drawing.Size(772, 294);
+            this.gridSplitContainer1.Size = new System.Drawing.Size(772, 358);
             this.gridSplitContainer1.TabIndex = 0;
             // 
             // gv_CanHo
@@ -98,7 +98,7 @@
             this.gv_CanHo.Location = new System.Drawing.Point(0, 0);
             this.gv_CanHo.MainView = this.gridView1;
             this.gv_CanHo.Name = "gv_CanHo";
-            this.gv_CanHo.Size = new System.Drawing.Size(772, 294);
+            this.gv_CanHo.Size = new System.Drawing.Size(772, 358);
             this.gv_CanHo.TabIndex = 1;
             this.gv_CanHo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -137,7 +137,7 @@
             this.groupControl3.Controls.Add(this.label1);
             this.groupControl3.Location = new System.Drawing.Point(12, 12);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(770, 226);
+            this.groupControl3.Size = new System.Drawing.Size(770, 168);
             this.groupControl3.TabIndex = 23;
             this.groupControl3.Text = "Thông Tin Căn Hộ";
             // 
@@ -150,7 +150,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSave.Location = new System.Drawing.Point(689, 177);
+            this.btnSave.Location = new System.Drawing.Point(683, 127);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 31);
             this.btnSave.TabIndex = 39;
@@ -167,7 +167,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEdit.Location = new System.Drawing.Point(599, 177);
+            this.btnEdit.Location = new System.Drawing.Point(593, 127);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 31);
@@ -185,7 +185,7 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNew.Location = new System.Drawing.Point(509, 177);
+            this.btnNew.Location = new System.Drawing.Point(503, 127);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 31);
             this.btnNew.TabIndex = 37;
@@ -263,6 +263,16 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "Tầng";
             // 
+            // txt_MaCanHo
+            // 
+            this.txt_MaCanHo.Enabled = false;
+            this.txt_MaCanHo.Location = new System.Drawing.Point(367, 134);
+            this.txt_MaCanHo.Name = "txt_MaCanHo";
+            this.txt_MaCanHo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_MaCanHo.Properties.Appearance.Options.UseFont = true;
+            this.txt_MaCanHo.Size = new System.Drawing.Size(75, 24);
+            this.txt_MaCanHo.TabIndex = 30;
+            // 
             // txt_SoNguoiO
             // 
             this.txt_SoNguoiO.Enabled = false;
@@ -272,6 +282,16 @@
             this.txt_SoNguoiO.Properties.Appearance.Options.UseFont = true;
             this.txt_SoNguoiO.Size = new System.Drawing.Size(59, 24);
             this.txt_SoNguoiO.TabIndex = 30;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(286, 138);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 17);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Mã Căn Hộ";
             // 
             // label6
             // 
@@ -342,26 +362,6 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "Tòa Nhà";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(286, 138);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 17);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Mã Căn Hộ";
-            // 
-            // txt_MaCanHo
-            // 
-            this.txt_MaCanHo.Enabled = false;
-            this.txt_MaCanHo.Location = new System.Drawing.Point(367, 134);
-            this.txt_MaCanHo.Name = "txt_MaCanHo";
-            this.txt_MaCanHo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_MaCanHo.Properties.Appearance.Options.UseFont = true;
-            this.txt_MaCanHo.Size = new System.Drawing.Size(75, 24);
-            this.txt_MaCanHo.TabIndex = 30;
-            // 
             // frmCanHo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,10 +383,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_MaCanHo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_SoNguoiO.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TenCanHo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_CmndChuHo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_MaCanHo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

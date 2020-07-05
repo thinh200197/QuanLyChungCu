@@ -95,11 +95,11 @@
     <Compile Include="DTO\CuDanDto.cs" />
     <Compile Include="DTO\CuDan_CanHoDTO.cs" />
     <Compile Include="DTO\FloorDTO.cs" />
-    <Compile Include="DTO\LoggedUser.cs" />
-    <Compile Include="DTO\Messeges.cs" />
+    <Compile Include="Commont\LoggedUser.cs" />
+    <Compile Include="Commont\Messeges.cs" />
     <Compile Include="DTO\NhanKhauDTO.cs" />
     <Compile Include="DTO\ResidentDTO.cs" />
-    <Compile Include="DTO\MessegeType.cs" />
+    <Compile Include="Commont\MessegeType.cs" />
     <Compile Include="frmCanHo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +142,18 @@
     <Compile Include="frmNhanKhau.Designer.cs">
       <DependentUpon>frmNhanKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTang.Designer.cs">
+      <DependentUpon>frmTang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmToaNha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmToaNha.Designer.cs">
+      <DependentUpon>frmToaNha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +182,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhanKhau.resx">
       <DependentUpon>frmNhanKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTang.resx">
+      <DependentUpon>frmTang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmToaNha.resx">
+      <DependentUpon>frmToaNha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout.resx">
       <DependentUpon>Layout.cs</DependentUpon>

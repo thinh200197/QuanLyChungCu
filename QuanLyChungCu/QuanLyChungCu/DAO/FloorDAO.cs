@@ -1,4 +1,5 @@
-﻿using QuanLyChungCu.DTO;
+﻿using DevExpress.Xpo.DB.Helpers;
+using QuanLyChungCu.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,9 +19,9 @@ namespace QuanLyChungCu.DAO
         }
         private FloorDAO() { }
 
-        public List<FloorDTO> GetAllFloor()
+        public List<FloorDTO> GetAll()
         {
-            string query = "select * from TANGLAU";
+            string query = "select * from VIEW_FLOOR";
             DataTable data =  DataProvider.Instance.ExecuteQuery(query);
 
             var lstFloor = new List<FloorDTO>();
@@ -33,7 +34,7 @@ namespace QuanLyChungCu.DAO
         }
         public List<FloorDTO> GetAllFloorByMaBlock(string maBlock)
         {
-            string query = "select * from TANGLAU where MABLOCK = '" + maBlock + "'";
+            string query = "select * from VIEW_FLOOR where MABLOCK = '" + maBlock + "'";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             var lstFloor = new List<FloorDTO>();
@@ -44,6 +45,57 @@ namespace QuanLyChungCu.DAO
             }
 
             return lstFloor;
+        }
+
+        public FloorDTO GetFoolById(string maTang)
+        {
+            string query = $"SELECT * FROM TANGLAU WHERE MATANG = '{maTang}' ";
+            var data = DataProvider.Instance.ExecuteQuery(query);
+            if (data != null)
+            {
+                return new FloorDTO(data.Rows[0]);
+            }
+            return new FloorDTO();
+        }
+        public Messeges Add(FloorDTO f)
+        {
+            string query = $"EXEC INSERT_FLOOR @MATANGLAU , @TENTANGLAU , @MABLOCK ";
+            int data = DataProvider.Instance.ExecuteNonQuery(query,new object[]{ f.MaTangLau, f.TenTangLau, f.MaBlock });
+
+            if (data > 0 )
+            {
+                return new Messeges()
+                {
+                    MessegeContent = "Thành công !",
+                    MessegeType = MessegeType.Success
+                };
+            }
+
+            return new Messeges()
+            {
+                MessegeContent = "Thất bại !",
+                MessegeType = MessegeType.Error
+            };
+        }
+        public Messeges Update(FloorDTO f)
+        {
+            string query = $"EXEC UPDATE_FLOOR @MATANGLAU , @TENTANGLAU , @MABLOCK ";
+            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { f.MaTangLau, f.TenTangLau, f.MaBlock });
+
+            if (data > 0)
+            {
+                return new Messeges()
+                {
+                    MessegeContent = "Thành công !",
+                    MessegeType = MessegeType.Success
+                };
+            }
+
+            return new Messeges()
+            {
+                MessegeContent = "Thất bại !",
+                MessegeType = MessegeType.Error
+            };
         }
     }
 }

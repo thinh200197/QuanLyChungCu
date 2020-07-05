@@ -68,8 +68,8 @@ namespace QuanLyChungCu
             try
             {
                 int id = string.IsNullOrEmpty(txt_ID.Text) ? 0 : int.Parse(txt_ID.Text);
-                var resulf = NhanKhauDAO.Instance.ThemNhanKhau(id, cuDan, canHo);
-                if (resulf.MessegeType == MessegeType.Success)
+                var result = NhanKhauDAO.Instance.ThemNhanKhau(id, cuDan, canHo);
+                if (result.MessegeType == MessegeType.Success)
                 {
                     LoadNhanKhau();
                     MessageBox.Show("Cập nhật thành công.", "Thông báo");

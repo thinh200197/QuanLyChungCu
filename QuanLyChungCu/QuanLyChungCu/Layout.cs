@@ -141,7 +141,7 @@ namespace QuanLyChungCu
         private void btnToaNha_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            //AddForm(new frmBlock());
+            AddForm(new frmToaNha());
         }
 
         private void btnDichVu_Click(object sender, EventArgs e)
@@ -165,6 +165,7 @@ namespace QuanLyChungCu
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            AddForm(new frmTang());
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)

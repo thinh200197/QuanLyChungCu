@@ -21,20 +21,20 @@ namespace QuanLyChungCu.DAO
             DataTable data = new DataTable();
             data = DataProvider.Instance.ExecuteQuery(query);
 
-            var resulf = new List<CuDan_CanHoDTO>();
+            var result = new List<CuDan_CanHoDTO>();
             foreach (DataRow row in data.Rows)
             {
-                resulf.Add(new CuDan_CanHoDTO(row));
+                result.Add(new CuDan_CanHoDTO(row));
             }
 
-            return resulf;
+            return result;
         }
         public CuDan_CanHoDTO LayTTNK(int maCuDan, string maCanHo)
         {
             string query = string.Format("SELECT * FROM CUDAN_CANHO WHERE MACUDAN = '{0}' AND MACANHO = '{1}'", maCuDan, maCanHo);
             var data = DataProvider.Instance.ExecuteQuery(query);
-            var resulf = new CuDan_CanHoDTO(data.Rows[0]);
-            return resulf;
+            var result = new CuDan_CanHoDTO(data.Rows[0]);
+            return result;
         }
 
         public CuDan_CanHoDTO LayTTNK_DangO(int maCuDan)
@@ -45,8 +45,8 @@ namespace QuanLyChungCu.DAO
             {
                 return new CuDan_CanHoDTO();
             }
-            var resulf = new CuDan_CanHoDTO(data.Rows[0]);
-            return resulf;
+            var result = new CuDan_CanHoDTO(data.Rows[0]);
+            return result;
         }
         public void CapNhatNgayHetO(int id)
         {
@@ -93,8 +93,8 @@ namespace QuanLyChungCu.DAO
             {
                 return new CuDan_CanHoDTO();
             }
-            var resulf = new CuDan_CanHoDTO(data.Rows[0]);
-            return resulf;
+            var result = new CuDan_CanHoDTO(data.Rows[0]);
+            return result;
         }
 
         public Messeges CapNhat(CuDan_CanHoDTO cdch)
