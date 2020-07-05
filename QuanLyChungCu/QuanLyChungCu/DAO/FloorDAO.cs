@@ -51,7 +51,7 @@ namespace QuanLyChungCu.DAO
         {
             string query = $"SELECT * FROM TANGLAU WHERE MATANG = '{maTang}' ";
             var data = DataProvider.Instance.ExecuteQuery(query);
-            if (data != null)
+            if (data.Rows.Count > 0)
             {
                 return new FloorDTO(data.Rows[0]);
             }

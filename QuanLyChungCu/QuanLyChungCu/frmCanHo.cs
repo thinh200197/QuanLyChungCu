@@ -88,7 +88,7 @@ namespace QuanLyChungCu
             cb_TenChuHo.ValueMember = "MACUDAN";
             cb_TenChuHo.DisplayMember = "TENCUDAN";
 
-            var loaiCanHo = ApartmentCategogyDAO.Instance.GetAllApartmentCategogy();
+            var loaiCanHo = ApartmentCategogyDAO.Instance.GetAll();
             cb_LoaiCanHo.DataSource = loaiCanHo;
             cb_LoaiCanHo.ValueMember = "MALOAI_CH";
             cb_LoaiCanHo.DisplayMember = "TENLOAI_CH";

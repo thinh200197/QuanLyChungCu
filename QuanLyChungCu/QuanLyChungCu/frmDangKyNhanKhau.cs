@@ -129,7 +129,7 @@ namespace QuanLyChungCu
         private void cb_CanHo_Tang_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            cb_CanHo_LoaiCanHo.DataSource = ApartmentCategogyDAO.Instance.GetAllApartmentCategogy();
+            cb_CanHo_LoaiCanHo.DataSource = ApartmentCategogyDAO.Instance.GetAll();
             cb_CanHo_LoaiCanHo.DisplayMember = "TENLOAI_CH";
             cb_CanHo_LoaiCanHo.ValueMember = "MALOAI_CH";
             cb_CanHo_LoaiCanHo.SelectedIndex = -1;

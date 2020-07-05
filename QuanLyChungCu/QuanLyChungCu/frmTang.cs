@@ -100,7 +100,7 @@ namespace QuanLyChungCu
                 var result = new Messeges();
                 var hasFloor = FloorDAO.Instance.GetFoolById(txt_MaTang.Text.Trim());
 
-                if (hasFloor.MaBlock != "")
+                if (hasFloor.MaBlock != null)
                 {
                     result = FloorDAO.Instance.Update(floor);
                 }
@@ -121,9 +121,6 @@ namespace QuanLyChungCu
             }
         }
 
-
-        #endregion
-
         private void gv_Tang_Click(object sender, EventArgs e)
         {
             var row = gridView1.GetFocusedRow() as FloorDTO;
@@ -137,5 +134,8 @@ namespace QuanLyChungCu
             txt_TenTang.Text = row.TenTangLau;
             cb_ToaNha.SelectedValue = row.MaBlock;
         }
+        #endregion
+
+
     }
 }

@@ -171,6 +171,7 @@ namespace QuanLyChungCu
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            AddForm(new frmLoaiCanHo());
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
