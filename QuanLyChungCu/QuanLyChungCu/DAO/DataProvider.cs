@@ -6,7 +6,7 @@ namespace QuanLyChungCu.DAO
 {
     public class DataProvider
     {
-        private string connectionSTR = "Data Source=DESKTOP-Q7MMO9N\\SQLEXPRESS;Initial Catalog=DB_QLCC;Integrated Security=True";
+        private string connectionSTR = "Data Source=TCIS-SSC-5090D5\\SQLEXPRESS;Initial Catalog=DB_QLCC;Integrated Security=True";
         private static DataProvider instance;
         public static DataProvider Instance
         {

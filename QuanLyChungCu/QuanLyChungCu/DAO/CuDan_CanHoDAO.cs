@@ -17,7 +17,7 @@ namespace QuanLyChungCu.DAO
 
         public List<CuDan_CanHoDTO> GetAll_CuDan_CanHo()
         {
-            string query = "select * from CUDAN_CANHO AND NGAYHETO IS NULL";
+            string query = "select * from CUDAN_CANHO";
             DataTable data = new DataTable();
             data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -52,16 +52,16 @@ namespace QuanLyChungCu.DAO
         {
             string query = string.Format(
                 "UPDATE [dbo].[CUDAN-CANHO]" +
-                "SET NGAYHETO = '{0}' " +
-                "WHERE ID = {1}",DateTime.Now,id);
-                var data = DataProvider.Instance.ExecuteNonQuery(query);
+                "SET NGAYHETO = GETDATE() " +
+                "WHERE ID = {0}", id);
+            DataProvider.Instance.ExecuteNonQuery(query);
         }
 
-        public Messeges Them(int maCuDan,string maCanHo)
+        public Messeges Them(int maCuDan, string maCanHo)
         {
             string query = string.Format("exec [PR_INSERT_CUDAN_CANHO] {0},{1}", maCuDan, maCanHo);
             var data = DataProvider.Instance.ExecuteNonQuery(query);
-
+            ApartmentDAO.Instance.CapNhatSoNguoiO(maCanHo, 1);
             if (data > 0)
             {
                 return new Messeges()
@@ -80,7 +80,7 @@ namespace QuanLyChungCu.DAO
 
         public bool XoaNhanKhau(int ID)
         {
-            string query = string.Format("UPDATE [CUDAN-CANHO] SET NGAYHETO = '{0}' WHERE ID = {1}", DateTime.Now.ToString(), ID);
+            string query = string.Format("UPDATE [CUDAN-CANHO] SET NGAYHETO = GETDATE() WHERE ID = {0}", ID);
             var data = DataProvider.Instance.ExecuteNonQuery(query);
             return data > 0;
         }
@@ -105,7 +105,7 @@ namespace QuanLyChungCu.DAO
                     "MACUDAN = {1}, " +
                     "NGAYBATDAUO = {2} , " +
                     "NGAYHETO = {3} " +
-                "WHERE ID = {4}", cdch.MaCanHo,cdch.MaCuDan,cdch.NgayVaoO,cdch.NgayHetO,cdch.ID);
+                "WHERE ID = {4}", cdch.MaCanHo, cdch.MaCuDan, cdch.NgayVaoO, cdch.NgayHetO, cdch.ID);
 
             var data = DataProvider.Instance.ExecuteNonQuery(query);
 
@@ -122,6 +122,23 @@ namespace QuanLyChungCu.DAO
             {
                 MessegeType = MessegeType.Error,
                 MessegeContent = "Cập nhật nhân khẩu thất bại."
+            };
+        }
+
+        public Messeges ChuyenCanHo(int Id , int maCuDan ,string newCanHo ,string oldCanHo)
+        {
+            // Chuyển hộ
+            CapNhatNgayHetO(Id);
+
+            Them(maCuDan, newCanHo);
+
+            /// Cập nhật bảng CANHO 
+            ApartmentDAO.Instance.ChangeHome(oldCanHo, newCanHo);
+
+            return new Messeges()
+            {
+                MessegeType = MessegeType.Success,
+                MessegeContent = "Cập nhật thành công."
             };
         }
     }

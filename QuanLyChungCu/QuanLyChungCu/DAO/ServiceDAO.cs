@@ -20,7 +20,7 @@ namespace QuanLyChungCu.DAO
 
         public List<ServiceDTO> GetAll()
         {
-            string query = "select * from view_Service";
+            string query = "select * from VIEW_SERVICE";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             var lstFloor = new List<ServiceDTO>();

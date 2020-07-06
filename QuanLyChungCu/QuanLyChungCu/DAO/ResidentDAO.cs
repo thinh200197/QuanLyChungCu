@@ -37,9 +37,9 @@ namespace QuanLyChungCu.DAO
             return residentList;
         }
 
-        public ResidentDTO GetResidentByCMND(string cmnd)
+        public ResidentDTO GetResidentByCmndOrSdt(string cmnd )
         {
-            string query = "select * from CUDAN where [CHUNGMINHNHANDAN] = '" + cmnd + "'";
+            string query = $"select * from CUDAN where [CHUNGMINHNHANDAN] = '{cmnd}'";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             
             if (data.Rows.Count <= 0)
@@ -64,7 +64,7 @@ namespace QuanLyChungCu.DAO
 
         }
 
-        public Messeges AddResident(ResidentDTO resident)
+        public Messeges Add(ResidentDTO resident)
         {
             string query = "EXEC PR_INSERT_CUDAN  @TenCuDan , @NgaySinh , @SoDienThoai , @Cmnd , @GioiTinh";
             int data = DataProvider.Instance.ExecuteNonQuery(query, new object[]{ resident.TenCuDan, resident.NgaySinh.ToString(), resident.Sdt, resident.Cmnd, resident.GioiTinh });
@@ -84,7 +84,7 @@ namespace QuanLyChungCu.DAO
                 MessegeContent = "Thêm thất bại."
             };
         }
-        public bool UpdateResident(ResidentDTO resident)
+        public bool Update(ResidentDTO resident)
         {
             string query = "EXEC [PR_UPDATE_CUDAN]  @MaCuDan , @TenCuDan , @NgaySinh , @SoDienThoai , @Cmnd , @GioiTinh";
             int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { resident.MaCuDan, resident.TenCuDan, resident.NgaySinh, resident.Sdt, resident.Cmnd, resident.GioiTinh });

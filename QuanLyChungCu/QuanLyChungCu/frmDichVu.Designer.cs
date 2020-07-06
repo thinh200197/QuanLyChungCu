@@ -30,6 +30,11 @@
         {
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cb_TenLoaiDichVu = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_DonViTinh = new DevExpress.XtraEditors.TextEdit();
+            this.txt_TenDichVu = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_ID = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,20 +44,15 @@
             this.gv_Data = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.txt_TenDichVu = new DevExpress.XtraEditors.TextEdit();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_DonViTinh = new DevExpress.XtraEditors.TextEdit();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cb_TenLoaiDichVu = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_DonViTinh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_TenDichVu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_TenDichVu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_DonViTinh.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -75,6 +75,58 @@
             this.groupControl1.Size = new System.Drawing.Size(464, 172);
             this.groupControl1.TabIndex = 8;
             this.groupControl1.Text = "Thông Tin Loại Dich Vụ";
+            // 
+            // cb_TenLoaiDichVu
+            // 
+            this.cb_TenLoaiDichVu.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_TenLoaiDichVu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_TenLoaiDichVu.Enabled = false;
+            this.cb_TenLoaiDichVu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_TenLoaiDichVu.FormattingEnabled = true;
+            this.cb_TenLoaiDichVu.Location = new System.Drawing.Point(114, 99);
+            this.cb_TenLoaiDichVu.Name = "cb_TenLoaiDichVu";
+            this.cb_TenLoaiDichVu.Size = new System.Drawing.Size(188, 25);
+            this.cb_TenLoaiDichVu.TabIndex = 55;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(111, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 17);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Đơn vị Tính";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(5, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 17);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Tên Dịch Vụ";
+            // 
+            // txt_DonViTinh
+            // 
+            this.txt_DonViTinh.Enabled = false;
+            this.txt_DonViTinh.Location = new System.Drawing.Point(190, 28);
+            this.txt_DonViTinh.Name = "txt_DonViTinh";
+            this.txt_DonViTinh.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_DonViTinh.Properties.Appearance.Options.UseFont = true;
+            this.txt_DonViTinh.Size = new System.Drawing.Size(54, 24);
+            this.txt_DonViTinh.TabIndex = 51;
+            // 
+            // txt_TenDichVu
+            // 
+            this.txt_TenDichVu.Enabled = false;
+            this.txt_TenDichVu.Location = new System.Drawing.Point(114, 62);
+            this.txt_TenDichVu.Name = "txt_TenDichVu";
+            this.txt_TenDichVu.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_TenDichVu.Properties.Appearance.Options.UseFont = true;
+            this.txt_TenDichVu.Size = new System.Drawing.Size(188, 24);
+            this.txt_TenDichVu.TabIndex = 51;
             // 
             // label2
             // 
@@ -193,58 +245,6 @@
             this.groupControl2.TabIndex = 7;
             this.groupControl2.Text = "Danh Sách Loại Dịch Vụ";
             // 
-            // txt_TenDichVu
-            // 
-            this.txt_TenDichVu.Enabled = false;
-            this.txt_TenDichVu.Location = new System.Drawing.Point(114, 62);
-            this.txt_TenDichVu.Name = "txt_TenDichVu";
-            this.txt_TenDichVu.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TenDichVu.Properties.Appearance.Options.UseFont = true;
-            this.txt_TenDichVu.Size = new System.Drawing.Size(188, 24);
-            this.txt_TenDichVu.TabIndex = 51;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 65);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 17);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Tên Dịch Vụ";
-            // 
-            // txt_DonViTinh
-            // 
-            this.txt_DonViTinh.Enabled = false;
-            this.txt_DonViTinh.Location = new System.Drawing.Point(190, 28);
-            this.txt_DonViTinh.Name = "txt_DonViTinh";
-            this.txt_DonViTinh.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_DonViTinh.Properties.Appearance.Options.UseFont = true;
-            this.txt_DonViTinh.Size = new System.Drawing.Size(54, 24);
-            this.txt_DonViTinh.TabIndex = 51;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(111, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 17);
-            this.label5.TabIndex = 44;
-            this.label5.Text = "Đơn vị Tính";
-            // 
-            // cb_TenLoaiDichVu
-            // 
-            this.cb_TenLoaiDichVu.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cb_TenLoaiDichVu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_TenLoaiDichVu.Enabled = false;
-            this.cb_TenLoaiDichVu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_TenLoaiDichVu.FormattingEnabled = true;
-            this.cb_TenLoaiDichVu.Location = new System.Drawing.Point(114, 99);
-            this.cb_TenLoaiDichVu.Name = "cb_TenLoaiDichVu";
-            this.cb_TenLoaiDichVu.Size = new System.Drawing.Size(188, 25);
-            this.cb_TenLoaiDichVu.TabIndex = 55;
-            // 
             // frmDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,16 +256,17 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDichVu";
             this.Text = "frmDichVu";
+            this.Load += new System.EventHandler(this.frmDichVu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_DonViTinh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_TenDichVu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txt_TenDichVu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_DonViTinh.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

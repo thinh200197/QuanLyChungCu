@@ -142,5 +142,12 @@ namespace QuanLyChungCu.DAO
                 };
             }
         }
+
+        public bool ChangeHome(string oldHome , string newHome)
+        {
+            string query = $"EXEC PR_CHANGR_HOME @OLD_HOME , @NEW_HOME ";
+            var result = DataProvider.Instance.ExecuteNonQuery(query,new object[] { oldHome , newHome});
+            return result > 0;
+        }
     }
 }

@@ -66,8 +66,6 @@ namespace QuanLyChungCu
         #endregion
 
         #region Event
-
-        #endregion
         private void btnNew_Click(object sender, EventArgs e)
         {
             isSave = true;
@@ -93,7 +91,7 @@ namespace QuanLyChungCu
             var erros = ValiInput();
             if (erros.Any())
             {
-                MessageBox.Show(string.Join("\n",erros), "Thông Báo");
+                MessageBox.Show(string.Join("\n", erros), "Thông Báo");
                 return;
             }
 
@@ -143,5 +141,17 @@ namespace QuanLyChungCu
             txt_DonViTinh.Text = row.DonViTinh;
             cb_TenLoaiDichVu.SelectedValue = row.MaLoaiDichVu;
         }
+
+        private void frmDichVu_Load(object sender, EventArgs e)
+        {
+            cb_TenLoaiDichVu.DataSource = ServiceCategogyDAO.Instance.GetAll();
+            cb_TenLoaiDichVu.DisplayMember = "TENLOAIDICHVU";
+            cb_TenLoaiDichVu.ValueMember = "ID";
+
+            LoadData();
+        }
+        #endregion
+
+
     }
 }

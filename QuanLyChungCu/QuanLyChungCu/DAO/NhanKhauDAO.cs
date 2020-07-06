@@ -1,12 +1,7 @@
-﻿using QuanLyChungCu.DAO;
-using QuanLyChungCu.DTO;
-using QuanLyChungCu.DTO;
+﻿using QuanLyChungCu.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyChungCu.DAO
 {
@@ -40,73 +35,41 @@ namespace QuanLyChungCu.DAO
             return lstNhanKhau;
         }
 
-        public Messeges ThemNhanKhau(int id, ResidentDTO cd, string maCanHo)
+        public Messeges LuuNhanKhau(NhanKhauDTO newNh ,NhanKhauDTO oldNh)
         {
-            // Lấy thông tin 
-            //var CanHo = ApartmentDAO.Instance.GetApartmentByMaCanHo(maCanHo);
-            var CuDan_CanHo = CuDan_CanHoDAO.Instance.Lay_TT_ID(id);
-
-            //Kiểm tra dữ liệu đầu vào
-            var validate = KiemTraDauVao(id, cd, maCanHo);
-            if (validate.MessegeType == MessegeType.Error)
+            var cd = new ResidentDTO()
             {
-                return validate;
-            }
-
-            // Thực hiện thêm
-
-            if (id > 0)
+                TenCuDan = newNh.TenCuDan,
+                MaCuDan = newNh.MaCuDan,
+                Cmnd = newNh.Cmnd_CuDan,
+                GioiTinh = newNh.GioiTinh,
+                NgaySinh = DateTime.Parse(newNh.NgaySinh),
+                Sdt = newNh.Sdt
+            };
+            var CuDan = ResidentDAO.Instance.GetResidentByCmndOrSdt(cd.Cmnd);
+            if (CuDan.MaCuDan > 0)
             {
-                //  Kiểm tra rule Cập nhật
-                cd.MaCuDan = CuDan_CanHo.MaCuDan;
-                var cuDanDangO = CuDan_CanHoDAO.Instance.LayTTNK_DangO(CuDan_CanHo.MaCuDan);
-
-                // Cập nhật thông tin cư dân
-                ResidentDAO.Instance.UpdateResident(cd);
-
-                // Cập nhật thông tin cư dân ở căn hộ
-
-                //// trùng căn hộ
-                if (maCanHo != CuDan_CanHo.MaCanHo)
+                return new Messeges()
                 {
-                    CuDan_CanHoDAO.Instance.CapNhatNgayHetO(id);
-                    ApartmentDAO.Instance.CapNhatSoNguoiO(cuDanDangO.MaCanHo, -1);
-                    var isAdd = CuDan_CanHoDAO.Instance.Them(cuDanDangO.MaCuDan, maCanHo);
-                    ApartmentDAO.Instance.CapNhatSoNguoiO(maCanHo, 1);
+                    MessegeType = MessegeType.Error,
+                    MessegeContent = "Số CMND bị trùng !"
+                };
+            }
+            if (oldNh.ID > 0 && oldNh != null) // Cập nhật Nhân khẩu
+            {
+                /// Cập nhật bảng CUDAN
+                ResidentDAO.Instance.Update(cd);
+                /// Cập nhật bảng CUDAN_CANHO
+                if (newNh.MaCanHo != oldNh.MaCanHo)
+                {
+                    var chuyenHo = CuDan_CanHoDAO.Instance.ChuyenCanHo(newNh.ID, oldNh.MaCuDan, newNh.MaCanHo, oldNh.MaCanHo);
                 }
             }
-            else
-            {
-                //  Kiểm tra rule Thêm
-                var CuDan = ResidentDAO.Instance.GetResidentByCMND(cd.Cmnd);
-                if (CuDan.MaCuDan > 0)
-                {
-                    return new Messeges()
-                    {
-                        MessegeType = MessegeType.Error,
-                        MessegeContent = "Số CMND bị trùng !"
-                    };
-                }
-
-                // thêm cư dân
-                Messeges themCuDan = ResidentDAO.Instance.AddResident(cd);
-
-                if (themCuDan.MessegeType == MessegeType.Error)
-                {
-                    return themCuDan;
-                }
-
-                //-thêm nhân khẩu
-                var cuDanVuaThem = ResidentDAO.Instance.GetResidentByCMND(cd.Cmnd);
-                var themNhanKhau = CuDan_CanHoDAO.Instance.Them(cuDanVuaThem.MaCuDan, maCanHo);
-
-                if (themNhanKhau.MessegeType == MessegeType.Error)
-                {
-                    return themNhanKhau;
-                }
-
-                //-cập nhật căn hộ(số người)
-                ApartmentDAO.Instance.CapNhatSoNguoiO(maCanHo, 1);
+            else  // Thêm mới nhân khẩu
+            {               
+                ResidentDAO.Instance.Add(cd);
+                var newCd = ResidentDAO.Instance.GetResidentByCmndOrSdt(cd.Cmnd);
+                CuDan_CanHoDAO.Instance.Them(newCd.MaCuDan, newNh.MaCanHo);
             }
 
             return new Messeges()
@@ -159,5 +122,26 @@ namespace QuanLyChungCu.DAO
                 MessegeType = MessegeType.Success,
             };
         }
+
+        //public Messeges Add(NhanKhauDTO nk)
+        //{
+        //    /// Lưu Bảng CUDAN
+        //    /// Lưu Bảng CUDAN_CANHO
+        //    /// Cập nhật bảng CANHO
+        //}
+
+        //public Messeges Update(NhanKhauDTO nk)
+        //{
+
+        //    /// Cập nhật bảng CUDAN_CANHO
+        //    var cdch = new CuDan_CanHoDTO() { 
+        //        ID = nk.ID,
+        //        MaCanHo = nk.
+        //    };
+
+        //    var upCdch = CuDan_CanHoDAO.Instance.CapNhat(cdch);
+        //    /// Cập nhật bảng CUDAN
+        //    /// Cập nhật bảng CANHO
+        //}
     }
 }
