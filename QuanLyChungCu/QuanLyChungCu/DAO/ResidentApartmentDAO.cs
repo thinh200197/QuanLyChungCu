@@ -44,16 +44,9 @@ namespace QuanLyChungCu.DAO
         }
         public bool Update(int id ,string maCanHo, string maCuDan, DateTime ngayVaoO,DateTime ngayHetO)
         {
-
-            //string query = "PR_UpdateResidentApartment @id ,@MaCuDan , @MaCanHo , @ngayVaoO , @ngayHetO ";
-
             string query = string.Format("UPDATE [CUDAN-CANHO] " +
                 "SET MACANHO = '{0}', MACUDAN = '{1}', NGAYBATDAUO = '{2}', NGAYHETO ='{3}'" +
                 "WHERE ID = {4}", maCanHo, maCuDan, ngayVaoO, ngayHetO, id);
-
-            //string query = string.Format("UPDATE [CUDAN-CANHO] " +
-            //   "SET MACANHO = '{0}', MACUDAN = '{1}' "+
-            //   "WHERE ID = {2}", maCanHo, maCuDan, id);
 
             int data = DataProvider.Instance.ExecuteNonQuery(query);
             return data > 0;

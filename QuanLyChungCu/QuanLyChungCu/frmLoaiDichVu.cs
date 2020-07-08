@@ -28,8 +28,6 @@ namespace QuanLyChungCu
         #endregion
 
         #region Event
-
-        #endregion
         private void frmLoaiDichVu_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -62,28 +60,39 @@ namespace QuanLyChungCu
         private void btnNew_Click(object sender, EventArgs e)
         {
             isSave = true;
+            txt_TenLoaiDichVu.Enabled = true;
+            txt_ID.Enabled = false;
+
             txt_TenLoaiDichVu.ResetText();
             txt_ID.ResetText();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txt_ID.Text))
-            {
-                MessageBox.Show("Nhập Mã loại.", "Thông Báo");
-            }
-            if (string.IsNullOrEmpty(txt_TenLoaiDichVu.Text))
-            {
-                MessageBox.Show("Nhập Tên Loại.", "Thông Báo");
-            }
+           
             if (!isSave)
             {
                 return;
             }
 
+            List<string> errors = new List<string>();
+            //if (string.IsNullOrEmpty(txt_ID.Text))
+            //{
+            //    errors.Add("Nhập Mã loại.");
+            //}
+            if (string.IsNullOrEmpty(txt_TenLoaiDichVu.Text))
+            {
+                errors.Add("Nhập Tên Loại.");
+            }
+            if (errors.Any())
+            {
+                MessageBox.Show(string.Join("\n",errors), "Thông Báo");
+                return;
+            }
+
             var request = new ServiceCategogyDTO()
             {
-                ID = int.Parse(txt_ID.Text),
+                ID = txt_ID.Text == "" ? 0 : int.Parse(txt_ID.Text),
                 Name = txt_TenLoaiDichVu.Text
             };
 
@@ -111,5 +120,7 @@ namespace QuanLyChungCu
                 MessageBox.Show(ex.Message, "Thông Báo");
             }
         }
+        #endregion
+
     }
 }

@@ -59,7 +59,7 @@ namespace QuanLyChungCu.DAO
         }
         public Messeges Add(FloorDTO f)
         {
-            string query = $"EXEC INSERT_FLOOR @MATANGLAU , @TENTANGLAU , @MABLOCK ";
+            string query = $"EXEC PR_INSERT_FLOOR @MATANGLAU , @TENTANGLAU , @MABLOCK ";
             int data = DataProvider.Instance.ExecuteNonQuery(query,new object[]{ f.MaTangLau, f.TenTangLau, f.MaBlock });
 
             if (data > 0 )

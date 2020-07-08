@@ -186,6 +186,7 @@ namespace QuanLyChungCu
         private void guna2Button13_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            AddForm(new frmDichVuDinhKy());
         }
 
         private void guna2Button12_Click(object sender, EventArgs e)

@@ -334,7 +334,7 @@
             this.btnDichVu.ShadowDecoration.Parent = this.btnDichVu;
             this.btnDichVu.Size = new System.Drawing.Size(180, 25);
             this.btnDichVu.TabIndex = 2;
-            this.btnDichVu.Text = "Dịch vụ";
+            this.btnDichVu.Text = "Đăng ký dịch vụ";
             this.btnDichVu.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDichVu.Click += new System.EventHandler(this.btnDichVu_Click);
             // 

@@ -1,4 +1,5 @@
 ﻿using QuanLyChungCu.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -41,7 +42,7 @@ namespace QuanLyChungCu.DAO
         public Messeges Add(ServiceCategogyDTO f)
         {
             string query = $"EXEC PR_Insert_ServiceCategogy @TENLOAIDICHVU , @NGUOITAO  ";
-            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { f.Name, f.CREATE_BY });
+            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { f.Name, 0 });
 
             if (data > 0)
             {
@@ -60,8 +61,13 @@ namespace QuanLyChungCu.DAO
         }
         public Messeges Update(ServiceCategogyDTO f)
         {
-            string query = $"EXEC PR_Update_ServiceCategogy @TENLOAIDICHVU , @NGUOICAPNHAT ";
-            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { f.Name, f.UPDATE_BY });
+            if (f.ID <= 0)
+            {
+                throw new Exception("Chọn dòng cập nhật trước thực hiện chức năng này.") ;
+            }
+
+            string query = $"EXEC PR_Update_ServiceCategogy @ID , @TENLOAIDICHVU , @NGUOICAPNHAT ";
+            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] {f.ID , f.Name, 0 });
 
             if (data > 0)
             {

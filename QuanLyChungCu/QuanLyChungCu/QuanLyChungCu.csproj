@@ -50,10 +50,10 @@
     <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Guna.UI">
-      <HintPath>..\..\..\Guna.UI-Framework-Lib-master\Guna.UI_WinForms\.net 4.0\Guna.UI.dll</HintPath>
+      <HintPath>..\..\..\..\tai lieu\Guna.UI-Framework-Lib-master\Guna.UI_WinForms\.net 4.0\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>..\..\..\Guna.UI-Framework-Lib-master\Guna UI Activation\Guna UI Activation\bin\Debug\Guna.UI2.dll</HintPath>
+      <HintPath>..\..\..\..\tai lieu\Guna.UI-Framework-Lib-master\Guna UI Activation\Guna UI Activation\bin\Debug\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -91,6 +91,8 @@
     <Compile Include="DTO\BlockDTO.cs" />
     <Compile Include="DTO\CuDanDto.cs" />
     <Compile Include="DTO\CuDan_CanHoDTO.cs" />
+    <Compile Include="DTO\DKDV_CongCongDTO.cs" />
+    <Compile Include="DTO\DKDV_DinhKyDTO.cs" />
     <Compile Include="DTO\FloorDTO.cs" />
     <Compile Include="Commont\LoggedUser.cs" />
     <Compile Include="Commont\Messeges.cs" />
@@ -128,6 +130,12 @@
     </Compile>
     <Compile Include="frmDichVu.Designer.cs">
       <DependentUpon>frmDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDichVuDinhKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDichVuDinhKy.Designer.cs">
+      <DependentUpon>frmDichVuDinhKy.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLoaiCanHo.cs">
       <SubType>Form</SubType>
@@ -187,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDichVu.resx">
       <DependentUpon>frmDichVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDichVuDinhKy.resx">
+      <DependentUpon>frmDichVuDinhKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoaiCanHo.resx">
       <DependentUpon>frmLoaiCanHo.cs</DependentUpon>

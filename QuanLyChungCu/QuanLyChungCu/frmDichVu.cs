@@ -34,6 +34,7 @@ namespace QuanLyChungCu
         private void EnableControl(bool enable)
         {
             txt_ID.Enabled = enable;
+            txt_ID.Enabled = enable;
             txt_TenDichVu.Enabled = enable;
             txt_DonViTinh.Enabled = enable;
             cb_TenLoaiDichVu.Enabled = enable;
@@ -42,10 +43,7 @@ namespace QuanLyChungCu
         private List<string> ValiInput()
         {
             var errors = new List<string>();
-            if (string.IsNullOrEmpty(txt_ID.Text))
-            {
-                errors.Add("Nhập ID.");
-            }
+
             if (string.IsNullOrEmpty(txt_TenDichVu.Text))
             {
                 errors.Add("Nhập Tên Dịch Vụ.");
@@ -97,7 +95,7 @@ namespace QuanLyChungCu
 
             var request = new ServiceDTO()
             {
-                MaDichVu = int.Parse(txt_ID.Text),
+                MaDichVu = txt_ID.Text == "" ? 0 : int.Parse(txt_ID.Text),
                 TenDichVu = txt_TenDichVu.Text,
                 MaLoaiDichVu = int.Parse(cb_TenLoaiDichVu.SelectedValue.ToString()),
                 DonViTinh = txt_DonViTinh.Text,
@@ -135,6 +133,9 @@ namespace QuanLyChungCu
             {
                 return;
             }
+            isSave = false;
+
+            EnableControl(false);
 
             txt_ID.Text = row.MaDichVu.ToString();
             txt_TenDichVu.Text = row.TenDichVu;
@@ -145,7 +146,7 @@ namespace QuanLyChungCu
         private void frmDichVu_Load(object sender, EventArgs e)
         {
             cb_TenLoaiDichVu.DataSource = ServiceCategogyDAO.Instance.GetAll();
-            cb_TenLoaiDichVu.DisplayMember = "TENLOAIDICHVU";
+            cb_TenLoaiDichVu.DisplayMember = "Name";
             cb_TenLoaiDichVu.ValueMember = "ID";
 
             LoadData();

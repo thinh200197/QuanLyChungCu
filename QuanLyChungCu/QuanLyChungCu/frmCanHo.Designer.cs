@@ -73,9 +73,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_CanHo.Controls.Add(this.gridSplitContainer1);
-            this.gb_CanHo.Location = new System.Drawing.Point(12, 194);
+            this.gb_CanHo.Location = new System.Drawing.Point(12, 186);
             this.gb_CanHo.Name = "gb_CanHo";
-            this.gb_CanHo.Size = new System.Drawing.Size(776, 380);
+            this.gb_CanHo.Size = new System.Drawing.Size(776, 388);
             this.gb_CanHo.TabIndex = 5;
             this.gb_CanHo.Text = "Danh Sách Căn Hộ";
             // 
@@ -86,7 +86,7 @@
             this.gridSplitContainer1.Location = new System.Drawing.Point(2, 20);
             this.gridSplitContainer1.Name = "gridSplitContainer1";
             this.gridSplitContainer1.Panel1.Controls.Add(this.gv_CanHo);
-            this.gridSplitContainer1.Size = new System.Drawing.Size(772, 358);
+            this.gridSplitContainer1.Size = new System.Drawing.Size(772, 366);
             this.gridSplitContainer1.TabIndex = 0;
             // 
             // gv_CanHo
@@ -98,7 +98,7 @@
             this.gv_CanHo.Location = new System.Drawing.Point(0, 0);
             this.gv_CanHo.MainView = this.gridView1;
             this.gv_CanHo.Name = "gv_CanHo";
-            this.gv_CanHo.Size = new System.Drawing.Size(772, 358);
+            this.gv_CanHo.Size = new System.Drawing.Size(772, 366);
             this.gv_CanHo.TabIndex = 1;
             this.gv_CanHo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -137,7 +137,7 @@
             this.groupControl3.Controls.Add(this.label1);
             this.groupControl3.Location = new System.Drawing.Point(12, 12);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(770, 168);
+            this.groupControl3.Size = new System.Drawing.Size(776, 168);
             this.groupControl3.TabIndex = 23;
             this.groupControl3.Text = "Thông Tin Căn Hộ";
             // 
@@ -150,7 +150,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSave.Location = new System.Drawing.Point(683, 127);
+            this.btnSave.Location = new System.Drawing.Point(689, 127);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 31);
             this.btnSave.TabIndex = 39;
@@ -167,7 +167,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEdit.Location = new System.Drawing.Point(593, 127);
+            this.btnEdit.Location = new System.Drawing.Point(599, 127);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 31);
@@ -185,7 +185,7 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNew.Location = new System.Drawing.Point(503, 127);
+            this.btnNew.Location = new System.Drawing.Point(509, 127);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 31);
             this.btnNew.TabIndex = 37;
