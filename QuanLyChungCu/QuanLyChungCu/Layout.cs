@@ -39,7 +39,7 @@ namespace QuanLyChungCu
                 {
                     DisableButton();
                     currentGunnaButton = (Guna2Button)sender;
-                    lb_TenMenu.Text = currentGunnaButton.Text.ToUpper();
+                    //lb_TenMenu.Text = currentGunnaButton.Text.ToUpper();
                     currentGunnaButton.Checked = true;
                     currentGunnaButton.ForeColor = SystemColors.ButtonHighlight;
                     currentGunnaButton.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));

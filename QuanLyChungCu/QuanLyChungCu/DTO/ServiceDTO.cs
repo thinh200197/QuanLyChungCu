@@ -10,53 +10,55 @@ namespace QuanLyChungCu.DTO
 {
     public class ServiceDTO
     {
+        public int ID { get; set; }
         [DisplayName("Mã Dịch Vụ")]
-        public int MaDichVu { get; set; }
+        public string MaDichVu { get; set; }
         [DisplayName("Tên Dịch Vụ")]
         public string TenDichVu { get; set; }
         [DisplayName("Mã Loại Dịch Vụ")]
-        public int MaLoaiDichVu { get; set; }
+        public string MaLoaiDichVu { get; set; }
         [DisplayName("Tên Loại Dịch Vụ")]
         public string TenLoaiDichVu { get; set; }
         [DisplayName("Đơn vị tính")]
         public string DonViTinh { get; set; }
 
         [DisplayName("Ngày tạo")]
-        public DateTime? CREATE_DATE { get; set; }
+        public DateTime? NGAYTAO { get; set; }
         [DisplayName("Người Tạo")]
-        public int? CREATE_BY { get; set; }
+        public int? NGUOITAO { get; set; }
         [DisplayName("Ngày Cập Nhật")]
-        public DateTime? UPDATE_DATE { get; set; }
+        public DateTime? NGAYCAPNHAT { get; set; }
         [DisplayName("Người Cập Nhật")]
-        public int? UPDATE_BY { get; set; }
+        public int? NGUOICAPNHAT { get; set; }
         public ServiceDTO(DataRow row)
         {
-            MaDichVu = int.Parse(row["ID"].ToString());
+            ID = int.Parse(row["ID"].ToString());
+            MaDichVu = row["MADICHVU"].ToString();
             TenDichVu = row["TENDICHVU"].ToString();
-            TenLoaiDichVu = row["TENDICHVU"].ToString();
-            MaLoaiDichVu = int.Parse(row["MALOAIDICHVU"].ToString());
+            TenLoaiDichVu = row["TENLOAIDICHVU"].ToString();
+            MaLoaiDichVu = row["MALOAIDICHVU"].ToString();
             DonViTinh = row["DONVITINH"].ToString();
 
-            CREATE_DATE = null;
-            UPDATE_DATE = null;
-            CREATE_BY = null;
-            UPDATE_BY = null;
+            NGAYTAO = null;
+            NGAYCAPNHAT = null;
+            NGUOITAO = null;
+            NGUOICAPNHAT = null;
 
-            if (!string.IsNullOrEmpty(row["CREATE_DATE"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGAYTAO"].ToString()))
             {
-                CREATE_DATE = DateTime.Parse(row["CREATE_DATE"].ToString());
+                NGAYTAO = DateTime.Parse(row["NGAYTAO"].ToString());
             }
-            if (!string.IsNullOrEmpty(row["UPDATE_DATE"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGAYCAPNHAT"].ToString()))
             {
-                UPDATE_DATE = DateTime.Parse(row["UPDATE_DATE"].ToString());
+                NGAYCAPNHAT = DateTime.Parse(row["NGAYCAPNHAT"].ToString());
             }
-            if (!string.IsNullOrEmpty(row["CREATE_BY"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGUOITAO"].ToString()))
             {
-                CREATE_BY = int.Parse(row["CREATE_BY"].ToString());
+                NGUOITAO = int.Parse(row["NGUOITAO"].ToString());
             }
-            if (!string.IsNullOrEmpty(row["UPDATE_BY"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGUOICAPNHAT"].ToString()))
             {
-                UPDATE_BY = int.Parse(row["UPDATE_BY"].ToString());
+                NGUOICAPNHAT = int.Parse(row["NGUOICAPNHAT"].ToString());
             }
         }
         public ServiceDTO() { }

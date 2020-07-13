@@ -21,11 +21,13 @@ namespace QuanLyChungCu
             var data = ServiceDAO.Instance.GetAll();
             gv_Data.DataSource = data;
             gridView1.Columns["MaLoaiDichVu"].Visible = false;
+            gridView1.Columns["ID"].Visible = false;
         }
 
         private void ResetGroup()
         {
             txt_ID.Text = string.Empty;
+            txt_MaDichVu.Text = string.Empty;
             txt_TenDichVu.Text = string.Empty;
             txt_DonViTinh.Text = string.Empty;
             cb_TenLoaiDichVu.SelectedIndex = -1;
@@ -34,7 +36,7 @@ namespace QuanLyChungCu
         private void EnableControl(bool enable)
         {
             txt_ID.Enabled = enable;
-            txt_ID.Enabled = enable;
+            txt_MaDichVu.Enabled = enable;
             txt_TenDichVu.Enabled = enable;
             txt_DonViTinh.Enabled = enable;
             cb_TenLoaiDichVu.Enabled = enable;
@@ -43,6 +45,11 @@ namespace QuanLyChungCu
         private List<string> ValiInput()
         {
             var errors = new List<string>();
+
+            if (string.IsNullOrEmpty(txt_MaDichVu.Text))
+            {
+                errors.Add("Nhập Mã Dịch Vụ.");
+            }
 
             if (string.IsNullOrEmpty(txt_TenDichVu.Text))
             {
@@ -95,17 +102,18 @@ namespace QuanLyChungCu
 
             var request = new ServiceDTO()
             {
-                MaDichVu = txt_ID.Text == "" ? 0 : int.Parse(txt_ID.Text),
+                ID = txt_ID.Text == "" ? 0 : int.Parse(txt_ID.Text),
+                MaDichVu = txt_MaDichVu.Text,
                 TenDichVu = txt_TenDichVu.Text,
-                MaLoaiDichVu = int.Parse(cb_TenLoaiDichVu.SelectedValue.ToString()),
+                MaLoaiDichVu = cb_TenLoaiDichVu.SelectedValue.ToString(),
                 DonViTinh = txt_DonViTinh.Text,
             };
 
             try
             {
                 var result = new Messeges();
-                var hasResult = ServiceDAO.Instance.GetServiceById(request.MaDichVu);
-                if (hasResult.MaDichVu > 0)
+                var hasResult = ServiceDAO.Instance.GetServiceById(request.ID);
+                if (hasResult != null && hasResult.ID > 0)
                 {
                     result = ServiceDAO.Instance.Update(request);
                 }
@@ -137,7 +145,8 @@ namespace QuanLyChungCu
 
             EnableControl(false);
 
-            txt_ID.Text = row.MaDichVu.ToString();
+            txt_ID.Text = row.ID.ToString();
+            txt_MaDichVu.Text = row.MaDichVu.ToString();
             txt_TenDichVu.Text = row.TenDichVu;
             txt_DonViTinh.Text = row.DonViTinh;
             cb_TenLoaiDichVu.SelectedValue = row.MaLoaiDichVu;
@@ -147,7 +156,7 @@ namespace QuanLyChungCu
         {
             cb_TenLoaiDichVu.DataSource = ServiceCategogyDAO.Instance.GetAll();
             cb_TenLoaiDichVu.DisplayMember = "Name";
-            cb_TenLoaiDichVu.ValueMember = "ID";
+            cb_TenLoaiDichVu.ValueMember = "MaLoaiDichVu";
 
             LoadData();
         }

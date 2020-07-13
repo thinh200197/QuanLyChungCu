@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static QuanLyChungCu.DTO.Common;
 
 namespace QuanLyChungCu.DAO
 {
@@ -18,6 +19,10 @@ namespace QuanLyChungCu.DAO
             private set => instance = value;
         }
         private ServiceDAO() { }
+
+        #region Method
+     
+        #endregion
 
         #region Danh mục Dịch vụ
         public List<ServiceDTO> GetAll()
@@ -33,10 +38,15 @@ namespace QuanLyChungCu.DAO
 
             return lstFloor;
         }
-
+        public DataTable GetAll_DVDK()
+        {
+            string query = $"select * from DICHVU WHERE MALOAIDICHVU = '{ServiceCategogy.DichVuDinhKy}'";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            return data;
+        }
         public ServiceDTO GetServiceById(int id)
         {
-            string query = $"SELECT * FROM DICHVU WHERE ID = {id} ";
+            string query = $"SELECT * FROM VIEW_SERVICE WHERE ID = {id} ";
             var data = DataProvider.Instance.ExecuteQuery(query);
             if (data.Rows.Count > 0)
             {
@@ -46,8 +56,20 @@ namespace QuanLyChungCu.DAO
         }
         public Messeges Add(ServiceDTO f)
         {
-            string query = $"EXEC PR_Insert_Service @MALOAIDICHVU , @TENDICHVU , @DONVITINH , @NGUOITAO  ";
-            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { f.MaLoaiDichVu, f.TenDichVu, f.DonViTinh, 0 });
+            string search = $"SELECT * FROM DICHVU WHERE MADICHVU = '{f.MaDichVu}' ";
+            var service = DataProvider.Instance.ExecuteQuery(search);
+
+            if (service.Rows.Count > 0)
+            {
+                return new Messeges()
+                {
+                    MessegeContent = "Dịch vụ đã tồn tại !",
+                    MessegeType = MessegeType.Error
+                };
+            }
+
+            string query = $"EXEC PR_Insert_Service @MADICHVU , @MALOAIDICHVU , @TENDICHVU , @DONVITINH , @NGUOITAO  ";
+            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { f.MaDichVu , f.MaLoaiDichVu, f.TenDichVu, f.DonViTinh, 0 });
 
             if (data > 0)
             {
@@ -66,8 +88,8 @@ namespace QuanLyChungCu.DAO
         }
         public Messeges Update(ServiceDTO f)
         {
-            string query = $"EXEC PR_Update_Service @ID , @MALOAIDICHVU , @TENDICHVU , @DONVITINH , @NGUOICAPNHAT ";
-            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { f.MaDichVu, f.MaLoaiDichVu, f.TenDichVu, f.DonViTinh, 0 });
+            string query = $"EXEC PR_Update_Service @ID , @MADICHVU , @MALOAIDICHVU , @TENDICHVU , @DONVITINH , @NGUOICAPNHAT ";
+            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { f.ID ,f.MaDichVu, f.MaLoaiDichVu, f.TenDichVu, f.DonViTinh, 0 });
 
             if (data > 0)
             {
@@ -104,7 +126,7 @@ namespace QuanLyChungCu.DAO
         public Messeges Add_DVDK(DKDV_DinhKyDTO request)
         {
             // validate
-            var dv = DataProvider.Instance.ExecuteQuery($"SELECT * FROM DANGKY_DINHKY WHERE MADICHVU = {request.MaDichVu} and MACANHO = {request.MaCanHo}");
+            var dv = DataProvider.Instance.ExecuteQuery($"SELECT * FROM DANGKY_DINHKY WHERE MADICHVU = '{request.MaDichVu}' and MACANHO = '{request.MaCanHo}'");
             if (dv.Rows.Count > 0)
             {
                 return new Messeges() {
@@ -114,7 +136,7 @@ namespace QuanLyChungCu.DAO
             }
             // add
             string query = $"EXEC PR_INSERT_DVDK @MADICHVU , @MACANHO , @TRANG_THAI , @STAFF ";
-            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { request.MaDichVu , request.MaCanHo , request .TrangThai , request.CREATE_BY});
+            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { request.MaDichVu , request.MaCanHo , request .TrangThai , request.NGUOITAO});
 
             if (data > 0)
             {
@@ -137,25 +159,18 @@ namespace QuanLyChungCu.DAO
             // validate
 
             /// trường hợp thay đổi nhưng bị trùng mã căn hộ và mã dịch vụ
-            var dv = DataProvider.Instance.ExecuteQuery($"SELECT * FROM DANGKY_DINHKY WHERE MADICHVU = {request.MaDichVu} and MACANHO = {request.MaCanHo}");
-            if (dv.Rows.Count > 0)
+            var dv = DataProvider.Instance.ExecuteQuery($"SELECT * FROM DANGKY_DINHKY WHERE ID = {request.ID} ");
+            if (dv.Rows.Count < 0)
             {
-                var dichVu = dv.Rows[0];
-                if (request.TrangThai == dichVu["TRANG_THAI"].ToString())
-                {
-
-                }
-
-
                 return new Messeges()
                 {
                     MessegeType = MessegeType.Error,
-                    MessegeContent = "Thông tin đã tồn tại"
+                    MessegeContent = "Không tìm thấy thông tin đăng ký."
                 };
             }
 
             string query = $"EXEC PR_UPDATE_DVDK @ID , @MADICHVU , @MACANHO , @TRANG_THAI , @STAFF ";
-            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { request.ID, request.MaDichVu , request.MaCanHo, request.TrangThai, request.UPDATE_BY});
+            int data = DataProvider.Instance.ExecuteNonQuery(query, new object[] { request.ID, request.MaDichVu , request.MaCanHo, request.TrangThai, request.NGUOICAPNHAT});
 
             if (data > 0)
             {

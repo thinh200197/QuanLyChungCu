@@ -9,56 +9,54 @@ namespace QuanLyChungCu.DTO
         public DKDV_DinhKyDTO(DataRow row)
         {
             ID = int.Parse(row["ID"].ToString());
-            MaCanHo = int.Parse(row["MACANHO"].ToString());
-            MaDichVu = int.Parse(row["MADICHVU"].ToString());
-            TrangThai = row["TRANG_THAI"].ToString();
+            MaCanHo = row["MACANHO"].ToString();
+            MaDichVu = row["MADICHVU"].ToString();
+            TrangThai = Common.ServiceStatus.GetValueByName(row["TRANG_THAI"].ToString());
             TenDichVu = row["TENDICHVU"].ToString();
             TenCanHo = row["TENCANHO"].ToString();
 
-            CREATE_DATE = null;
-            UPDATE_DATE = null;
-            CREATE_BY = null;
-            UPDATE_BY = null;
+            NGAYTAO = null;
+            NGAYCAPNHAT = null;
+            NGUOITAO = null;
+            NGUOICAPNHAT = null;
 
-            if (!string.IsNullOrEmpty(row["CREATE_DATE"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGAYTAO"].ToString()))
             {
-                CREATE_DATE = DateTime.Parse(row["CREATE_DATE"].ToString());
+                NGAYTAO = DateTime.Parse(row["NGAYTAO"].ToString());
             }
-            if (!string.IsNullOrEmpty(row["UPDATE_DATE"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGAYCAPNHAT"].ToString()))
             {
-                UPDATE_DATE = DateTime.Parse(row["UPDATE_DATE"].ToString());
+                NGAYCAPNHAT = DateTime.Parse(row["NGAYCAPNHAT"].ToString());
             }
-            if (!string.IsNullOrEmpty(row["CREATE_BY"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGUOITAO"].ToString()))
             {
-                CREATE_BY = int.Parse(row["CREATE_BY"].ToString());
+                NGUOITAO = int.Parse(row["NGUOITAO"].ToString());
             }
-            if (!string.IsNullOrEmpty(row["UPDATE_BY"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGUOICAPNHAT"].ToString()))
             {
-                UPDATE_BY = int.Parse(row["UPDATE_BY"].ToString());
+                NGUOICAPNHAT = int.Parse(row["NGUOICAPNHAT"].ToString());
             }
         }
 
         public DKDV_DinhKyDTO() { }
-        [DisplayName("Mã Dịch Vụ")]
-
+        [DisplayName("Mã Đăng Ký")]
         public int ID { get; set; }
-        public int MaDichVu { get; set; }
-        public int MaCanHo { get; set; }
-        [DisplayName("Trạng Thái")]
-        public string TrangThai { get; set; }
-
-        [DisplayName("Dịch Vụ")]
-        public string TenDichVu { get; set; }
+        [DisplayName("Mã Dịch Vụ")]
+        public string MaDichVu { get; set; }
+        public string MaCanHo { get; set; }
         [DisplayName("Căn Hộ")]
         public string TenCanHo { get; set; }
-
-        [DisplayName("Ngày Tạo")]
-        public DateTime? CREATE_DATE { get; set; }
+        [DisplayName("Dịch Vụ")]
+        public string TenDichVu { get; set; }
+        [DisplayName("Ngày Đăng Ký")]
+        public DateTime? NGAYTAO { get; set; }
         [DisplayName("Người Tạo")]
-        public int? CREATE_BY { get; set; }
+        public int? NGUOITAO { get; set; }
         [DisplayName("Ngày Cập Nhật")]
-        public DateTime? UPDATE_DATE { get; set; }
+        public DateTime? NGAYCAPNHAT { get; set; }
         [DisplayName("Người Cập Nhật")]
-        public int? UPDATE_BY { get; set; }
+        public int? NGUOICAPNHAT { get; set; }
+        [DisplayName("Trạng Thái")]
+        public string TrangThai { get; set; }
     }
 }

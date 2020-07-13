@@ -44,6 +44,8 @@
             this.gv_Data = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.txt_MaDichVu = new DevExpress.XtraEditors.TextEdit();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_DonViTinh.Properties)).BeginInit();
@@ -53,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_MaDichVu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -61,7 +64,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.Controls.Add(this.cb_TenLoaiDichVu);
             this.groupControl1.Controls.Add(this.label5);
+            this.groupControl1.Controls.Add(this.label4);
             this.groupControl1.Controls.Add(this.label3);
+            this.groupControl1.Controls.Add(this.txt_MaDichVu);
             this.groupControl1.Controls.Add(this.txt_DonViTinh);
             this.groupControl1.Controls.Add(this.txt_TenDichVu);
             this.groupControl1.Controls.Add(this.label2);
@@ -72,7 +77,7 @@
             this.groupControl1.Controls.Add(this.btnNew);
             this.groupControl1.Location = new System.Drawing.Point(8, 13);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(464, 172);
+            this.groupControl1.Size = new System.Drawing.Size(597, 209);
             this.groupControl1.TabIndex = 8;
             this.groupControl1.Text = "Thông Tin Loại Dich Vụ";
             // 
@@ -83,7 +88,7 @@
             this.cb_TenLoaiDichVu.Enabled = false;
             this.cb_TenLoaiDichVu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_TenLoaiDichVu.FormattingEnabled = true;
-            this.cb_TenLoaiDichVu.Location = new System.Drawing.Point(114, 99);
+            this.cb_TenLoaiDichVu.Location = new System.Drawing.Point(151, 92);
             this.cb_TenLoaiDichVu.Name = "cb_TenLoaiDichVu";
             this.cb_TenLoaiDichVu.Size = new System.Drawing.Size(188, 25);
             this.cb_TenLoaiDichVu.TabIndex = 55;
@@ -92,7 +97,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(111, 31);
+            this.label5.Location = new System.Drawing.Point(15, 130);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 17);
             this.label5.TabIndex = 44;
@@ -102,7 +107,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 65);
+            this.label3.Location = new System.Drawing.Point(15, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 17);
             this.label3.TabIndex = 44;
@@ -111,17 +116,17 @@
             // txt_DonViTinh
             // 
             this.txt_DonViTinh.Enabled = false;
-            this.txt_DonViTinh.Location = new System.Drawing.Point(190, 28);
+            this.txt_DonViTinh.Location = new System.Drawing.Point(151, 124);
             this.txt_DonViTinh.Name = "txt_DonViTinh";
             this.txt_DonViTinh.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_DonViTinh.Properties.Appearance.Options.UseFont = true;
-            this.txt_DonViTinh.Size = new System.Drawing.Size(54, 24);
+            this.txt_DonViTinh.Size = new System.Drawing.Size(94, 24);
             this.txt_DonViTinh.TabIndex = 51;
             // 
             // txt_TenDichVu
             // 
             this.txt_TenDichVu.Enabled = false;
-            this.txt_TenDichVu.Location = new System.Drawing.Point(114, 62);
+            this.txt_TenDichVu.Location = new System.Drawing.Point(151, 61);
             this.txt_TenDichVu.Name = "txt_TenDichVu";
             this.txt_TenDichVu.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenDichVu.Properties.Appearance.Options.UseFont = true;
@@ -132,7 +137,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(5, 99);
+            this.label2.Location = new System.Drawing.Point(15, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 17);
             this.label2.TabIndex = 44;
@@ -141,22 +146,24 @@
             // txt_ID
             // 
             this.txt_ID.Enabled = false;
-            this.txt_ID.Location = new System.Drawing.Point(31, 28);
+            this.txt_ID.Location = new System.Drawing.Point(392, 31);
             this.txt_ID.Name = "txt_ID";
             this.txt_ID.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ID.Properties.Appearance.Options.UseFont = true;
             this.txt_ID.Size = new System.Drawing.Size(35, 24);
             this.txt_ID.TabIndex = 54;
+            this.txt_ID.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 31);
+            this.label1.Location = new System.Drawing.Point(366, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 17);
             this.label1.TabIndex = 50;
             this.label1.Text = "ID";
+            this.label1.Visible = false;
             // 
             // btnSave
             // 
@@ -167,7 +174,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSave.Location = new System.Drawing.Point(383, 126);
+            this.btnSave.Location = new System.Drawing.Point(516, 163);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 31);
             this.btnSave.TabIndex = 42;
@@ -184,7 +191,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEdit.Location = new System.Drawing.Point(293, 126);
+            this.btnEdit.Location = new System.Drawing.Point(426, 163);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 31);
@@ -202,7 +209,7 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNew.Location = new System.Drawing.Point(203, 126);
+            this.btnNew.Location = new System.Drawing.Point(336, 163);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 31);
             this.btnNew.TabIndex = 40;
@@ -219,7 +226,7 @@
             this.gv_Data.Location = new System.Drawing.Point(2, 20);
             this.gv_Data.MainView = this.gridView1;
             this.gv_Data.Name = "gv_Data";
-            this.gv_Data.Size = new System.Drawing.Size(460, 226);
+            this.gv_Data.Size = new System.Drawing.Size(593, 282);
             this.gv_Data.TabIndex = 2;
             this.gv_Data.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -227,11 +234,21 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.gv_Data;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.AllowIncrementalSearch = true;
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsEditForm.ActionOnModifiedRowChange = DevExpress.XtraGrid.Views.Grid.EditFormModifiedAction.Cancel;
+            this.gridView1.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
+            this.gridView1.OptionsView.EnableAppearanceOddRow = true;
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // groupControl2
             // 
@@ -239,18 +256,38 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.Controls.Add(this.gv_Data);
-            this.groupControl2.Location = new System.Drawing.Point(8, 191);
+            this.groupControl2.Location = new System.Drawing.Point(8, 228);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(464, 248);
+            this.groupControl2.Size = new System.Drawing.Size(597, 304);
             this.groupControl2.TabIndex = 7;
             this.groupControl2.Text = "Danh Sách Loại Dịch Vụ";
+            // 
+            // txt_MaDichVu
+            // 
+            this.txt_MaDichVu.Enabled = false;
+            this.txt_MaDichVu.Location = new System.Drawing.Point(151, 30);
+            this.txt_MaDichVu.Name = "txt_MaDichVu";
+            this.txt_MaDichVu.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_MaDichVu.Properties.Appearance.Options.UseFont = true;
+            this.txt_MaDichVu.Size = new System.Drawing.Size(188, 24);
+            this.txt_MaDichVu.TabIndex = 51;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(15, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 17);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Mã Dịch Vụ";
             // 
             // frmDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(480, 452);
+            this.ClientSize = new System.Drawing.Size(613, 545);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.groupControl2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -267,6 +304,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txt_MaDichVu.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -288,5 +326,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private System.Windows.Forms.ComboBox cb_TenLoaiDichVu;
+        private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.TextEdit txt_MaDichVu;
     }
 }

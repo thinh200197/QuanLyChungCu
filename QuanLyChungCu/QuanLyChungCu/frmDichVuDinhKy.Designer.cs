@@ -31,22 +31,13 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gv_Data = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.btn_CapNhat = new System.Windows.Forms.Button();
-            this.btn_InHD = new System.Windows.Forms.Button();
-            this.btn_DangKy = new System.Windows.Forms.Button();
-            this.cb_TT = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cb_DichVu = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cb_CanHo = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btn_Add = new System.Windows.Forms.Button();
+            this.btn_Update = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -54,11 +45,23 @@
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.groupControl1.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.Appearance.Options.UseBackColor = true;
+            this.groupControl1.Appearance.Options.UseBorderColor = true;
+            this.groupControl1.Appearance.Options.UseFont = true;
+            this.groupControl1.AppearanceCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.DimGray;
+            this.groupControl1.AppearanceCaption.Options.UseBackColor = true;
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
+            this.groupControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.groupControl1.Controls.Add(this.gv_Data);
-            this.groupControl1.Location = new System.Drawing.Point(14, 168);
+            this.groupControl1.Location = new System.Drawing.Point(12, 16);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(957, 404);
+            this.groupControl1.Size = new System.Drawing.Size(564, 409);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Danh sách đăng ký";
             // 
@@ -66,11 +69,11 @@
             // 
             this.gv_Data.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gv_Data.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gv_Data.Location = new System.Drawing.Point(2, 20);
+            this.gv_Data.Location = new System.Drawing.Point(2, 32);
             this.gv_Data.MainView = this.gridView1;
             this.gv_Data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gv_Data.Name = "gv_Data";
-            this.gv_Data.Size = new System.Drawing.Size(953, 382);
+            this.gv_Data.Size = new System.Drawing.Size(560, 375);
             this.gv_Data.TabIndex = 0;
             this.gv_Data.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -81,138 +84,63 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // groupControl2
+            // btn_Add
             // 
-            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl2.Controls.Add(this.btn_CapNhat);
-            this.groupControl2.Controls.Add(this.btn_InHD);
-            this.groupControl2.Controls.Add(this.btn_DangKy);
-            this.groupControl2.Controls.Add(this.cb_TT);
-            this.groupControl2.Controls.Add(this.label3);
-            this.groupControl2.Controls.Add(this.cb_DichVu);
-            this.groupControl2.Controls.Add(this.label2);
-            this.groupControl2.Controls.Add(this.cb_CanHo);
-            this.groupControl2.Controls.Add(this.label1);
-            this.groupControl2.Location = new System.Drawing.Point(14, 16);
-            this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(957, 144);
-            this.groupControl2.TabIndex = 1;
-            this.groupControl2.Text = "Thông tin đăng ký";
+            this.btn_Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btn_Add.FlatAppearance.BorderSize = 0;
+            this.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Add.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Add.ForeColor = System.Drawing.Color.White;
+            this.btn_Add.Location = new System.Drawing.Point(594, 54);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(155, 38);
+            this.btn_Add.TabIndex = 2;
+            this.btn_Add.Text = "Đăng ký dịch vụ";
+            this.btn_Add.UseVisualStyleBackColor = false;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
-            // btn_CapNhat
+            // btn_Update
             // 
-            this.btn_CapNhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_CapNhat.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CapNhat.Location = new System.Drawing.Point(824, 103);
-            this.btn_CapNhat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_CapNhat.Name = "btn_CapNhat";
-            this.btn_CapNhat.Size = new System.Drawing.Size(117, 35);
-            this.btn_CapNhat.TabIndex = 2;
-            this.btn_CapNhat.Text = "CẬP NHẬT";
-            this.btn_CapNhat.UseVisualStyleBackColor = true;
+            this.btn_Update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btn_Update.FlatAppearance.BorderSize = 0;
+            this.btn_Update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Update.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Update.ForeColor = System.Drawing.Color.White;
+            this.btn_Update.Location = new System.Drawing.Point(594, 98);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(155, 38);
+            this.btn_Update.TabIndex = 2;
+            this.btn_Update.Text = "Cập nhật dịch vụ";
+            this.btn_Update.UseVisualStyleBackColor = false;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
-            // btn_InHD
+            // button1
             // 
-            this.btn_InHD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_InHD.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_InHD.Location = new System.Drawing.Point(695, 103);
-            this.btn_InHD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_InHD.Name = "btn_InHD";
-            this.btn_InHD.Size = new System.Drawing.Size(117, 35);
-            this.btn_InHD.TabIndex = 2;
-            this.btn_InHD.Text = "IN HÓA ĐƠN";
-            this.btn_InHD.UseVisualStyleBackColor = true;
-            // 
-            // btn_DangKy
-            // 
-            this.btn_DangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_DangKy.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DangKy.Location = new System.Drawing.Point(566, 103);
-            this.btn_DangKy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_DangKy.Name = "btn_DangKy";
-            this.btn_DangKy.Size = new System.Drawing.Size(117, 35);
-            this.btn_DangKy.TabIndex = 2;
-            this.btn_DangKy.Text = "ĐĂNG KÝ";
-            this.btn_DangKy.UseVisualStyleBackColor = true;
-            this.btn_DangKy.Click += new System.EventHandler(this.btn_DangKy_Click);
-            // 
-            // cb_TT
-            // 
-            this.cb_TT.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_TT.FormattingEnabled = true;
-            this.cb_TT.Items.AddRange(new object[] {
-            "Chưa kích hoạt",
-            "Kích hoạt",
-            "Hủy đăng ký"});
-            this.cb_TT.Location = new System.Drawing.Point(429, 61);
-            this.cb_TT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cb_TT.Name = "cb_TT";
-            this.cb_TT.Size = new System.Drawing.Size(140, 25);
-            this.cb_TT.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(429, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "TRẠNG THÁI";
-            // 
-            // cb_DichVu
-            // 
-            this.cb_DichVu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_DichVu.FormattingEnabled = true;
-            this.cb_DichVu.Items.AddRange(new object[] {
-            "Chưa kích hoạt",
-            "Kích hoạt",
-            "Hủy đăng ký"});
-            this.cb_DichVu.Location = new System.Drawing.Point(183, 61);
-            this.cb_DichVu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cb_DichVu.Name = "cb_DichVu";
-            this.cb_DichVu.Size = new System.Drawing.Size(217, 25);
-            this.cb_DichVu.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(183, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "DỊCH VỤ";
-            // 
-            // cb_CanHo
-            // 
-            this.cb_CanHo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_CanHo.FormattingEnabled = true;
-            this.cb_CanHo.Location = new System.Drawing.Point(14, 61);
-            this.cb_CanHo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cb_CanHo.Name = "cb_CanHo";
-            this.cb_CanHo.Size = new System.Drawing.Size(140, 25);
-            this.cb_CanHo.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "CĂN HỘ";
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(594, 142);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 38);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Thanh toán";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // frmDichVuDinhKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(985, 588);
-            this.Controls.Add(this.groupControl2);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(761, 436);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_Update);
+            this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.groupControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -224,9 +152,6 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gv_Data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
-            this.groupControl2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -236,15 +161,8 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraGrid.GridControl gv_Data;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
-        private System.Windows.Forms.ComboBox cb_CanHo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_CapNhat;
-        private System.Windows.Forms.Button btn_InHD;
-        private System.Windows.Forms.Button btn_DangKy;
-        private System.Windows.Forms.ComboBox cb_TT;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cb_DichVu;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_Add;
+        private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.Button button1;
     }
 }

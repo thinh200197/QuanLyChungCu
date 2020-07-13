@@ -47,6 +47,8 @@
     <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Guna.UI">
@@ -74,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commont\KeyValue.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\ApartmentDAO.cs" />
     <Compile Include="DAO\BlockDAO.cs" />
@@ -89,6 +92,7 @@
     <Compile Include="DTO\ApartmentCategogyDTO.cs" />
     <Compile Include="DTO\ApartmentDTO.cs" />
     <Compile Include="DTO\BlockDTO.cs" />
+    <Compile Include="Commont\Common.cs" />
     <Compile Include="DTO\CuDanDto.cs" />
     <Compile Include="DTO\CuDan_CanHoDTO.cs" />
     <Compile Include="DTO\DKDV_CongCongDTO.cs" />
@@ -137,6 +141,12 @@
     <Compile Include="frmDichVuDinhKy.Designer.cs">
       <DependentUpon>frmDichVuDinhKy.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDK_DVDK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDK_DVDK.Designer.cs">
+      <DependentUpon>frmDK_DVDK.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoaiCanHo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +176,12 @@
     </Compile>
     <Compile Include="frmTang.Designer.cs">
       <DependentUpon>frmTang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongKe.Designer.cs">
+      <DependentUpon>frmThongKe.cs</DependentUpon>
     </Compile>
     <Compile Include="frmToaNha.cs">
       <SubType>Form</SubType>
@@ -199,6 +215,9 @@
     <EmbeddedResource Include="frmDichVuDinhKy.resx">
       <DependentUpon>frmDichVuDinhKy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDK_DVDK.resx">
+      <DependentUpon>frmDK_DVDK.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLoaiCanHo.resx">
       <DependentUpon>frmLoaiCanHo.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTang.resx">
       <DependentUpon>frmTang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongKe.resx">
+      <DependentUpon>frmThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmToaNha.resx">
       <DependentUpon>frmToaNha.cs</DependentUpon>
@@ -282,6 +304,7 @@
     <Content Include="ScripDB\DELETE_DATA.sql" />
     <Content Include="ScripDB\INSERT_DATA.sql" />
     <Content Include="ScripDB\PROCEDURE_VIEW_TRIGGER.sql" />
+    <Content Include="ScripDB\QLCC.sql" />
     <Content Include="ScripDB\QLCC_DB.sql" />
     <None Include="Resources\TrangChu1.png" />
   </ItemGroup>

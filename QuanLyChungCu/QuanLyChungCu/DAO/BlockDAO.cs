@@ -32,7 +32,7 @@ namespace QuanLyChungCu.DAO
         public Messeges Add(BlockDTO b)
         {
             string query = string.Format(
-                "INSERT TOANHA(MABLOCK, TENBLOCK, CREATE_DATE, CREATE_BY, UPDATE_DATE, UPDATE_BY) " +
+                "INSERT TOANHA(MABLOCK, TENBLOCK, NGAYTAO, NGUOITAO, NGAYCAPNHAT, NGUOICAPNHAT) " +
                 "VALUES('{0}', N'{1}', GETDATE(), NULL, NULL, NULL)"
                 , b.MaBlock, b.TenBlock);
 
@@ -57,7 +57,7 @@ namespace QuanLyChungCu.DAO
         {
             string query = string.Format(
                 "UPDATE TOANHA " +
-                "SET TENBLOCK = N'{1}' , UPDATE_DATE = GETDATE() " +
+                "SET TENBLOCK = N'{1}' , NGAYCAPNHAT = GETDATE() " +
                 "WHERE MABLOCK = '{0}'"
                 , b.MaBlock, b.TenBlock);
 

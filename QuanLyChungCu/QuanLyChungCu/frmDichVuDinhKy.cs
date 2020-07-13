@@ -25,75 +25,50 @@ namespace QuanLyChungCu
             gv_Data.DataSource = data;
             gridView1.Columns["MaDichVu"].Visible = false;
             gridView1.Columns["MaCanHo"].Visible = false;
-        }
-
-        private List<string> valiInput()
-        {
-            var erros = new List<string>();
-            if (cb_CanHo.SelectedIndex < 0)
-            {
-                erros.Add("Chọn Căn hộ");
-            }
-            if (cb_DichVu.SelectedIndex < 0)
-            {
-                erros.Add("Chọn Dịch vụ");
-            }
-            return erros;
+            gridView1.Columns["ID"].Visible = false;
+            gridView1.Columns["NGUOITAO"].Visible = false;
+            gridView1.Columns["NGAYCAPNHAT"].Visible = false;
+            gridView1.Columns["NGUOICAPNHAT"].Visible = false;
         }
         #endregion
 
         #region Event
-
-        #endregion
-
         private void frmDichVuDinhKy_Load(object sender, EventArgs e)
         {
             LoadData();
-
-            var canHo = ApartmentDAO.Instance.GetAll();
-            var dichVu = ServiceDAO.Instance.GetAll();
-
-            cb_CanHo.DataSource = canHo;
-            cb_CanHo.DisplayMember = "TenCanHo";
-            cb_CanHo.ValueMember = "MaCanHo";
-
-            cb_DichVu.DataSource = dichVu;
-            cb_DichVu.DisplayMember = "TenDichVu";
-            cb_DichVu.ValueMember = "MaDichVu";
         }
 
-        private void btn_DangKy_Click(object sender, EventArgs e)
+        private void btn_Add_Click(object sender, EventArgs e)
         {
-            var erros = valiInput();
-            if (erros.Any())
+            var frm = new frmDK_DVDK();
+            var a = frm.ShowDialog();
+            if (a == DialogResult.OK)
             {
-                MessageBox.Show(string.Join("\n",erros), "Thông báo");
+                MessageBox.Show("Đăng ký thành công.");
+                LoadData();
+            }
+        }
+
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            var row = gridView1.GetFocusedRow() as DKDV_DinhKyDTO;
+            if (row == null)
+            {
+                MessageBox.Show("Vui lòng chọn thông tin cần cập nhật.");
                 return;
             }
-
-            var dv = new DKDV_DinhKyDTO() {
-                MaCanHo = int.Parse(cb_CanHo.SelectedValue.ToString()),
-                MaDichVu = int.Parse(cb_DichVu.SelectedValue.ToString()),
-                TrangThai = cb_TT.SelectedText,
-                CREATE_BY = 0
-            };
-
-            try
+            var frm = new frmDK_DVDK();
+            frm.id = row.ID;
+            frm.maCanHo = row.MaCanHo;
+            frm.maDichVu = row.MaDichVu;
+            frm.trangThai = row.TrangThai;
+            var a = frm.ShowDialog();
+            if (a == DialogResult.OK)
             {
-                var result = ServiceDAO.Instance.Add_DVDK(dv);
-
-                if (result.MessegeType == MessegeType.Success)
-                {
-                    LoadData();
-                }
-
-                MessageBox.Show(result.MessegeContent, "Thông Báo");
+                MessageBox.Show("Cập nhật thành công.");
+                LoadData();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Thông Báo");
-            }
-
         }
+        #endregion
     }
 }

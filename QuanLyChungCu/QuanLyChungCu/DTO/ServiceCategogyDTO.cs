@@ -13,43 +13,45 @@ namespace QuanLyChungCu.DTO
         public ServiceCategogyDTO(DataRow row)
         {
             ID = int.Parse(row["ID"].ToString());
+            MaLoaiDichVu = row["MALOAIDICHVU"].ToString();
             Name = row["TENLOAIDICHVU"].ToString();
 
-            CREATE_DATE = null;
-            UPDATE_DATE = null;
-            CREATE_BY = null;
-            UPDATE_BY = null;
+            NGAYTAO = null;
+            NGAYCAPNHAT = null;
+            NGUOITAO = null;
+            NGUOICAPNHAT = null;
 
-            if (!string.IsNullOrEmpty(row["CREATE_DATE"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGAYTAO"].ToString()))
             {
-                CREATE_DATE = DateTime.Parse(row["CREATE_DATE"].ToString());
+                NGAYTAO = DateTime.Parse(row["NGAYTAO"].ToString());
             }
-            if (!string.IsNullOrEmpty(row["UPDATE_DATE"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGAYCAPNHAT"].ToString()))
             {
-                UPDATE_DATE = DateTime.Parse(row["UPDATE_DATE"].ToString());
+                NGAYCAPNHAT = DateTime.Parse(row["NGAYCAPNHAT"].ToString());
             }
-            if (!string.IsNullOrEmpty(row["CREATE_BY"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGUOITAO"].ToString()))
             {
-                CREATE_BY = int.Parse(row["CREATE_BY"].ToString());
+                NGUOITAO = int.Parse(row["NGUOITAO"].ToString());
             }
-            if (!string.IsNullOrEmpty(row["UPDATE_BY"].ToString()))
+            if (!string.IsNullOrEmpty(row["NGUOICAPNHAT"].ToString()))
             {
-                UPDATE_BY = int.Parse(row["UPDATE_BY"].ToString());
+                NGUOICAPNHAT = int.Parse(row["NGUOICAPNHAT"].ToString());
             }
         }
         public ServiceCategogyDTO() { }
-        [DisplayName("Mã Loại Dịch Vụ")]
         public int ID { get; set; }
+        [DisplayName("Mã Loại Dịch Vụ")]
+        public string MaLoaiDichVu { get; set; }
         [DisplayName("Mã Tòa Nhà")]
         public string Name { get; set; }
         [DisplayName("Ngày Tạo")]
-        public DateTime? CREATE_DATE { get; set; }
+        public DateTime? NGAYTAO { get; set; }
         [DisplayName("Người Tạo")]
-        public int? CREATE_BY { get; set; }
+        public int? NGUOITAO { get; set; }
 
         [DisplayName("Ngày Cập Nhật")]
-        public DateTime? UPDATE_DATE { get; set; }
+        public DateTime? NGAYCAPNHAT { get; set; }
         [DisplayName("Người Cập Nhật")]
-        public int? UPDATE_BY { get; set; }
+        public int? NGUOICAPNHAT { get; set; }
     }
 }

@@ -40,6 +40,8 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txt_MaLoai = new DevExpress.XtraEditors.TextEdit();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TenLoaiDichVu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Data)).BeginInit();
@@ -48,13 +50,14 @@
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_MaLoai.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(95, 31);
+            this.label2.Location = new System.Drawing.Point(6, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 17);
             this.label2.TabIndex = 44;
@@ -63,7 +66,7 @@
             // txt_TenLoaiDichVu
             // 
             this.txt_TenLoaiDichVu.Enabled = false;
-            this.txt_TenLoaiDichVu.Location = new System.Drawing.Point(204, 28);
+            this.txt_TenLoaiDichVu.Location = new System.Drawing.Point(117, 69);
             this.txt_TenLoaiDichVu.Name = "txt_TenLoaiDichVu";
             this.txt_TenLoaiDichVu.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenLoaiDichVu.Properties.Appearance.Options.UseFont = true;
@@ -73,22 +76,24 @@
             // txt_ID
             // 
             this.txt_ID.Enabled = false;
-            this.txt_ID.Location = new System.Drawing.Point(31, 28);
+            this.txt_ID.Location = new System.Drawing.Point(32, 104);
             this.txt_ID.Name = "txt_ID";
             this.txt_ID.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ID.Properties.Appearance.Options.UseFont = true;
             this.txt_ID.Size = new System.Drawing.Size(35, 24);
             this.txt_ID.TabIndex = 54;
+            this.txt_ID.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 31);
+            this.label1.Location = new System.Drawing.Point(6, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 17);
             this.label1.TabIndex = 50;
             this.label1.Text = "ID";
+            this.label1.Visible = false;
             // 
             // btnSave
             // 
@@ -181,6 +186,8 @@
             // 
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.txt_MaLoai);
+            this.groupControl1.Controls.Add(this.label3);
             this.groupControl1.Controls.Add(this.label2);
             this.groupControl1.Controls.Add(this.txt_TenLoaiDichVu);
             this.groupControl1.Controls.Add(this.txt_ID);
@@ -193,6 +200,26 @@
             this.groupControl1.Size = new System.Drawing.Size(776, 172);
             this.groupControl1.TabIndex = 6;
             this.groupControl1.Text = "Thông Tin Loại Dich Vụ";
+            // 
+            // txt_MaLoai
+            // 
+            this.txt_MaLoai.Enabled = false;
+            this.txt_MaLoai.Location = new System.Drawing.Point(117, 29);
+            this.txt_MaLoai.Name = "txt_MaLoai";
+            this.txt_MaLoai.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_MaLoai.Properties.Appearance.Options.UseFont = true;
+            this.txt_MaLoai.Size = new System.Drawing.Size(148, 24);
+            this.txt_MaLoai.TabIndex = 56;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 17);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "Mã Loại Dịch Vụ";
             // 
             // frmLoaiDichVu
             // 
@@ -215,6 +242,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_MaLoai.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,5 +259,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.TextEdit txt_MaLoai;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -24,6 +24,7 @@ namespace QuanLyChungCu
         {
             var data = ServiceCategogyDAO.Instance.GetAll();
             gv_Data.DataSource = data;
+            gridView1.Columns["ID"].Visible = false;
         }
         #endregion
 
@@ -37,7 +38,7 @@ namespace QuanLyChungCu
         {
             isSave = true;
             txt_TenLoaiDichVu.Enabled = true;
-            txt_ID.Enabled = false;
+            txt_ID.Enabled = true;
         }
 
         private void gv_Data_Click(object sender, EventArgs e)
@@ -49,9 +50,10 @@ namespace QuanLyChungCu
             }
 
             txt_TenLoaiDichVu.Enabled = false;
-            txt_ID.Enabled = false;
+            txt_MaLoai.Enabled = false;
 
             txt_TenLoaiDichVu.Text = row.Name;
+            txt_MaLoai.Text = row.MaLoaiDichVu;
             txt_ID.Text = row.ID.ToString();
 
             isSave = false;
@@ -61,9 +63,10 @@ namespace QuanLyChungCu
         {
             isSave = true;
             txt_TenLoaiDichVu.Enabled = true;
-            txt_ID.Enabled = false;
+            txt_MaLoai.Enabled = true;
 
             txt_TenLoaiDichVu.ResetText();
+            txt_MaLoai.ResetText();
             txt_ID.ResetText();
         }
 
@@ -76,10 +79,11 @@ namespace QuanLyChungCu
             }
 
             List<string> errors = new List<string>();
-            //if (string.IsNullOrEmpty(txt_ID.Text))
-            //{
-            //    errors.Add("Nhập Mã loại.");
-            //}
+
+            if (string.IsNullOrEmpty(txt_MaLoai.Text))
+            {
+                errors.Add("Nhập Mã loại.");
+            }
             if (string.IsNullOrEmpty(txt_TenLoaiDichVu.Text))
             {
                 errors.Add("Nhập Tên Loại.");
@@ -93,6 +97,7 @@ namespace QuanLyChungCu
             var request = new ServiceCategogyDTO()
             {
                 ID = txt_ID.Text == "" ? 0 : int.Parse(txt_ID.Text),
+                MaLoaiDichVu = txt_MaLoai.Text,
                 Name = txt_TenLoaiDichVu.Text
             };
 
@@ -121,6 +126,5 @@ namespace QuanLyChungCu
             }
         }
         #endregion
-
     }
 }
